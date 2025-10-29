@@ -2,10 +2,15 @@
 
 * {
     font-family: 'Kiwi Maru', serif;
+    color: white;
+    box-sizing: border-box;
+    margin: 0;
+    font-weight: 100!important;
+    padding: 0;
 }
 
 .page-header {
-    background-image: url(../images/cabecalho.png);
+background: linear-gradient(to bottom, rgba(3, 11, 18, 0.0) 70%,  #021524 100%), url(../images/cabecalho.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -13,8 +18,51 @@
 }
 
 .title{
-    text-align: center;
+    width: 100%;
+    padding-left: 8%;
+    text-align: left;
     padding-top: 4%;
-    max-width: 300px;
-    padding-left: 7%;
+}
+.title h1{
+    width: 10%;
+    text-align: center;
+}
+
+#call-to-action{
+    margin-top: 8%;
+    width: 60%;
+}
+#call-to-action h2{
+    font-size: 4.125rem;
+    width: 70%;
+    margin-bottom: 2%;
+}
+#call-to-action button{    
+    margin-left: 20%;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+    background-color: #FF5733;
+    font-size: 16px;
+    box-shadow: 0 4px 15px rgba(255, 87, 51, 0.7);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    color: white;
+}
+#call-to-action button:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 50px rgba(255, 87, 51, 0.9); 
+    
+}
+
+#sobre-nos{
+    padding-bottom: 10%;
+    background: linear-gradient(to top, #040f1a 0%,  #011523 100%);
+}
+
+main{
+    background: linear-gradient(to top, #040f1a 100%,  #011523  0%);
 }
