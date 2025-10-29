@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@300;400;500&display=swap');
+
+* {
+    font-family: 'Kiwi Maru', serif;
+}
+
+.page-header {
+    background-image: url(../images/cabecalho.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+.title{
+    text-align: center;
+    padding-top: 4%;
+    max-width: 300px;
+    padding-left: 7%;
+}
