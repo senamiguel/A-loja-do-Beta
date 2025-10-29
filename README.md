@@ -1,4 +1,3 @@
-# A-loja-do-Beta
 # A Loja do Beta - E-commerce de Peixes Ornamentais
 
 ## 📝 Sobre o Projeto
