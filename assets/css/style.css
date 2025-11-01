@@ -15,6 +15,8 @@ background: linear-gradient(to bottom, rgba(3, 11, 18, 0.0) 70%,  #021524 100%),
     background-position: center;
     background-repeat: no-repeat;
     height: 100vh;
+    position: relative;
+    z-index: 1;
 }
 
 .title{
@@ -37,7 +39,7 @@ background: linear-gradient(to bottom, rgba(3, 11, 18, 0.0) 70%,  #021524 100%),
     width: 70%;
     margin-bottom: 2%;
 }
-#call-to-action button{    
+#call-to-action a{    
     margin-left: 20%;
     padding: 12px 24px;
     border: none;
@@ -52,17 +54,387 @@ background: linear-gradient(to bottom, rgba(3, 11, 18, 0.0) 70%,  #021524 100%),
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
     color: white;
 }
-#call-to-action button:hover {
+#call-to-action a:hover {
     transform: translateY(-5px); 
     box-shadow: 0 8px 50px rgba(255, 87, 51, 0.9); 
     
 }
 
 #sobre-nos{
-    padding-bottom: 10%;
+    padding: 10% 0;
     background: linear-gradient(to top, #040f1a 0%,  #011523 100%);
+    position: relative;
+    z-index: 1;
+}
+
+#metro-readout,
+#metro-start {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+#metro-readout {
+    position: fixed;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    font-size: 1.8rem;
+    color: white; 
+}
+
+#metro-start {
+    position: fixed;
+    bottom: 40px;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+}
+
+#metro-readout.is-active,
+#metro-start.is-active {
+    opacity: 1;
+    pointer-events: auto;
 }
 
 main{
     background: linear-gradient(to top, #040f1a 100%,  #011523  0%);
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+}
+
+body {
+    position: relative;
+    overflow-x: hidden;
+}
+
+.bubbles-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.bubble {
+    position: absolute;
+    bottom: 0;
+    border-radius: 50%;
+    animation: float linear forwards;
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.4), rgba(173, 216, 230, 0.2), rgba(135, 206, 250, 0.1));
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 
+        inset 0 0 20px rgba(255, 255, 255, 0.3),
+        0 0 20px rgba(173, 216, 230, 0.2),
+        inset -10px -10px 30px rgba(0, 100, 150, 0.1);
+    will-change: transform, opacity;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) translateX(0) scale(0.9);
+        opacity: 0.6;
+    }
+    5% {
+        opacity: 0.9;
+    }
+    98% {
+        opacity: 0.9;
+    }
+    100% {
+        transform: translateY(-150vh) translateX(var(--drift, 30px)) scale(1.1);
+        opacity: 0;
+    }
+}
+#peixes {
+    position: relative;
+    z-index: 2;
+    padding: 80px 0;
+}
+
+#peixes > .container {
+    position: relative;
+}
+
+#peixes .container > .d-flex {
+    margin-bottom: 40px;
+}
+
+#peixes .mb-0 {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.1rem;
+}
+
+#peixes .card {
+    border-radius: 25px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    backdrop-filter: blur(15px);
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 2px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+#peixes .card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, rgba(97, 218, 251, 0.6), transparent);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+#peixes .card:hover::before {
+    opacity: 1;
+}
+
+#peixes .card:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 20px 50px rgba(97, 218, 251, 0.4), 0 0 30px rgba(97, 218, 251, 0.3);
+    border-color: rgba(97, 218, 251, 0.5) !important;
+}
+
+#peixes .card-img-top {
+    border-radius: 23px 23px 0 0;
+    transition: transform 0.5s ease;
+    overflow: hidden;
+    position: relative;
+    filter: brightness(0.95) contrast(1.1);
+}
+
+#peixes .card-img-top::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(97, 218, 251, 0.1), transparent);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+#peixes .card:hover .card-img-top {
+    transform: scale(1.08);
+    filter: brightness(1.05) contrast(1.15);
+}
+
+#peixes .card:hover .card-img-top::after {
+    opacity: 1;
+}
+
+#peixes .card-body {
+    padding: 25px;
+}
+
+#peixes .card-title {
+    font-size: 1.5rem;
+    font-weight: bold !important;
+    margin-bottom: 15px;
+    color: #61dafb;
+}
+
+#peixes .card-text {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+#peixes .card-footer {
+    padding: 20px 25px;
+    background: rgba(255, 255, 255, 0.03) !important;
+    border-top: 2px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+#peixes .card-footer strong {
+    font-size: 1.5rem;
+    color: #61dafb;
+}
+
+#peixes .buy-btn {
+    border-radius: 25px;
+    padding: 10px 20px;
+    transition: all 0.3s ease;
+    font-weight: bold !important;
+    border: 2px solid rgba(255, 255, 255, 0.3) !important;
+    position: relative;
+    overflow: hidden;
+}
+
+#peixes .buy-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+#peixes .buy-btn:hover::before {
+    left: 100%;
+}
+
+#peixes .buy-btn:hover {
+    background-color: #61dafb;
+    border-color: #61dafb !important;
+    color: #000 !important;
+    transform: scale(1.08);
+    box-shadow: 0 0 20px rgba(97, 218, 251, 0.6);
+}
+
+#peixes h3 {
+    font-size: 2.5rem;
+    font-weight: bold !important;
+    margin-bottom: 10px;
+    background: linear-gradient(135deg, #61dafb, #ffffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+}
+
+#peixes h3::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, #61dafb, transparent);
+    border-radius: 2px;
+}
+
+footer{
+ background: linear-gradient(to bottom, #040f1a 0%,  #002F5D 75%, #000000 90%);
+ position: relative;
+ z-index: 2;
+}
+
+.footer-container {
+    position: relative;
+}
+
+.footer-content {
+    background-color: #000000;
+    display: flex;
+    justify-content: space-between;
+    padding: 60px 300px;
+    gap: 60px;
+}
+
+.footer-column {
+    flex: 1;
+}
+
+.footer-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.contact-icon {
+    width: 40px;
+    height: 40px;
+    background-color: #44475a;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.contact-icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+.contact-text {
+    color: white;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.contact-text strong {
+    font-weight: bold !important;
+    color: white;
+}
+
+.footer-about {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.footer-heading {
+    color: white;
+    font-size: 24px;
+    font-weight: bold !important;
+    margin: 0;
+}
+
+.footer-description {
+    color: #cccccc;
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+    font-weight: normal;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.social-icon {
+    width: 45px;
+    height: 45px;
+    background-color: #3a3f4b;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.social-icon:hover {
+    background-color: #4a4f5b;
+}
+
+.social-icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        padding: 40px 30px;
+        gap: 40px;
+    }
+    
+    .contact-text {
+        font-size: 16px;
+    }
+    
+    .footer-heading {
+        font-size: 20px;
+    }
 }
