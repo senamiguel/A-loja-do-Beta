@@ -1,185 +1,378 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>A loja do Beta</title>
     <link rel="stylesheet" href="assets/css/style.css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
 
-<body>
+  <body>
     <header class="page-header">
-        <div class="title">
-            <h1 class="text-white">A loja do Beta</h1>
+      <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid px-4">
+          <a class="navbar-brand" href="#">
+            <h1 class="text-white mb-0">A loja do Beta</h1>
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto align-items-center">
+              <li class="nav-item">
+                <a class="nav-link" href="#">Início</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#sobre-nos">Sobre Nós</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#peixes">Peixes</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#footer">Contato</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link icon-link" href="#" aria-label="Carrinho">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <circle cx="9" cy="21" r="1"></circle>
+                    <circle cx="20" cy="21" r="1"></circle>
+                    <path
+                      d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+                    ></path>
+                  </svg>
+                  <span class="cart-count">0</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link icon-link" href="#" aria-label="Conta">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
-        <div class="d-flex flex-column align-items-end" id="call-to-action">
-            <h2>Descubra um mundo cheio de cores vivas</h2>
-            <a class="btn  w-25 align-self-center" href="#sobre-nos">Conheça</a>
+      </nav>
+      <div class="parent" id="call-to-action">
+        <div class="div1">
+            <h2>
+              <span class="line-1">Descubra um mundo</span>
+              <span class="line-2">cheio de cores vivas</span>
+            </h2>
+            <a class="btn hero-btn" href="#sobre-nos">Conheça</a>
         </div>
+      </div>
     </header>
     <section id="sobre-nos">
-        <div class="container d-flex gap-5">
-            <img draggable="false" src="assets//images/image 2.png" alt="" class="w-50">
-            <div>
-                <h3 class="fs-1">Quem Somos?</h3>
-                <p class="fs-4 mt-4">Nossa loja foi projetada para ser uma experiência imersiva. Ao entrar, você não
-                    encontra
-                    apenas
-                    tanques, mas inspiração em cada detalhe.</p>
-                <p class="fs-4 mt-4">Acreditamos que um aquário feliz começa com a informação certa, por isso nossa
-                    equipe é formada por
-                    aquaristas experientes e dedicados, prontos para guiar você em cada passo da jornada – da escolha do
-                    peixe compatível com seu aquário até a montagem de um paisagismo deslumbrante.</p>
-                <p class="fs-4 mt-4">Não vendemos apenas peixes; oferecemos a consultoria e o suporte para que seu
-                    paraíso aquático
-                    prospere.</p>
-            </div>
+      <div class="container sobre-nos-content">
+        <img
+          draggable="false"
+          src="assets//images/image 2.png"
+          alt=""
+          class="sobre-nos-img"
+        />
+        <div class="sobre-nos-text">
+          <h3 class="fs-1">Quem Somos?</h3>
+          <p class="fs-4 mt-4">
+            Nossa loja foi projetada para ser uma experiência imersiva. Ao
+            entrar, você não encontra apenas tanques, mas inspiração em cada
+            detalhe.
+          </p>
+          <p class="fs-4 mt-4">
+            Acreditamos que um aquário feliz começa com a informação certa, por
+            isso nossa equipe é formada por aquaristas experientes e dedicados,
+            prontos para guiar você em cada passo da jornada – da escolha do
+            peixe compatível com seu aquário até a montagem de um paisagismo
+            deslumbrante.
+          </p>
+          <p class="fs-4 mt-4">
+            Não vendemos apenas peixes; oferecemos a consultoria e o suporte
+            para que seu paraíso aquático prospere.
+          </p>
         </div>
+      </div>
     </section>
     <main>
-        <div class="bubbles-container"></div>
-        <p id="metro-readout" class="text-center">0 Metros</p>
-        <hr id="metro-start" style="border: none;border-top: 2px dotted gray;" />
-        <section id="peixes" class="py-5">
-            <div class="container">
-                <div class="d-flex justify-content-between align-items-center mb-4">
-                    <h3 class="fs-1 m-0 text-white">Peixes à Venda</h3>
-                    <p class="mb-0">Qualidade e orientação de aquaristas experientes</p>
+      <div class="bubbles-container"></div>
+      <p id="metro-readout" class="text-center">0 Metros</p>
+      <hr id="metro-start" style="border: none; border-top: 2px dotted gray" />
+      <section id="peixes" class="py-6">
+        <div class="container">
+          <div class="d-flex justify-content-between align-items-center mb-4">
+            <h3 class="fs-1 m-0 text-white">Peixes à Venda</h3>
+            <p class="mb-0">Qualidade e orientação de aquaristas experientes</p>
+          </div>
+
+          <div class="row g-4">
+            <div class="col-md-4">
+              <div class="card bg-transparent border-light text-white h-100">
+                <img
+                  draggable="false"
+                  src="assets/images/bluetang.png"
+                  class="card-img-top"
+                  alt="Blue Tang"
+                  style="object-fit: contain; height: 220px"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Blue Tang</h5>
+                  <p class="card-text mb-2">
+                    Peixe icônico e ativo, famoso por sua cor azul vibrante e
+                    personalidade.
+                  </p>
+                  <div class="fish-specs mt-2">
+                    <span class="badge bg-primary mb-1">Água Salgada</span>
+                    <span class="badge bg-info mb-1">24-26°C</span>
+                    <span class="badge bg-secondary mb-1">pH 8.1-8.4</span>
+                    <span class="badge bg-success mb-1">600L min</span>
+                    <small class="d-block mt-2 text-muted"
+                      >Pacífico • Pode ser territorial</small
+                    >
+                  </div>
                 </div>
-
-                <div class="row g-4">
-                    <div class="col-md-4">
-                        <div class="card bg-transparent border-light text-white h-100">
-                            <img draggable="false" src="assets/images/peixe-1.png" class="card-img-top" alt="Neon Tetra"
-                                style="object-fit:cover; height:220px;">
-                            <div class="card-body">
-                                <h5 class="card-title">Neon Tetra</h5>
-                                <p class="card-text">Peixe pacífico, perfeito para aquários comunitários e paisagismo.
-                                </p>
-                            </div>
-                            <div class="card-footer bg-transparent border-light d-flex justify-content-between align-items-center">
-                                <strong>R$ 9,90</strong>
-                                <button class="btn btn-outline-light buy-btn" data-name="Neon Tetra" data-price="9.90">Adicionar
-                                    ao carrinho</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <div class="card bg-transparent border-light text-white h-100">
-                            <img draggable="false" src="assets/images/peixe-2.png" class="card-img-top" alt="Betta Splendens"
-                                style="object-fit:cover; height:220px;">
-                            <div class="card-body">
-                                <h5 class="card-title">Betta Splendens</h5>
-                                <p class="card-text">Cores vibrantes e personalidade marcante — ideal para um aquário
-                                    solo.</p>
-                            </div>
-                            <div class="card-footer bg-transparent border-light d-flex justify-content-between align-items-center">
-                                <strong>R$ 24,90</strong>
-                                <button class="btn btn-outline-light buy-btn" data-name="Betta Splendens" data-price="24.90">Adicionar
-                                    ao carrinho</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <div class="card bg-transparent border-light text-white h-100">
-                            <img draggable="false" src="assets/images/peixe-3.png" class="card-img-top" alt="Cardinal Tetra"
-                                style="object-fit:cover; height:220px;">
-                            <div class="card-body">
-                                <h5 class="card-title">Cardinal Tetra</h5>
-                                <p class="card-text">Semelhante ao Neon, com cores mais intensas — ótimo para
-                                    cardumes.</p>
-                            </div>
-                            <div class="card-footer bg-transparent border-light d-flex justify-content-between align-items-center">
-                                <strong>R$ 12,90</strong>
-                                <button class="btn btn-outline-light buy-btn" data-name="Cardinal Tetra" data-price="12.90">Adicionar
-                                    ao carrinho</button>
-                            </div>
-                        </div>
-                    </div>
+                <div
+                  class="card-footer bg-transparent border-light d-flex justify-content-between align-items-center"
+                >
+                  <strong>R$ 549,90</strong>
+                  <button
+                    class="btn btn-outline-light buy-btn"
+                    data-name="Blue Tang"
+                    data-price="549.90"
+                  >
+                    Adicionar ao carrinho
+                  </button>
                 </div>
-
+              </div>
             </div>
-        </section>
-        <footer>
-            <div class="footer-container">
-                <img draggable="false" src="assets/images/footer.svg" style="max-width: 100%;" alt="">
-                <div class="footer-content">
-                    <div class="footer-column footer-contact">
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                    <circle cx="12" cy="10" r="3"></circle>
-                                </svg>
-                            </div>
-                            <div class="contact-text">
-                                <strong>Rua dos Peixes, 42</strong><br>
-                                <strong>Brasil, Minas Gerais</strong>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                                </svg>
-                            </div>
-                            <div class="contact-text">
-                                <strong>+55 31 98765-4321</strong>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                                    <polyline points="22,6 12,13 2,6"></polyline>
-                                </svg>
-                            </div>
-                            <div class="contact-text">
-                                <strong style="color: #61dafb;">suporte@alojadobeta.com</strong>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="footer-column footer-about">
-                        <h3 class="footer-heading">Sobre a empresa</h3>
-                        <p class="footer-description">Somos uma empresa de venda de peixes ornamentais para aquários.
-                            Oferecemos a consultoria e o suporte para que seu paraíso aquático prospere.</p>
-                        <div class="social-icons">
-                            <a href="#" class="social-icon" aria-label="Facebook">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
-                                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-                                </svg>
-                            </a>
-                            <a href="#" class="social-icon" aria-label="Twitter">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
-                                    <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
-                                </svg>
-                            </a>
-                            <a href="#" class="social-icon" aria-label="LinkedIn">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
-                                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                                    <rect x="2" y="9" width="4" height="12"></rect>
-                                    <circle cx="4" cy="4" r="2"></circle>
-                                </svg>
-                            </a>
-                            <a href="#" class="social-icon" aria-label="GitHub">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
-                                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
+
+            <div class="col-md-4">
+              <div class="card bg-transparent border-light text-white h-100">
+                <img
+                  draggable="false"
+                  src="assets/images/clownfish.png"
+                  class="card-img-top"
+                  alt="Peixe-Palhaço (Ocellaris)"
+                  style="object-fit: contain; height: 220px"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Peixe-Palhaço (Ocellaris)</h5>
+                  <p class="card-text mb-2">
+                    Muito popular e resistente. Pode formar uma relação de
+                    simbiose com anêmonas.
+                  </p>
+                  <div class="fish-specs mt-2">
+                    <span class="badge bg-primary mb-1">Água Salgada</span>
+                    <span class="badge bg-info mb-1">24-27°C</span>
+                    <span class="badge bg-secondary mb-1">pH 8.1-8.4</span>
+                    <span class="badge bg-success mb-1">75L min</span>
+                    <small class="d-block mt-2 text-muted"
+                      >Pacífico • Casal ou solo</small
+                    >
+                  </div>
                 </div>
+                <div
+                  class="card-footer bg-transparent border-light d-flex justify-content-between align-items-center"
+                >
+                  <strong>R$ 119,90</strong>
+                  <button
+                    class="btn btn-outline-light buy-btn"
+                    data-name="Peixe-Palhaço (Ocellaris)"
+                    data-price="119.90"
+                  >
+                    Adicionar ao carrinho
+                  </button>
+                </div>
+              </div>
             </div>
-        </footer>
+            <div class="col-md-4">
+              <div class="card bg-transparent border-light text-white h-100">
+                <img
+                  draggable="false"
+                  src="assets/images/yellowtang.png"
+                  class="card-img-top"
+                  alt="Yellow Tang"
+                  style="object-fit: contain; height: 220px"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Yellow Tang</h5>
+                  <p class="card-text mb-2">
+                    Cor amarelo-limão brilhante. Excelente para controle de
+                    algas em aquários marinhos.
+                  </p>
+                  <div class="fish-specs mt-2">
+                    <span class="badge bg-primary mb-1">Água Salgada</span>
+                    <span class="badge bg-info mb-1">24-28°C</span>
+                    <span class="badge bg-secondary mb-1">pH 8.1-8.4</span>
+                    <span class="badge bg-success mb-1">380L min</span>
+                  </div>
+                </div>
+                <div
+                  class="card-footer bg-transparent border-light d-flex justify-content-between align-items-center"
+                >
+                  <strong>R$ 699,90</strong>
+                  <button
+                    class="btn btn-outline-light buy-btn"
+                    data-name="Yellow Tang"
+                    data-price="699.90"
+                  >
+                    Adicionar ao carrinho
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <footer id="footer">
+        <div class="footer-container">
+          <img
+            draggable="false"
+            src="assets/images/footer.svg"
+            style="width: 100%"
+            alt=""
+          />
+          <div class="footer-content">
+            <div class="footer-column footer-contact">
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="white"
+                    stroke-width="2"
+                  >
+                    <path
+                      d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"
+                    ></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                </div>
+                <div class="contact-text">
+                  <strong>Rua dos Peixes, 42</strong><br />
+                  <strong>Brasil, Minas Gerais</strong>
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="white"
+                    stroke-width="2"
+                  >
+                    <path
+                      d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                    ></path>
+                  </svg>
+                </div>
+                <div class="contact-text">
+                  <strong>+55 31 98765-4321</strong>
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="white"
+                    stroke-width="2"
+                  >
+                    <path
+                      d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                    ></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                </div>
+                <div class="contact-text">
+                  <strong style="color: #61dafb"
+                    >suporte@alojadobeta.com</strong
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="footer-column footer-about">
+              <h3 class="footer-heading">Sobre a empresa</h3>
+              <p class="footer-description">
+                Somos uma empresa de venda de peixes ornamentais para aquários.
+                Oferecemos a consultoria e o suporte para que seu paraíso
+                aquático prospere.
+              </p>
+              <div class="social-icons">
+                <a href="#" class="social-icon" aria-label="Facebook">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                    <path
+                      d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+                    ></path>
+                  </svg>
+                </a>
+                <a href="#" class="social-icon" aria-label="Twitter">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                    <path
+                      d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"
+                    ></path>
+                  </svg>
+                </a>
+                <a href="#" class="social-icon" aria-label="LinkedIn">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                    <path
+                      d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                    ></path>
+                    <rect x="2" y="9" width="4" height="12"></rect>
+                    <circle cx="4" cy="4" r="2"></circle>
+                  </svg>
+                </a>
+                <a href="#" class="social-icon" aria-label="GitHub">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                    <path
+                      d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+                    ></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="assets/js/bubbles.js"></script>
-    <script src="assets/js/carousel.js"></script>
-</body>
-
+  </body>
 </html>
