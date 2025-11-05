@@ -5,7 +5,7 @@ Este repositório contém o projeto final da disciplina de Desenvolvimento de Ap
 
 ## 👥 Equipe
 - Miguel Sena
-- Maria Eduarda Camilo
+- Maria Eduarda Albuquerque
 - Arthur Eustáquio
 - Daniel Aguiar
 - Gabriel Patrício
