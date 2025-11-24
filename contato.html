@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contato - A loja do Beta</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <header class="page-header baiacu">
+        <div class="title">
+            <h1 class="text-white">A loja do Beta</h1>
+        </div>
+        <div class="d-flex flex-column align-items-end" id="call-to-action">
+            <h2>Fale com nossa equipe</h2>
+            <button class="btn  w-25 align-self-center">Conheça</button>
+        </div>
+    </header>
+
+    <main class="py-5" style="min-height:60vh;">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="card bg-transparent border-light text-white p-4">
+                        <h2 class="fs-1 mb-3">Contato</h2>
+                        <p class="mb-4">Tem alguma dúvida, sugestão ou precisa de ajuda para montar seu aquário? Preencha o formulário abaixo e nossa equipe retornará em breve.</p>
+
+                        <form id="contactForm" novalidate>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label for="name" class="form-label">Nome</label>
+                                    <input type="text" id="name" class="form-control bg-transparent text-white border-light" placeholder="Seu nome" required />
+                                    <div class="invalid-feedback">Por favor, informe seu nome.</div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="email" id="email" class="form-control bg-transparent text-white border-light" placeholder="seu@email.com" required />
+                                    <div class="invalid-feedback">Informe um e-mail válido.</div>
+                                </div>
+
+                                <div class="col-12">
+                                    <label for="subject" class="form-label">Assunto</label>
+                                    <input type="text" id="subject" class="form-control bg-transparent text-white border-light" placeholder="Assunto da mensagem" required />
+                                    <div class="invalid-feedback">O assunto não pode ficar vazio.</div>
+                                </div>
+
+                                <div class="col-12">
+                                    <label for="message" class="form-label">Mensagem</label>
+                                    <textarea id="message" rows="5" class="form-control bg-transparent text-white border-light" placeholder="Escreva sua mensagem" required></textarea>
+                                    <div class="invalid-feedback">Escreva uma mensagem com pelo menos 10 caracteres.</div>
+                                </div>
+
+                                <div class="col-12 d-flex justify-content-between align-items-center">
+                                    <div class="text-muted">Mensagens salvas: <span id="savedCount">0</span></div>
+                                    <div>
+                                        <button type="reset" id="resetBtn" class="btn btn-outline-light me-2">Limpar</button>
+                                        <button type="submit" id="submitBtn" class="btn btn-outline-light">Enviar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+
+                        <div id="formAlert" class="alert d-none mt-4" role="alert" aria-live="polite"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="assets/js/header.js"></script>
+    <script type="module" src="assets/js/contact.js"></script>
+</body>
+
+</html>
