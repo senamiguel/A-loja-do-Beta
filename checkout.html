@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>A loja do Beta</title>
+    <link rel="stylesheet" href="assets/css/style_check.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="page-header">
+        <div class="title">
+            <h1 class="text-white">A loja do Beta</h1>
+        </div>
+    </header>
+
+    <!-- CONTEÚDO CENTRAL -->
+    <main>
+        <section id="carrinho" class="py-5">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h3 class="fs-1 m-0 text-white">Seu Aquário</h3>
+                    <p class="mb-0">Gerencie seus peixes</p>
+                </div>
+
+                <!-- Mensagem quando carrinho vazio -->
+                <div id="mensagem-vazia" class="mensagem-vazia-container">
+                    <p class="mensagem-vazia">"Sobrou nada pro beta"</p>
+                </div>
+
+                <!-- Lista de produtos do carrinho -->
+                <div id="lista-carrinho" class="lista-produtos-vertical">
+                    <!-- Produtos serão inseridos aqui via JavaScript -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER FIXO -->
+    <footer class="footer-fixo">
+        <div class="footer-content">
+            <label for="cep">CEP</label>
+            <input type="text" maxlength="9" id="cep" placeholder="00000-000" pattern="[0-9]{5}-[0-9]{3}" required>
+
+            <select id="forma-pagamento">
+                <option selected>Forma de pagamento</option>
+                <option value="1">Pix</option>
+                <option value="2">Crédito</option>
+                <option value="3">Débito</option>
+            </select>
+            
+            <div class="total-container">
+                <strong>Total: R$ <span id="total-carrinho">0,00</span></strong>
+            </div>
+            <button id="btn-finalizar" class="btn-finalizar-compra">Finalizar Compra</button>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/checkout.js"></script>
+</body>
+
+
+
+
+
+
+
+</html>
