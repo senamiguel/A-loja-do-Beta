@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>A loja do Beta</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body class="produto-page">
+  <header class="page-header no-hero">
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container-fluid px-4">
+        <a class="navbar-brand" href="index.html">
+          <h1 class="text-white mb-0">A loja do Beta</h1>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto align-items-center">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Início</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="sobre-nos.html">Sobre Nós</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="catalogo.html">Peixes</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contato.html">Contato</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link icon-link d-none d-lg-flex" href="checkout.html" aria-label="Carrinho">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="9" cy="21" r="1"></circle>
+                  <circle cx="20" cy="21" r="1"></circle>
+                  <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                </svg>
+                <span class="cart-count">0</span>
+              </a>
+              <a class="nav-link d-lg-none" href="checkout.html">Carrinho</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link icon-link d-none d-lg-flex" href="#" aria-label="Conta">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+              </a>
+              <a class="nav-link d-lg-none" href="#">Minha conta</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <div class="bubbles-container"></div>
+    <section class="produto-hero container">
+      <div class="produto-breadcrumb">
+        <a href="index.html">Início</a>
+        <span>/</span>
+        <a href="catalogo.html">Peixes</a>
+        <span>/</span>
+        <span>Peixe-palhaço Ocellaris</span>
+      </div>
+      <div class="produto-hero-content">
+        <div class="produto-hero-text">
+          <p class="produto-tag">Marinho • Pacífico • Colorido</p>
+          <h2>Peixe-palhaço Ocellaris</h2>
+          <p>
+            Uma das espécies mais queridas do aquarismo, cheia de personalidade e com um colorido vibrante
+            que ilumina qualquer recife. Criado com quarentena de 14 dias e monitoramento nutricional completo.
+          </p>
+          <ul class="produto-hero-highlights">
+            <li>Compatível com aquários a partir de 75&nbsp;litros</li>
+            <li>Temperatura ideal: 24° a 27°C</li>
+            <li>Garantia vitalícia de suporte técnico</li>
+          </ul>
+        </div>
+        <div class="produto-hero-cards">
+          <div class="hero-card">
+            <p class="card-label">Avaliação média</p>
+            <p class="card-value">4,9<span>/5</span></p>
+            <p class="card-foot">+180 avaliações verificadas</p>
+          </div>
+          <div class="hero-card">
+            <p class="card-label">Entrega expressa</p>
+            <p class="card-value">48h</p>
+            <p class="card-foot">Envio em embalagem termo-controlada</p>
+          </div>
+          <div class="hero-card">
+            <p class="card-label">Garantia saudável</p>
+            <p class="card-value">30 dias</p>
+            <p class="card-foot">Cobertura total contra doenças</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="produto-detalhes container">
+      <div class="produto-gallery">
+        <div class="produto-gallery-main">
+          <img src="assets/images/clownfish.png" alt="Peixe-palhaço Ocellaris" loading="lazy" />
+        </div>
+        <div class="produto-gallery-thumbs">
+          <button class="thumb is-active" aria-label="Peixe-palhaço frontal" type="button">
+            <img src="assets/images/clownfish.png" alt="Close do peixe-palhaço" loading="lazy" />
+          </button>
+          <button class="thumb" aria-label="Peixe colorido" type="button">
+            <img src="assets/images/peixe01.png" alt="Variante laranja" loading="lazy" />
+          </button>
+          <button class="thumb" aria-label="Peixe nadando" type="button">
+            <img src="assets/images/peixe02.png" alt="Peixe em aquário" loading="lazy" />
+          </button>
+          <button class="thumb" aria-label="Coral" type="button">
+            <img src="assets/images/Rectangle38.png" alt="Detalhe do habitat" loading="lazy" />
+          </button>
+        </div>
+      </div>
+
+      <div class="produto-summary">
+        <div class="summary-header">
+          <p class="summary-pill">Disponível em estoque • lote premium</p>
+          <h3>Monte um recife vibrante com um casal equilibrado</h3>
+          <p>
+            Nossos exemplares passam por aclimatação lenta, aceitam ração granulada de alta qualidade
+            e chegam com laudo assinado por biólogo responsável. Ideal para aquários marinhos de iniciantes
+            até montagens avançadas.
+          </p>
+        </div>
+
+        <div class="produto-options">
+          <div class="option-group">
+            <span>Selecione o peso aproximado</span>
+            <div class="option-buttons">
+              <button class="option-btn is-active">70g</button>
+              <button class="option-btn">90g</button>
+              <button class="option-btn">110g</button>
+              <button class="option-btn">130g</button>
+            </div>
+          </div>
+          <div class="option-group">
+            <span>Escolha o tamanho</span>
+            <div class="option-buttons">
+              <button class="option-btn is-active">8cm</button>
+              <button class="option-btn">10cm</button>
+              <button class="option-btn">12cm</button>
+              <button class="option-btn">Casal</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="produto-services">
+          <div class="service-chip"><i class="fa-solid fa-water"></i> Teste de salinidade incluso</div>
+          <div class="service-chip"><i class="fa-solid fa-temperature-low"></i>Monitoramento térmico</div>
+          <div class="service-chip"><i class="fa-solid fa-shield-heart"></i>Seguro de transporte</div>
+        </div>
+
+        <div class="produto-price-card">
+          <div>
+            <p class="price-label">Total</p>
+            <p class="price-value">R$ 189,90</p>
+            <p class="price-subtitle">ou 3x de R$ 63,30 sem juros</p>
+          </div>
+          <button class="btn btn-outline-light buy-btn" data-name="Peixe-palhaço Ocellaris" data-price="189.90">
+            Adicionar ao carrinho
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="produto-info container">
+      <div class="produto-tabs">
+        <button class="tab is-active" type="button">Descrição</button>
+        <button class="tab" type="button">Cuidados</button>
+        <button class="tab" type="button">Parâmetros</button>
+        <button class="tab" type="button">Avaliações</button>
+      </div>
+      <div class="produto-info-grid">
+        <article class="info-card">
+          <h4>Descrição completa</h4>
+          <p>
+            O peixe-palhaço Ocellaris vive em simbiose com anêmonas marinhas e apresenta comportamento dócil.
+            Nosso time garante exemplares alimentados com dieta rica em algas, krill e ração específica,
+            resultando em cores intensas e imunidade reforçada.
+          </p>
+          <p>
+            São ótimos para aquários comunitários marinhos e podem formar pares monogâmicos rapidamente.
+          </p>
+        </article>
+        <article class="info-card">
+          <h4>Cuidados essenciais</h4>
+          <ul>
+            <li>Faça aclimatação por gotejamento de 45 minutos.</li>
+            <li>Ofereça alimentação variada 2x ao dia.</li>
+            <li>Evite contato com espécies excessivamente territoriais.</li>
+            <li>Garanta circulação moderada e rochas vivas.</li>
+          </ul>
+        </article>
+        <article class="info-card">
+          <h4>Parâmetros recomendados</h4>
+          <ul class="param-list">
+            <li><span>Temperatura</span><strong>24° - 27°C</strong></li>
+            <li><span>Salinidade</span><strong>1.022 - 1.026 sg</strong></li>
+            <li><span>pH</span><strong>8.1 - 8.4</strong></li>
+            <li><span>Alimentação</span><strong>Rações, artêmias, krill</strong></li>
+          </ul>
+        </article>
+        <article class="info-card">
+          <h4>Depoimentos recentes</h4>
+          <p>"Chegaram ativos, respirando bem e já aceitaram ração no primeiro dia." — Ana L.</p>
+          <p>"Atendimento impecável, embalagem segura e com monitoramento em tempo real." — Hugo M.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="produto-related">
+      <div class="container">
+        <div class="related-header">
+          <div>
+            <p class="related-label">Complemente o seu aquário</p>
+            <h3>Peixes que combinam entre si</h3>
+          </div>
+          <a href="catalogo.html" class="btn btn-outline-light">Ver catálogo completo</a>
+        </div>
+        <div class="related-grid">
+          <article class="related-card">
+            <img src="assets/images/bluetang.png" alt="Blue Tang" loading="lazy" />
+            <h4>Blue Tang</h4>
+            <p>Excelente controle de algas, temperamento ativo e curioso.</p>
+            <div class="related-meta">
+              <span>R$ 549,90</span>
+              <button class="btn btn-outline-light buy-btn" data-name="Blue Tang" data-price="549.90">Comprar</button>
+            </div>
+          </article>
+          <article class="related-card">
+            <img src="assets/images/yellowtang.png" alt="Yellow Tang" loading="lazy" />
+            <h4>Yellow Tang</h4>
+            <p>Clássico companheiro de recife, resistente e com cor intensa.</p>
+            <div class="related-meta">
+              <span>R$ 699,90</span>
+              <button class="btn btn-outline-light buy-btn" data-name="Yellow Tang" data-price="699.90">Comprar</button>
+            </div>
+          </article>
+          <article class="related-card">
+            <img src="assets/images/peixe01.png" alt="Anêmona Bubble Tip" loading="lazy" />
+            <h4>Anêmona Bubble Tip</h4>
+            <p>Par perfeito para o peixe-palhaço construir sua simbiose.</p>
+            <div class="related-meta">
+              <span>R$ 259,90</span>
+              <button class="btn btn-outline-light buy-btn" data-name="Anêmona Bubble Tip" data-price="259.90">Comprar</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer id="footer">
+    <div class="footer-container">
+      <img draggable="false" src="assets/images/footer.svg" style="width: 100%" alt="" />
+      <div class="footer-content">
+        <div class="footer-column footer-contact">
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+            </div>
+            <div class="contact-text">
+              <strong>Rua dos Peixes, 42</strong><br />
+              <strong>Brasil, Minas Gerais</strong>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                </path>
+              </svg>
+            </div>
+            <div class="contact-text">
+              <strong>+55 31 98765-4321</strong>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+            </div>
+            <div class="contact-text">
+              <strong style="color: #61dafb">suporte@alojadobeta.com</strong>
+            </div>
+          </div>
+        </div>
+        <div class="footer-column footer-about">
+          <h3 class="footer-heading">Sobre a empresa</h3>
+          <p class="footer-description">
+            Somos uma empresa de venda de peixes ornamentais para aquários.
+            Oferecemos a consultoria e o suporte para que seu paraíso
+            aquático prospere.
+          </p>
+          <div class="social-icons">
+            <a href="#" class="social-icon" aria-label="Facebook">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+              </svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="Twitter">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                <path
+                  d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
+                </path>
+              </svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="LinkedIn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="GitHub">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                <path
+                  d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                </path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/bubbles.js"></script>
+</body>
+</html>

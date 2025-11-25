@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>A loja do Beta</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="page-header no-hero">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container-fluid px-4">
+                <a class="navbar-brand" href="#">
+                    <h1 class="text-white mb-0">A loja do Beta</h1>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto align-items-center">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Início</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="sobre-nos.html">Sobre Nós</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="catalogo.html">Peixes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contato.html">Contato</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link icon-link d-none d-lg-flex" href="checkout.html" aria-label="Carrinho">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="9" cy="21" r="1"></circle>
+                                    <circle cx="20" cy="21" r="1"></circle>
+                                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                                </svg>
+                                <span class="cart-count">0</span>
+                            </a>
+                            <a class="nav-link d-lg-none" href="checkout.html">Carrinho</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link icon-link d-none d-lg-flex" href="#" aria-label="Conta">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                            </a>
+                            <a class="nav-link d-lg-none" href="#">Minha conta</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- CONTEÚDO CENTRAL -->
+    <main>
+        <section id="carrinho" class="py-5">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h3 class="fs-1 m-0 text-white aquario-title">Seu Aquário</h3>
+                    <p class="mb-0">Gerencie seus peixes</p>
+                </div>
+
+                <!-- Mensagem quando carrinho vazio -->
+                <div id="mensagem-vazia" class="mensagem-vazia-container" style="display:none;">
+                    <div class="mensagem-vazia-card">
+                        <div class="mensagem-emoji" aria-hidden="true">🤓</div>
+                        <h3 class="mensagem-vazia-title">Seu carrinho está vazio</h3>
+                        <p class="mensagem-vazia-sub">Não sobrou nada pro beta...</p>
+                        <div class="mensagem-actions">
+                            <a href="catalogo.html" class="btn btn-outline-light buy-btn">Continuar Comprando</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lista de produtos do carrinho -->
+                <div class="aquario-wrap">
+                    <div class="aquario-decor">
+                        <span class="bubble b1" aria-hidden="true"></span>
+                        <span class="bubble b2" aria-hidden="true"></span>
+                        <span class="bubble b3" aria-hidden="true"></span>
+                        <span class="bubble b4" aria-hidden="true"></span>
+                        <span class="bubble b5" aria-hidden="true"></span>
+                    </div>
+                    <div id="lista-carrinho" class="lista-produtos-vertical">
+                    <!-- Produtos serão inseridos aqui via JavaScript -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Checkout controls (sticky bar) -->
+    <div id="checkout-bar" style="position:fixed;bottom:80px;left:0;right:0;display:flex;justify-content:center;z-index:1050;">
+        <div style="background:rgba(2,21,36,0.95);border:1px solid rgba(255,255,255,0.06);padding:14px 18px;border-radius:12px;display:flex;gap:12px;align-items:center;max-width:1100px;width:calc(100% - 40px);box-shadow:0 10px 30px rgba(0,0,0,0.6);">
+            <label for="cep" style="color:#fff;margin:0 6px 0 0;align-self:center;">CEP</label>
+            <input type="text" maxlength="9" id="cep" placeholder="00000-000" pattern="[0-9]{5}-[0-9]{3}" inputmode="numeric" autocomplete="postal-code" required style="padding:8px 12px;border-radius:8px;border:1px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.02);color:#fff;">
+
+            <select id="forma-pagamento" style="padding:8px 12px;border-radius:8px;border:1px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.02);color:#fff;">
+                <option value="">Forma de pagamento</option>
+                <option value="pix">Pix</option>
+                <option value="credito">Crédito</option>
+                <option value="debito">Débito</option>
+            </select>
+
+            <div class="total-container" style="color:#fff;margin-left:8px;font-weight:700;">
+                Total: R$ <span id="total-carrinho">0,00</span>
+            </div>
+
+            <button id="btn-finalizar" class="btn btn-primary" style="margin-left:12px;padding:8px 18px;border-radius:8px;">Finalizar Compra</button>
+        </div>
+    </div>
+
+    <!-- Confirmation modal (replaces confirm dialog) -->
+    <div class="modal fade" id="confirmPurchaseModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-transparent border-light text-white" style="background:rgba(2,21,36,0.95);border:1px solid rgba(255,255,255,0.06);">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title">Confirmar Compra</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Você está prestes a finalizar a compra com os seguintes dados:</p>
+                    <ul>
+                        <li><strong>CEP:</strong> <span id="confirm-cep">-</span></li>
+                        <li><strong>Forma de pagamento:</strong> <span id="confirm-pagamento">-</span></li>
+                        <li><strong>Total:</strong> R$ <span id="confirm-total">0,00</span></li>
+                    </ul>
+                </div>
+                <div class="modal-footer border-0">
+                    <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" id="confirm-purchase-btn" class="btn btn-primary">Confirmar Compra</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Info modal for messages (errors/success) -->
+    <div class="modal fade" id="infoModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-sm modal-dialog-centered">
+            <div class="modal-content bg-transparent border-light text-white" style="background:rgba(2,21,36,0.95);border:1px solid rgba(255,255,255,0.06);">
+                <div class="modal-body text-center">
+                    <p id="infoModalMessage" class="mb-0">Mensagem</p>
+                </div>
+                <div class="modal-footer border-0 justify-content-center">
+                    <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer">
+        <div class="footer-container">
+            <img draggable="false" src="assets/images/footer.svg" style="width: 100%" alt="" />
+            <div class="footer-content">
+                <div class="footer-column footer-contact">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                        </div>
+                        <div class="contact-text">
+                            <strong>Rua dos Peixes, 42</strong><br />
+                            <strong>Brasil, Minas Gerais</strong>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                <path
+                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                                </svg>
+                        </div>
+                        <div class="contact-text">
+                            <strong>+55 31 98765-4321</strong>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                        </div>
+                        <div class="contact-text">
+                            <strong style="color: #61dafb">suporte@alojadobeta.com</strong>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-column footer-about">
+                    <h3 class="footer-heading">Sobre a empresa</h3>
+                    <p class="footer-description">
+                        Somos uma empresa de venda de peixes ornamentais para aquários.
+                        Oferecemos a consultoria e o suporte para que seu paraíso
+                        aquático prospere.
+                    </p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon" aria-label="Facebook">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="Twitter">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                                <path
+                                    d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
+                                </path>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="LinkedIn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                                <rect x="2" y="9" width="4" height="12"></rect>
+                                <circle cx="4" cy="4" r="2"></circle>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="GitHub">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                                <path
+                                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                                </path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Demo: add a single fish to cart for demonstration if cart is empty
+        (function(){
+            try {
+                const current = JSON.parse(localStorage.getItem('carrinho') || 'null');
+                if (!current || (Array.isArray(current) && current.length === 0)) {
+                    const demo = [{
+                        id: 999999,
+                        nome: 'Peixe-Palhaço (Ocellaris) - Demo',
+                        preco: 119.90,
+                        imagem: 'assets/images/clownfish.png',
+                        quantidade: 1
+                    }];
+                    localStorage.setItem('carrinho', JSON.stringify(demo));
+                    // ensure example initialization in checkout.js doesn't override unexpectedly
+                    localStorage.setItem('exemplosInicializados', 'true');
+                }
+            } catch (e) {
+                console.warn('Não foi possível inserir demo no carrinho', e);
+            }
+        })();
+    </script>
+    <script src="assets/js/checkout.js"></script>
+</body>
+
+
+
+
+
+
+
+</html>
