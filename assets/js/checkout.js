@@ -101,15 +101,17 @@ function renderizarCheckout() {
     const totalCarrinho = document.getElementById('total-carrinho');
 
     if (carrinho.length === 0) {
-        // Mostrar mensagem vazia
-        listaCarrinho.style.display = 'none';
+        // Não mostrar container quando vazio; mostrar apenas a mensagem vazia
+        const aquario = document.querySelector('.aquario-wrap');
+        if (aquario) aquario.style.display = 'none';
         mensagemVazia.style.display = 'block';
-        if (totalCarrinho) {
-            totalCarrinho.textContent = '0,00';
-        }
+        listaCarrinho.innerHTML = '';
+        if (totalCarrinho) totalCarrinho.textContent = '0,00';
     } else {
         // Esconder mensagem vazia e mostrar produtos
         mensagemVazia.style.display = 'none';
+        const aquario = document.querySelector('.aquario-wrap');
+        if (aquario) aquario.style.display = '';
         listaCarrinho.style.display = '';
         
         // Renderizar produtos em layout vertical
@@ -158,39 +160,48 @@ function renderizarCheckout() {
 // Função para finalizar compra
 function finalizarCompra() {
     carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-    
+
     if (carrinho.length === 0) {
-        alert('Seu carrinho está vazio! Adicione produtos antes de finalizar a compra.');
+        // mostrar modal informando que o carrinho está vazio
+        const infoEl = document.getElementById('infoModalMessage');
+        if (infoEl) infoEl.textContent = 'Seu carrinho está vazio! Adicione produtos antes de finalizar a compra.';
+        const infoModalEl = document.getElementById('infoModal');
+        if (infoModalEl) new bootstrap.Modal(infoModalEl).show();
         return;
     }
-    
-    const cep = document.getElementById('cep').value;
-    const formaPagamento = document.getElementById('forma-pagamento').value;
-    
+
+    const cep = (document.getElementById('cep') || {}).value || '';
+    const formaPagamentoEl = document.getElementById('forma-pagamento');
+    const formaPagamento = formaPagamentoEl ? formaPagamentoEl.value : '';
+
     if (!cep || !/^\d{5}-?\d{3}$/.test(cep)) {
-        alert('Por favor, informe um CEP válido.');
+        const infoEl = document.getElementById('infoModalMessage');
+        if (infoEl) infoEl.textContent = 'Por favor, informe um CEP válido.';
+        const infoModalEl = document.getElementById('infoModal');
+        if (infoModalEl) new bootstrap.Modal(infoModalEl).show();
         return;
     }
-    
+
     if (!formaPagamento) {
-        alert('Por favor, selecione uma forma de pagamento.');
+        const infoEl = document.getElementById('infoModalMessage');
+        if (infoEl) infoEl.textContent = 'Por favor, selecione uma forma de pagamento.';
+        const infoModalEl = document.getElementById('infoModal');
+        if (infoModalEl) new bootstrap.Modal(infoModalEl).show();
         return;
     }
-    
+
     const total = calcularTotal();
-    const confirmacao = confirm(`Finalizar compra no valor de R$ ${formatarPreco(total)}?\n\nCEP: ${cep}\nForma de pagamento: ${document.getElementById('forma-pagamento').selectedOptions[0].text}`);
-    
-    if (confirmacao) {
-        alert('Compra finalizada com sucesso! Obrigado pela preferência!');
-        // Limpar carrinho após finalizar
-        localStorage.removeItem('carrinho');
-        localStorage.removeItem('exemplosInicializados');
-        carrinho = [];
-        renderizarCheckout();
-        // Limpar campos
-        document.getElementById('cep').value = '';
-        document.getElementById('forma-pagamento').selectedIndex = 0;
-    }
+
+    // preencher modal de confirmação
+    const confirmCep = document.getElementById('confirm-cep');
+    const confirmPag = document.getElementById('confirm-pagamento');
+    const confirmTotal = document.getElementById('confirm-total');
+    if (confirmCep) confirmCep.textContent = cep;
+    if (confirmPag && formaPagamentoEl) confirmPag.textContent = formaPagamentoEl.selectedOptions[0].text;
+    if (confirmTotal) confirmTotal.textContent = formatarPreco(total);
+
+    const confirmModalEl = document.getElementById('confirmPurchaseModal');
+    if (confirmModalEl) new bootstrap.Modal(confirmModalEl).show();
 }
 
 // Renderizar ao carregar a página
@@ -202,6 +213,86 @@ document.addEventListener('DOMContentLoaded', function() {
     const btnFinalizar = document.getElementById('btn-finalizar');
     if (btnFinalizar) {
         btnFinalizar.addEventListener('click', finalizarCompra);
+    }
+
+    // Abrir modal de checkout quando o botão flutuante for clicado
+    const openCheckoutBtn = document.getElementById('open-checkout-modal');
+    if (openCheckoutBtn) {
+        openCheckoutBtn.addEventListener('click', function () {
+            const modalEl = document.getElementById('checkoutModal');
+            if (modalEl) {
+                const modal = new bootstrap.Modal(modalEl);
+                modal.show();
+            }
+        });
+    }
+
+    // Máscara para o campo CEP (formato 00000-000)
+    function aplicarMascaraCEP(valor) {
+        if (!valor) return '';
+        const digits = valor.replace(/\D/g, '').slice(0, 8); // apenas números, até 8 dígitos
+        if (digits.length > 5) {
+            return digits.slice(0,5) + '-' + digits.slice(5);
+        }
+        return digits;
+    }
+
+    const cepInput = document.getElementById('cep');
+    if (cepInput) {
+        // mobile numeric keyboard
+        cepInput.setAttribute('inputmode', 'numeric');
+
+        cepInput.addEventListener('input', function (e) {
+            const cursorPos = cepInput.selectionStart || cepInput.value.length;
+            const oldLen = cepInput.value.length;
+            const newVal = aplicarMascaraCEP(cepInput.value);
+            cepInput.value = newVal;
+            // tentar restaurar posição do cursor no fim razoavelmente
+            const newLen = newVal.length;
+            const diff = newLen - oldLen;
+            try { cepInput.setSelectionRange(cursorPos + (diff > 0 ? diff : 0), cursorPos + (diff > 0 ? diff : 0)); } catch (e) {}
+        });
+
+        // Ao colar, limpar e aplicar máscara
+        cepInput.addEventListener('paste', function (e) {
+            e.preventDefault();
+            const paste = (e.clipboardData || window.clipboardData).getData('text') || '';
+            cepInput.value = aplicarMascaraCEP(paste);
+        });
+    }
+
+    // Lidar com confirmação final da compra (botão dentro do modal de confirmação)
+    const confirmPurchaseBtn = document.getElementById('confirm-purchase-btn');
+    if (confirmPurchaseBtn) {
+        confirmPurchaseBtn.addEventListener('click', function () {
+            // efetivar compra: limpar carrinho e mostrar mensagem de sucesso via infoModal
+            localStorage.removeItem('carrinho');
+            localStorage.removeItem('exemplosInicializados');
+            carrinho = [];
+            renderizarCheckout();
+
+            // fechar modais abertos (confirm + checkout)
+            const confirmModalEl = document.getElementById('confirmPurchaseModal');
+            const checkoutModalEl = document.getElementById('checkoutModal');
+            try {
+                if (confirmModalEl) bootstrap.Modal.getInstance(confirmModalEl)?.hide();
+            } catch (e) {}
+            try {
+                if (checkoutModalEl) bootstrap.Modal.getInstance(checkoutModalEl)?.hide();
+            } catch (e) {}
+
+            // mostrar info de sucesso
+            const infoEl = document.getElementById('infoModalMessage');
+            if (infoEl) infoEl.textContent = 'Compra finalizada com sucesso! Obrigado pela preferência!';
+            const infoModalEl = document.getElementById('infoModal');
+            if (infoModalEl) new bootstrap.Modal(infoModalEl).show();
+
+            // limpar campos do formulário
+            const cepInput = document.getElementById('cep');
+            if (cepInput) cepInput.value = '';
+            const formaSelect = document.getElementById('forma-pagamento');
+            if (formaSelect) formaSelect.selectedIndex = 0;
+        });
     }
 });
 
