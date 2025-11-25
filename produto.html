@@ -370,6 +370,27 @@
           mainImg.alt = productData.name;
         }
 
+        // Update Thumbs (Fix for single image products)
+        const thumbs = document.querySelectorAll('.produto-gallery-thumbs .thumb');
+        if(thumbs.length > 0) {
+            // Set first thumb to the product image
+            const firstThumbImg = thumbs[0].querySelector('img');
+            if(firstThumbImg) {
+                firstThumbImg.src = productData.image;
+                firstThumbImg.alt = productData.name;
+            }
+            
+            // Hide other thumbs since we don't have images for them
+            thumbs.forEach((thumb, index) => {
+                if(index > 0) {
+                    thumb.style.display = 'none';
+                } else {
+                    thumb.style.display = 'block';
+                    thumb.classList.add('is-active');
+                }
+            });
+        }
+
         // Update Price
         const priceElement = document.querySelector('.produto-price-card .price-value');
         if(priceElement) {
@@ -404,6 +425,43 @@
                     li.textContent = badge.textContent;
                     specsContainer.appendChild(li);
                 });
+            }
+        }
+
+        // Update Tabs Content
+        if(productData.longDescription) {
+            const descCard = document.querySelector('.produto-info-grid .info-card:nth-child(1)');
+            if(descCard) {
+                const h4 = descCard.querySelector('h4');
+                descCard.innerHTML = '';
+                descCard.appendChild(h4);
+                const contentDiv = document.createElement('div');
+                contentDiv.innerHTML = productData.longDescription;
+                descCard.appendChild(contentDiv);
+            }
+        }
+
+        if(productData.care) {
+            const careCard = document.querySelector('.produto-info-grid .info-card:nth-child(2)');
+            if(careCard) {
+                const h4 = careCard.querySelector('h4');
+                careCard.innerHTML = '';
+                careCard.appendChild(h4);
+                const contentDiv = document.createElement('div');
+                contentDiv.innerHTML = productData.care;
+                careCard.appendChild(contentDiv);
+            }
+        }
+
+        if(productData.parameters) {
+            const paramsCard = document.querySelector('.produto-info-grid .info-card:nth-child(3)');
+            if(paramsCard) {
+                const h4 = paramsCard.querySelector('h4');
+                paramsCard.innerHTML = '';
+                paramsCard.appendChild(h4);
+                const contentDiv = document.createElement('div');
+                contentDiv.innerHTML = productData.parameters;
+                paramsCard.appendChild(contentDiv);
             }
         }
       }

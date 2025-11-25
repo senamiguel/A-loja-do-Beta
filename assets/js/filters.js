@@ -115,6 +115,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const cardImg = item.querySelector('img').src;
     const cardDesc = item.querySelector('.card-text').innerText;
     const specs = item.querySelector('.fish-specs').innerHTML;
+    
+    // Get extended data from data attributes
+    const longDesc = item.dataset.descriptionFull || `<p>${cardDesc}</p>`;
+    const care = item.dataset.care || '<ul><li>Consulte um especialista para cuidados específicos.</li></ul>';
+    const params = item.dataset.params || '<ul class="param-list"><li><span>Informação</span><strong>Sob consulta</strong></li></ul>';
 
     // Add click event to image and title
     const clickableElements = [item.querySelector('img'), item.querySelector('.card-title')];
@@ -126,7 +131,10 @@ document.addEventListener('DOMContentLoaded', () => {
           name: cardTitle,
           price: cardPrice,
           image: cardImg,
-          description: cardDesc,
+          description: cardDesc, // Short description for hero
+          longDescription: longDesc, // Full description for tabs
+          care: care,
+          parameters: params,
           specs: specs
         };
         sessionStorage.setItem('selectedProduct', JSON.stringify(productData));
