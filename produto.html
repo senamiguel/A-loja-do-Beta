@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>A loja do Beta</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body class="produto-page">
@@ -62,121 +62,119 @@
   </header>
   <main>
     <div class="bubbles-container"></div>
-    <section class="produto-hero container">
-      <div class="produto-breadcrumb">
-        <a href="index.html">Início</a>
-        <span>/</span>
-        <a href="catalogo.html">Peixes</a>
-        <span>/</span>
-        <span>Peixe-palhaço Ocellaris</span>
-      </div>
-      <div class="produto-hero-content">
-        <div class="produto-hero-text">
-          <p class="produto-tag">Marinho • Pacífico • Colorido</p>
-          <h2>Peixe-palhaço Ocellaris</h2>
-          <p>
-            Uma das espécies mais queridas do aquarismo, cheia de personalidade e com um colorido vibrante
-            que ilumina qualquer recife. Criado com quarentena de 14 dias e monitoramento nutricional completo.
-          </p>
-          <ul class="produto-hero-highlights">
-            <li>Compatível com aquários a partir de 75&nbsp;litros</li>
-            <li>Temperatura ideal: 24° a 27°C</li>
-            <li>Garantia vitalícia de suporte técnico</li>
-          </ul>
+    
+    <section class="produto-main container mt-4">
+      <div class="row g-5">
+        <!-- Left Column: Gallery -->
+        <div class="col-lg-7">
+          <div class="produto-gallery">
+            <div class="produto-gallery-main position-relative">
+              <img src="assets/images/clownfish.png" alt="Peixe-palhaço Ocellaris" loading="lazy" />
+              <button class="gallery-nav prev" aria-label="Imagem anterior">
+                <i class="bi bi-chevron-left"></i>
+              </button>
+              <button class="gallery-nav next" aria-label="Próxima imagem">
+                <i class="bi bi-chevron-right"></i>
+              </button>
+            </div>
+            <div class="produto-gallery-thumbs">
+              <button class="thumb is-active" aria-label="Peixe-palhaço frontal" type="button">
+                <img src="assets/images/clownfish.png" alt="Close do peixe-palhaço" loading="lazy" />
+              </button>
+              <button class="thumb" aria-label="Peixe colorido" type="button">
+                <img src="assets/images/peixe01.png" alt="Variante laranja" loading="lazy" />
+              </button>
+              <button class="thumb" aria-label="Peixe nadando" type="button">
+                <img src="assets/images/peixe02.png" alt="Peixe em aquário" loading="lazy" />
+              </button>
+              <button class="thumb" aria-label="Coral" type="button">
+                <img src="assets/images/Rectangle38.png" alt="Detalhe do habitat" loading="lazy" />
+              </button>
+            </div>
+          </div>
         </div>
-        <div class="produto-hero-cards">
-          <div class="hero-card">
-            <p class="card-label">Avaliação média</p>
-            <p class="card-value">4,9<span>/5</span></p>
-            <p class="card-foot">+180 avaliações verificadas</p>
+
+        <!-- Right Column: Info & Purchase -->
+        <div class="col-lg-5">
+          <div class="produto-breadcrumb mb-3">
+            <a href="index.html">Início</a>
+            <span>/</span>
+            <a href="catalogo.html">Peixes</a>
+            <span>/</span>
+            <span>Peixe-palhaço Ocellaris</span>
           </div>
-          <div class="hero-card">
-            <p class="card-label">Entrega expressa</p>
-            <p class="card-value">48h</p>
-            <p class="card-foot">Envio em embalagem termo-controlada</p>
+
+          <div class="produto-hero-text mb-4">
+            <p class="produto-tag mb-3">Marinho • Pacífico • Colorido</p>
+            <h2 class="mb-3">Peixe-palhaço Ocellaris</h2>
+            <div class="d-flex align-items-center gap-2 mb-3">
+               <div class="d-flex text-warning">
+                 <i class="bi bi-star-fill"></i>
+                 <i class="bi bi-star-fill"></i>
+                 <i class="bi bi-star-fill"></i>
+                 <i class="bi bi-star-fill"></i>
+                 <i class="bi bi-star-half"></i>
+               </div>
+               <span class="text-white-50 small">(180+ avaliações)</span>
+            </div>
+            <p class="mb-4">
+              Uma das espécies mais queridas do aquarismo, cheia de personalidade e com um colorido vibrante
+              que ilumina qualquer recife. Criado com quarentena de 14 dias e monitoramento nutricional completo.
+            </p>
+            <ul class="produto-hero-highlights list-unstyled">
+              <li class="mb-2"><i class="bi bi-check2-circle text-info me-2"></i>Compatível com aquários a partir de 75 litros</li>
+              <li class="mb-2"><i class="bi bi-check2-circle text-info me-2"></i>Temperatura ideal: 24° a 27°C</li>
+              <li><i class="bi bi-check2-circle text-info me-2"></i>Garantia vitalícia de suporte técnico</li>
+            </ul>
           </div>
-          <div class="hero-card">
-            <p class="card-label">Garantia saudável</p>
-            <p class="card-value">30 dias</p>
-            <p class="card-foot">Cobertura total contra doenças</p>
+
+          <div class="produto-summary p-0 border-0 bg-transparent shadow-none">
+            <div class="produto-options mb-4">
+              <div class="option-group mb-3">
+                <span class="d-block mb-2 text-white-50">Selecione o peso aproximado</span>
+                <div class="option-buttons">
+                  <button class="option-btn is-active">70g</button>
+                  <button class="option-btn">90g</button>
+                  <button class="option-btn">110g</button>
+                  <button class="option-btn">130g</button>
+                </div>
+              </div>
+              <div class="option-group">
+                <span class="d-block mb-2 text-white-50">Escolha o tamanho</span>
+                <div class="option-buttons">
+                  <button class="option-btn is-active">8cm</button>
+                  <button class="option-btn">10cm</button>
+                  <button class="option-btn">12cm</button>
+                  <button class="option-btn">Casal</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="produto-services d-flex gap-2 flex-wrap mb-4">
+              <div class="service-chip badge bg-dark border border-secondary p-2 fw-normal"><i class="bi bi-droplet-fill me-1"></i> Teste de salinidade</div>
+              <div class="service-chip badge bg-dark border border-secondary p-2 fw-normal"><i class="bi bi-thermometer-half me-1"></i>Monitoramento térmico</div>
+            </div>
+
+            <div class="produto-price-card p-4 rounded-4 mb-4" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
+              <div class="mb-3">
+                <p class="price-label text-uppercase small text-white-50 mb-1">Total</p>
+                <p class="price-value h2 fw-bold mb-1">R$ 189,90</p>
+                <p class="price-subtitle small text-white-50">ou 3x de R$ 63,30 sem juros</p>
+              </div>
+              <button class="btn btn-custom-orange w-100 py-3 fw-bold buy-btn" data-name="Peixe-palhaço Ocellaris" data-price="189.90">
+                Adicionar ao carrinho
+              </button>
+              <div class="mt-3 d-flex justify-content-center gap-3 text-white-50 small">
+                 <span><i class="bi bi-truck me-1"></i>Entrega em 48h</span>
+                 <span><i class="bi bi-shield-check me-1"></i>Garantia 30 dias</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="produto-detalhes container">
-      <div class="produto-gallery">
-        <div class="produto-gallery-main">
-          <img src="assets/images/clownfish.png" alt="Peixe-palhaço Ocellaris" loading="lazy" />
-        </div>
-        <div class="produto-gallery-thumbs">
-          <button class="thumb is-active" aria-label="Peixe-palhaço frontal" type="button">
-            <img src="assets/images/clownfish.png" alt="Close do peixe-palhaço" loading="lazy" />
-          </button>
-          <button class="thumb" aria-label="Peixe colorido" type="button">
-            <img src="assets/images/peixe01.png" alt="Variante laranja" loading="lazy" />
-          </button>
-          <button class="thumb" aria-label="Peixe nadando" type="button">
-            <img src="assets/images/peixe02.png" alt="Peixe em aquário" loading="lazy" />
-          </button>
-          <button class="thumb" aria-label="Coral" type="button">
-            <img src="assets/images/Rectangle38.png" alt="Detalhe do habitat" loading="lazy" />
-          </button>
-        </div>
-      </div>
-
-      <div class="produto-summary">
-        <div class="summary-header">
-          <p class="summary-pill">Disponível em estoque • lote premium</p>
-          <h3>Monte um recife vibrante com um casal equilibrado</h3>
-          <p>
-            Nossos exemplares passam por aclimatação lenta, aceitam ração granulada de alta qualidade
-            e chegam com laudo assinado por biólogo responsável. Ideal para aquários marinhos de iniciantes
-            até montagens avançadas.
-          </p>
-        </div>
-
-        <div class="produto-options">
-          <div class="option-group">
-            <span>Selecione o peso aproximado</span>
-            <div class="option-buttons">
-              <button class="option-btn is-active">70g</button>
-              <button class="option-btn">90g</button>
-              <button class="option-btn">110g</button>
-              <button class="option-btn">130g</button>
-            </div>
-          </div>
-          <div class="option-group">
-            <span>Escolha o tamanho</span>
-            <div class="option-buttons">
-              <button class="option-btn is-active">8cm</button>
-              <button class="option-btn">10cm</button>
-              <button class="option-btn">12cm</button>
-              <button class="option-btn">Casal</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="produto-services">
-          <div class="service-chip"><i class="fa-solid fa-water"></i> Teste de salinidade incluso</div>
-          <div class="service-chip"><i class="fa-solid fa-temperature-low"></i>Monitoramento térmico</div>
-          <div class="service-chip"><i class="fa-solid fa-shield-heart"></i>Seguro de transporte</div>
-        </div>
-
-        <div class="produto-price-card">
-          <div>
-            <p class="price-label">Total</p>
-            <p class="price-value">R$ 189,90</p>
-            <p class="price-subtitle">ou 3x de R$ 63,30 sem juros</p>
-          </div>
-          <button class="btn btn-outline-light buy-btn" data-name="Peixe-palhaço Ocellaris" data-price="189.90">
-            Adicionar ao carrinho
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <section class="produto-info container">
+    <section class="produto-info container mt-5 pt-5">
       <div class="produto-tabs">
         <button class="tab is-active" type="button">Descrição</button>
         <button class="tab" type="button">Cuidados</button>
@@ -228,7 +226,7 @@
             <p class="related-label">Complemente o seu aquário</p>
             <h3>Peixes que combinam entre si</h3>
           </div>
-          <a href="catalogo.html" class="btn btn-outline-light">Ver catálogo completo</a>
+          <a href="catalogo.html" class="btn btn-custom-orange">Ver catálogo completo</a>
         </div>
         <div class="related-grid">
           <article class="related-card">
@@ -262,7 +260,7 @@
       </div>
     </section>
   </main>
-  <footer id="footer">
+  <footer id="footer" class="footer-product">
     <div class="footer-container">
       <img draggable="false" src="assets/images/footer.svg" style="width: 100%" alt="" />
       <div class="footer-content">
@@ -345,5 +343,167 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="assets/js/main.js"></script>
   <script src="assets/js/bubbles.js"></script>
+
+  <!-- Alert Container -->
+  <div id="alert-container" class="position-fixed top-0 end-0 p-3" style="z-index: 2000"></div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const productData = JSON.parse(sessionStorage.getItem('selectedProduct'));
+
+      if (productData) {
+        // Update Title and Breadcrumb
+        document.querySelector('.produto-breadcrumb span:last-child').textContent = productData.name;
+        document.querySelector('.produto-hero-text h2').textContent = productData.name;
+        
+        // Update Description
+        // Note: The description in catalog is short, here it is long. 
+        // We will use the short description for now or keep the default if it's too short.
+        // Actually, let's just append the short description to the hero text or replace it.
+        const heroDesc = document.querySelector('.produto-hero-text p:nth-of-type(2)');
+        if(heroDesc) heroDesc.textContent = productData.description;
+
+        // Update Image
+        const mainImg = document.querySelector('.produto-gallery-main img');
+        if(mainImg) {
+          mainImg.src = productData.image;
+          mainImg.alt = productData.name;
+        }
+
+        // Update Price
+        const priceElement = document.querySelector('.produto-price-card .price-value');
+        if(priceElement) {
+            const price = parseFloat(productData.price).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+            priceElement.textContent = price;
+        }
+
+        // Update Buy Button
+        const buyBtn = document.querySelector('.produto-price-card .buy-btn');
+        if(buyBtn) {
+            buyBtn.setAttribute('data-name', productData.name);
+            buyBtn.setAttribute('data-price', productData.price);
+            
+            // Re-attach event listener because we might have replaced the element or just to be sure
+            // Actually main.js attaches listeners on DOMContentLoaded. 
+            // Since we are modifying attributes, the existing listener might use old values if it read them on load.
+            // Let's check main.js again.
+        }
+
+        // Update Specs (Convert badges to list items)
+        const specsContainer = document.querySelector('.produto-hero-highlights');
+        if(specsContainer && productData.specs) {
+            // Create a temporary div to parse the HTML string of specs
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = productData.specs;
+            const badges = tempDiv.querySelectorAll('.badge');
+            
+            if(badges.length > 0) {
+                specsContainer.innerHTML = '';
+                badges.forEach(badge => {
+                    const li = document.createElement('li');
+                    li.textContent = badge.textContent;
+                    specsContainer.appendChild(li);
+                });
+            }
+        }
+      }
+      
+      // Re-attach buy button listener for the updated button
+      // We need to import adicionarAoCarrinho or make it global. 
+      // In main.js it is a global function (not a module).
+      // But wait, main.js has `import` statements, so it is a module?
+      // Let's check main.js content again.
+    });
+
+    // Gallery Logic
+    document.addEventListener('DOMContentLoaded', () => {
+        const mainImg = document.querySelector('.produto-gallery-main img');
+        const thumbs = document.querySelectorAll('.produto-gallery-thumbs .thumb');
+        const prevBtn = document.querySelector('.gallery-nav.prev');
+        const nextBtn = document.querySelector('.gallery-nav.next');
+        let currentIndex = 0;
+
+        function updateGallery(index) {
+            // Wrap around
+            if (index < 0) index = thumbs.length - 1;
+            if (index >= thumbs.length) index = 0;
+            
+            currentIndex = index;
+            
+            // Update main image
+            const newSrc = thumbs[currentIndex].querySelector('img').src;
+            mainImg.src = newSrc;
+            
+            // Update active thumb
+            thumbs.forEach(t => t.classList.remove('is-active'));
+            thumbs[currentIndex].classList.add('is-active');
+        }
+
+        // Thumb click
+        thumbs.forEach((thumb, index) => {
+            thumb.addEventListener('click', () => {
+                updateGallery(index);
+            });
+        });
+
+        // Nav clicks
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                updateGallery(currentIndex - 1);
+            });
+        }
+
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                updateGallery(currentIndex + 1);
+            });
+        }
+    });
+
+    // Related Products Click Logic
+    document.addEventListener('DOMContentLoaded', () => {
+        const relatedCards = document.querySelectorAll('.related-card');
+        
+        relatedCards.forEach(card => {
+            const img = card.querySelector('img');
+            const title = card.querySelector('h4');
+            const desc = card.querySelector('p');
+            const buyBtn = card.querySelector('.buy-btn');
+            
+            // Data extraction
+            const name = title ? title.innerText : '';
+            const price = buyBtn ? buyBtn.getAttribute('data-price') : '0.00';
+            const image = img ? img.src : '';
+            const description = desc ? desc.innerText : '';
+            
+            // Default specs for related items since they aren't in the card
+            const defaultSpecs = `
+                <span class="badge bg-primary mb-1">Água Salgada</span>
+                <span class="badge bg-info mb-1">24-28°C</span>
+                <span class="badge bg-secondary mb-1">pH 8.1-8.4</span>
+            `;
+
+            const clickableElements = [img, title];
+            
+            clickableElements.forEach(el => {
+                if(el) {
+                    el.style.cursor = 'pointer';
+                    el.addEventListener('click', () => {
+                        const productData = {
+                            name: name,
+                            price: price,
+                            image: image,
+                            description: description,
+                            specs: defaultSpecs
+                        };
+                        sessionStorage.setItem('selectedProduct', JSON.stringify(productData));
+                        window.location.href = 'produto.html';
+                        // Scroll to top happens automatically on reload
+                    });
+                }
+            });
+        });
+    });
+  </script>
 </body>
 </html>

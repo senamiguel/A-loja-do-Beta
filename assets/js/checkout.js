@@ -1,5 +1,5 @@
 // Script para renderizar o carrinho no checkout
-let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+let carrinho = JSON.parse(sessionStorage.getItem('carrinho')) || [];
 
 // Produtos de exemplo para demonstração
 const produtosExemplo = [
@@ -51,11 +51,11 @@ const produtosExemplo = [
 function inicializarExemplos() {
     if (carrinho.length === 0) {
         // Verifica se já foi inicializado antes (para não sobrescrever se o usuário limpar o carrinho)
-        const jaInicializado = localStorage.getItem('exemplosInicializados');
+        const jaInicializado = sessionStorage.getItem('exemplosInicializados');
         if (!jaInicializado) {
-            carrinho = produtosExemplo;
-            localStorage.setItem('carrinho', JSON.stringify(carrinho));
-            localStorage.setItem('exemplosInicializados', 'true');
+            // carrinho = produtosExemplo; // Comentado para não adicionar exemplos automaticamente
+            // sessionStorage.setItem('carrinho', JSON.stringify(carrinho));
+            sessionStorage.setItem('exemplosInicializados', 'true');
         }
     }
 }
@@ -72,30 +72,45 @@ function calcularTotal() {
     }, 0);
 }
 
-// Função para remover produto
-function removerDoCarrinho(id) {
-    carrinho = carrinho.filter(p => p.id !== id);
-    localStorage.setItem('carrinho', JSON.stringify(carrinho));
+
+window.removerDoCarrinho = function(id) {
+
+    carrinho = carrinho.filter(p => p.id != id);
+    sessionStorage.setItem('carrinho', JSON.stringify(carrinho));
     renderizarCheckout();
 }
 
-// Função para atualizar quantidade
-function atualizarQuantidade(id, delta) {
-    const produto = carrinho.find(p => p.id === id);
+
+window.atualizarQuantidade = function(id, delta) {
+
+    const produto = carrinho.find(p => p.id == id);
     if (produto) {
         produto.quantidade += delta;
         if (produto.quantidade <= 0) {
             removerDoCarrinho(id);
             return;
         }
-        localStorage.setItem('carrinho', JSON.stringify(carrinho));
+        sessionStorage.setItem('carrinho', JSON.stringify(carrinho));
         renderizarCheckout();
     }
 }
 
+// Função para atualizar o contador do carrinho na navbar
+function atualizarContadorNavbar() {
+    const totalItens = carrinho.reduce((sum, p) => sum + p.quantidade, 0);
+    const contadores = document.querySelectorAll('.cart-count');
+    contadores.forEach(contador => {
+        contador.textContent = totalItens;
+    });
+}
+
 // Função para renderizar o checkout
 function renderizarCheckout() {
-    carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+    carrinho = JSON.parse(sessionStorage.getItem('carrinho')) || [];
+    
+    // Atualizar contador sempre que renderizar
+    atualizarContadorNavbar();
+
     const listaCarrinho = document.getElementById('lista-carrinho');
     const mensagemVazia = document.getElementById('mensagem-vazia');
     const totalCarrinho = document.getElementById('total-carrinho');
@@ -135,11 +150,17 @@ function renderizarCheckout() {
                                         </div>
                                         <div class="d-flex align-items-center gap-3">
                                             <div class="d-flex align-items-center gap-2">
-                                                <button class="btn btn-outline-light btn-sm" onclick="atualizarQuantidade(${produto.id}, -1)">-</button>
+                                                <button class="btn btn-outline-custom-orange btn-sm" onclick="atualizarQuantidade('${produto.id}', -1)">
+                                                    <i class="bi bi-dash"></i>
+                                                </button>
                                                 <span class="mx-2 fs-5">${produto.quantidade}</span>
-                                                <button class="btn btn-outline-light btn-sm" onclick="atualizarQuantidade(${produto.id}, 1)">+</button>
+                                                <button class="btn btn-outline-custom-orange btn-sm" onclick="atualizarQuantidade('${produto.id}', 1)">
+                                                    <i class="bi bi-plus"></i>
+                                                </button>
                                             </div>
-                                            <button class="btn btn-outline-danger btn-sm" onclick="removerDoCarrinho(${produto.id})" title="Remover">Remover</button>
+                                            <button class="btn btn-custom-orange btn-sm text-white" onclick="removerDoCarrinho('${produto.id}')" title="Remover">
+                                                <i class="bi bi-trash"></i> Remover
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
@@ -159,7 +180,7 @@ function renderizarCheckout() {
 
 // Função para finalizar compra
 function finalizarCompra() {
-    carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+    carrinho = JSON.parse(sessionStorage.getItem('carrinho')) || [];
 
     if (carrinho.length === 0) {
         // mostrar modal informando que o carrinho está vazio
@@ -266,8 +287,8 @@ document.addEventListener('DOMContentLoaded', function() {
     if (confirmPurchaseBtn) {
         confirmPurchaseBtn.addEventListener('click', function () {
             // efetivar compra: limpar carrinho e mostrar mensagem de sucesso via infoModal
-            localStorage.removeItem('carrinho');
-            localStorage.removeItem('exemplosInicializados');
+            sessionStorage.removeItem('carrinho');
+            sessionStorage.removeItem('exemplosInicializados');
             carrinho = [];
             renderizarCheckout();
 

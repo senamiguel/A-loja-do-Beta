@@ -1,5 +1,5 @@
-// Gerenciamento do carrinho usando localStorage
-let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+// Gerenciamento do carrinho usando sessionStorage
+let carrinho = JSON.parse(sessionStorage.getItem('carrinho')) || [];
 
 // Função para adicionar produto ao carrinho
 function adicionarAoCarrinho(nome, preco, imagem) {
@@ -19,38 +19,74 @@ function adicionarAoCarrinho(nome, preco, imagem) {
         carrinho.push(produto);
     }
 
-    localStorage.setItem('carrinho', JSON.stringify(carrinho));
+    sessionStorage.setItem('carrinho', JSON.stringify(carrinho));
     atualizarCarrinho();
 }
 
-// Funções utilitárias de carrinho importadas de cart-utils.js
-import { removerDoCarrinho, atualizarQuantidade } from './cart-utils.js';
+// Funções utilitárias de carrinho (placeholder se o arquivo existisse)
+// import { removerDoCarrinho, atualizarQuantidade } from './cart-utils.js';
 
-// Função para atualizar o carrinho (pode ser usada para atualizar contador, etc.)
+// Função para atualizar o carrinho (pode ser usada para atualizar contadores na página)
 function atualizarCarrinho() {
-    // Esta função pode ser expandida para atualizar contadores na página
     const totalItens = carrinho.reduce((sum, p) => sum + p.quantidade, 0);
+    
+    // Atualiza todos os contadores de carrinho na página
+    const contadores = document.querySelectorAll('.cart-count');
+    contadores.forEach(contador => {
+        contador.textContent = totalItens;
+        // Opcional: esconder se for zero
+        // contador.style.display = totalItens > 0 ? 'flex' : 'none';
+    });
+
     return totalItens;
 }
 
-// Event listeners para os botões de adicionar ao carrinho
+// Inicializar contador ao carregar a página
 document.addEventListener('DOMContentLoaded', function() {
+    atualizarCarrinho();
+    
     const botoes = document.querySelectorAll('.buy-btn');
     botoes.forEach(botao => {
         botao.addEventListener('click', function() {
             const nome = this.getAttribute('data-name');
             const preco = this.getAttribute('data-price');
+            
+            if (!nome || !preco) return;
+
             const card = this.closest('.card');
             const imgElement = card ? card.querySelector('img') : null;
             let imagem = null;
             
             if (imgElement) {
-                // Usa o src da imagem, ou tenta pegar do atributo src original
-                imagem = imgElement.src || imgElement.getAttribute('src');
+                // Usa o atributo src original para garantir caminho relativo correto
+                imagem = imgElement.getAttribute('src');
             }
             
             adicionarAoCarrinho(nome, preco, imagem);
-            alert(`${nome} adicionado ao carrinho!`);
+            
+            // Show Bootstrap Alert
+            const alertContainer = document.getElementById('alert-container');
+            if (alertContainer) {
+                const alertHTML = `
+                    <div class="alert alert-custom alert-dismissible fade show" role="alert">
+                        ${nome} adicionado ao carrinho com sucesso!
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                `;
+                alertContainer.innerHTML = alertHTML;
+                
+                // Auto dismiss after 3 seconds
+                setTimeout(() => {
+                    const alertEl = alertContainer.querySelector('.alert');
+                    if (alertEl) {
+                        const bsAlert = new bootstrap.Alert(alertEl);
+                        bsAlert.close();
+                    }
+                }, 3000);
+            } else {
+                // Fallback if alert container is not present
+                alert(`${nome} adicionado ao carrinho!`);
+            }
         });
     });
 });

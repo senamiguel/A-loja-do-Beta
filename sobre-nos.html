@@ -8,113 +8,295 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display:ital,wght@1,600&family=Raleway:wght@300;400;700&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 
-<body>
-    <main>
-        <header class="header d-flex justify-content-between align-items-center p-3"> 
-            <h2>A Loja do Beta</h2>
-            <nav><ul>
-                <li><a href="/">Início</a></li>
-                <li><a href="/sobre.html">Sobre nós</a></li>
-                <li><a href="/peixes">Peixes</a></li>
-                <li><a href="/contato.html">Contato</a></li>
+<body class="produto-page">
+  <header class="page-header no-hero">
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container-fluid px-4">
+        <a class="navbar-brand" href="index.html">
+          <h1 class="text-white mb-0">A loja do Beta</h1>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto align-items-center">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Início</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="sobre-nos.html">Sobre Nós</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="catalogo.html">Peixes</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contato.html">Contato</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link icon-link d-none d-lg-flex" href="checkout.html" aria-label="Carrinho">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="9" cy="21" r="1"></circle>
+                  <circle cx="20" cy="21" r="1"></circle>
+                  <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                </svg>
+                <span class="cart-count">0</span>
+              </a>
+              <a class="nav-link d-lg-none" href="checkout.html">Carrinho</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link icon-link d-none d-lg-flex" href="#" aria-label="Conta">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+              </a>
+              <a class="nav-link d-lg-none" href="#">Minha conta</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="bubbles-container"></div>
+    
+    <!-- Hero Section -->
+    <section class="container py-5 mt-4">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6">
+          <h6 class="text-info text-uppercase letter-spacing-2 mb-3">Nossa História</h6>
+          <h1 class="display-4 fw-bold text-white mb-4">Mais do que vendedores, somos aquaristas.</h1>
+          <p class="lead text-white-50 mb-4" style="line-height: 1.8;">
+            Estamos aqui para guiar você em cada passo da sua jornada aquática. 
+            Acreditamos que cada aquário é um ecossistema vivo e uma obra de arte em constante movimento.
+          </p>
+          <div class="d-flex gap-3">
+            <div class="d-flex align-items-center gap-2 text-white-50">
+               <i class="bi bi-check-circle-fill text-info"></i> <span>Consultoria Especializada</span>
+            </div>
+            <div class="d-flex align-items-center gap-2 text-white-50">
+               <i class="bi bi-check-circle-fill text-info"></i> <span>Suporte Vitalício</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="position-relative">
+             <div class="position-absolute top-0 start-0 w-100 h-100 bg-info opacity-10 rounded-5" style="filter: blur(40px); transform: scale(0.9);"></div>
+             <img src="assets/images/tubarao.png" class="img-fluid rounded-5 shadow-lg position-relative" alt="Sobre nós" style="border: 1px solid rgba(255,255,255,0.1);">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MVV Section -->
+    <section class="container py-5">
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="info-card h-100 text-center p-4">
+            <div class="mb-4 d-inline-flex align-items-center justify-content-center rounded-circle bg-dark border border-secondary" style="width: 80px; height: 80px;">
+              <i class="bi bi-flag fs-2 text-info"></i>
+            </div>
+            <h3 class="text-white mb-3">Missão</h3>
+            <p class="text-white-50">
+              Mergulhar além da simples venda. Oferecer consultoria especializada e suporte contínuo para o sucesso do seu aquário.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="info-card h-100 text-center p-4">
+            <div class="mb-4 d-inline-flex align-items-center justify-content-center rounded-circle bg-dark border border-secondary" style="width: 80px; height: 80px;">
+              <i class="bi bi-eye fs-2 text-info"></i>
+            </div>
+            <h3 class="text-white mb-3">Visão</h3>
+            <p class="text-white-50">
+              Ser a principal referência no aquarismo, inspirando a criação de mundos subaquáticos deslumbrantes com excelência.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="info-card h-100 text-center p-4">
+            <div class="mb-4 d-inline-flex align-items-center justify-content-center rounded-circle bg-dark border border-secondary" style="width: 80px; height: 80px;">
+              <i class="bi bi-heart fs-2 text-info"></i>
+            </div>
+            <h3 class="text-white mb-3">Valores</h3>
+            <ul class="list-unstyled text-white-50 text-start mx-auto" style="max-width: 250px;">
+              <li class="mb-2"><i class="bi bi-check2 text-info me-2"></i>Conhecimento</li>
+              <li class="mb-2"><i class="bi bi-check2 text-info me-2"></i>Qualidade</li>
+              <li class="mb-2"><i class="bi bi-check2 text-info me-2"></i>Paixão</li>
+              <li class="mb-2"><i class="bi bi-check2 text-info me-2"></i>Respeito</li>
             </ul>
-        </nav>
-        </header>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        <section class="fundo-texto pt-5">
-            <img src="/assets/images/tubarao.png" alt="" class="tubarao">
-            <div class="w-50 mb-3 mt-4">
-                <h2>Sobre nós</h2>
+    <!-- Team Section -->
+    <section class="container py-5 mb-5">
+      <div class="text-center mb-5">
+        <h6 class="text-info text-uppercase letter-spacing-2">Quem faz acontecer</h6>
+        <h2 class="text-white display-5 fw-bold">Nossa Equipe</h2>
+      </div>
+      
+      <div class="row g-4 justify-content-center">
+        <!-- Miguel -->
+        <div class="col-md-6 col-lg-4">
+          <div class="info-card h-100 p-0 overflow-hidden position-relative group-hover">
+            <div class="ratio ratio-1x1">
+                <img src="https://placehold.co/600x600" class="object-fit-cover" alt="Miguel Sena">
             </div>
-                <div class="w-25 fs-5 mb-2"> 
-                    <p>Mais do que vendedores, somos aquaristas experientes. 
-                    Estamos aqui para guiar você em cada passo da sua jornada aquática.</p>
-                </div>
-        </section>
+            <div class="p-4 bg-dark bg-opacity-50 backdrop-blur position-absolute bottom-0 w-100 border-top border-secondary">
+              <h4 class="text-white mb-1">Miguel Sena</h4>
+              <p class="text-info small text-uppercase mb-2">Fundador & Dev Owner</p>
+              <p class="text-white-50 small mb-0">Liderando a visão e a tecnologia por trás do projeto.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Gabriel -->
+        <div class="col-md-6 col-lg-4">
+          <div class="info-card h-100 p-0 overflow-hidden position-relative">
+            <div class="ratio ratio-1x1">
+                <img src="https://placehold.co/600x600" class="object-fit-cover" alt="Gabriel Patricio">
+            </div>
+            <div class="p-4 bg-dark bg-opacity-50 backdrop-blur position-absolute bottom-0 w-100 border-top border-secondary">
+              <h4 class="text-white mb-1">Gabriel Patricio</h4>
+              <p class="text-info small text-uppercase mb-2">Dev Fluxo de Produtos</p>
+              <p class="text-white-50 small mb-0">Especialista em nosso catálogo e análise de público.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Daniel -->
+        <div class="col-md-6 col-lg-4">
+          <div class="info-card h-100 p-0 overflow-hidden position-relative">
+            <div class="ratio ratio-1x1">
+                <img src="https://placehold.co/600x600" class="object-fit-cover" alt="Daniel Aguiar">
+            </div>
+            <div class="p-4 bg-dark bg-opacity-50 backdrop-blur position-absolute bottom-0 w-100 border-top border-secondary">
+              <h4 class="text-white mb-1">Daniel Aguiar</h4>
+              <p class="text-info small text-uppercase mb-2">Dev Checkout JS</p>
+              <p class="text-white-50 small mb-0">Arquiteto do nosso sistema de checkout seguro.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Maria -->
+        <div class="col-md-6 col-lg-4">
+          <div class="info-card h-100 p-0 overflow-hidden position-relative">
+            <div class="ratio ratio-1x1">
+                <img src="https://placehold.co/600x600" class="object-fit-cover" alt="Maria Eduarda">
+            </div>
+            <div class="p-4 bg-dark bg-opacity-50 backdrop-blur position-absolute bottom-0 w-100 border-top border-secondary">
+              <h4 class="text-white mb-1">Maria Eduarda</h4>
+              <p class="text-info small text-uppercase mb-2">Dev Conteúdo & Screenshots</p>
+              <p class="text-white-50 small mb-0">Responsável pela alma visual e institucional do site.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Arthur -->
+        <div class="col-md-6 col-lg-4">
+          <div class="info-card h-100 p-0 overflow-hidden position-relative">
+            <div class="ratio ratio-1x1">
+                <img src="https://placehold.co/600x600" class="object-fit-cover" alt="Arthur Eustáquio">
+            </div>
+            <div class="p-4 bg-dark bg-opacity-50 backdrop-blur position-absolute bottom-0 w-100 border-top border-secondary">
+              <h4 class="text-white mb-1">Arthur Eustáquio</h4>
+              <p class="text-info small text-uppercase mb-2">Dev JS Contato & QA</p>
+              <p class="text-white-50 small mb-0">Garante a interatividade e a qualidade final do site.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
+  <footer id="footer">
+    <div class="footer-container">
+      <img draggable="false" src="assets/images/footer.svg" style="width: 100%" alt="" />
+      <div class="footer-content">
+        <div class="footer-column footer-contact">
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+            </div>
+            <div class="contact-text">
+              <strong>Rua dos Peixes, 42</strong><br />
+              <strong>Brasil, Minas Gerais</strong>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                </path>
+              </svg>
+            </div>
+            <div class="contact-text">
+              <strong>+55 31 98765-4321</strong>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+            </div>
+            <div class="contact-text">
+              <strong style="color: #61dafb">suporte@alojadobeta.com</strong>
+            </div>
+          </div>
+        </div>
+        <div class="footer-column footer-about">
+          <h3 class="footer-heading">Sobre a empresa</h3>
+          <p class="footer-description">
+            Somos uma empresa de venda de peixes ornamentais para aquários.
+            Oferecemos a consultoria e o suporte para que seu paraíso
+            aquático prospere.
+          </p>
+          <div class="social-icons">
+            <a href="#" class="social-icon" aria-label="Facebook">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+              </svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="Twitter">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                <path
+                  d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
+                </path>
+              </svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="LinkedIn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="GitHub">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                <path
+                  d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                </path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
 
-        <section class="proposito">
-            <div>
-                <h1>NOSSO PROPÓSITO</h1>
-            </div>
-        </section>
-
-        <section class="fundo-mvv text-center">
-            <div class="border"> 
-                <img src="/assets/images/peixe.png" alt="" class="img">
-                <h2>MISSÃO</h2>
-                <p>Nossa missão é mergulhar além da simples venda de peixes ornamentais. Acreditamos que cada aquário é um ecossistema vivo e uma obra de arte em constante movimento. Por isso, nos dedicamos a ser o seu parceiro em aquarismo, oferecendo uma consultoria especializada e um suporte contínuo para que você, seja iniciante ou veterano, tenha sucesso.</p>
-            </div>
-            <div class="border">
-                <img src="/assets/images/farol.png" alt="" class="img">
-                <h2>VISÃO</h2>
-                <p>Ser a principal e mais confiável referência no universo do aquarismo. Almejamos ser o local onde a inspiração para criar mundos subaquáticos deslumbrantes é encontrada em cada detalhe. Buscamos definir o padrão de excelência através de uma curadoria impecável de espécies e um atendimento que inspire e expanda a comunidade de aquaristas.</p>
-            </div>
-            <div class="border">
-                <img src="/assets/images/aquario.png" alt="" class="img">
-                <h2>VALORES</h2>
-                <ul class="ul li">
-                    <li>Conhecimento: Orientação de aquaristas experientes.</li>
-                    <li>Qualidade: Peixes saudáveis para um aquário próspero.</li>
-                    <li>Paixão: Dedicação em criar experiências imersivas.</li>
-                    <li>Suporte: Guiar o cliente em cada etapa da jornada.</li>
-                    <li>Respeito: Compromisso com o bem-estar animal e práticas éticas.</li>
-                    <li>Comunidade: Fomentar um espaço de partilha e ligação entre aquaristas.</li>
-                </ul>
-            </div>
-        </section>
-
-        <section>
-            <div class="proposito">
-                <h1>NOSSA EQUIPE</h1>
-            </div>
-        </section>
-
-        <section>
-            <div>
-                <img src="https://placehold.co/600x400" alt="Foto da equipe A Loja do Beta." class=" img-equipe">
-            </div>
-        </section>
-
-        <section class="equipe-container">
-            <div class="cards">
-                <img src="https://placehold.co/300x400" alt="" class="card-membros">
-                <h3>Miguel Sena</h3>
-                <p class="cargo">Fundador & Dev Owner</p>
-                <p class="descricao">Liderando a visão e a tecnologia por trás do projeto.</p>
-            </div>
-            <div class="cards">
-                <img src="https://placehold.co/300x400" alt="" class="card-membros">
-                <h3>Gabriel Patricio</h3>
-                <p class="cargo">Dev Fluxo de Produtos</p>
-                <p class="descricao">Especialista em nosso catálogo e análise de público.</p>
-            </div>
-            <div class="cards">
-                <img src="https://placehold.co/300x400" alt="" class="card-membros">
-                <h3>Daniel Aguiar</h3>
-                <p class="cargo">Dev Checkout JS</p>
-                <p class="descricao">Arquiteto do nosso sistema de checkout seguro.</p>
-            </div>
-            <div class="cards">
-                <img src="https://placehold.co/300x400" alt="" class="card-membros">
-                <h3>Maria Eduarda</h3>
-                <p class="cargo">Dev Conteúdo & Screenshots</p>
-                <p class="descricao">Responsável pela alma visual e institucional do site.</p>
-            </div>
-            <div class="cards">
-                <img src="https://placehold.co/300x400" alt="" class="card-membros">
-                <h3>Arthur Eustáquio</h3>
-                <p class="cargo">Dev JS Contato & QA</p>
-                <p class="descricao">Garante a interatividade e a qualidade final do site.</p>
-            </div>
-        </section>
-
-        
-    </main>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/bubbles.js"></script>
 </body>
 </html>

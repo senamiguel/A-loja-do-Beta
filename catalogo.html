@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Catálogo — A loja do Beta</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body class="catalogo-page">
+  <header class="page-header no-hero">
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container-fluid px-4">
+        <a class="navbar-brand" href="index.html">
+          <h1 class="text-white mb-0">A loja do Beta</h1>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="#navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto align-items-center">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Início</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="sobre-nos.html">Sobre Nós</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="catalogo.html">Peixes</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contato.html">Contato</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link icon-link d-none d-lg-flex" href="checkout.html" aria-label="Carrinho">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="9" cy="21" r="1"></circle>
+                  <circle cx="20" cy="21" r="1"></circle>
+                  <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                </svg>
+                <span class="cart-count">0</span>
+              </a>
+              <a class="nav-link d-lg-none" href="checkout.html">Carrinho</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link icon-link d-none d-lg-flex" href="#" aria-label="Conta">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+              </a>
+              <a class="nav-link d-lg-none" href="#">Minha conta</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="bubbles-container"></div>
+
+    <section id="peixes" class="container py-6">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+          <h3 class="fs-1 m-0 text-white">Catálogo de Peixes</h3>
+          <p class="mb-0">Escolha com confiança — filtrado e verificado por nossos aquaristas</p>
+        </div>
+        <div class="d-flex gap-3 align-items-center">
+          <button class="btn btn-outline-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#filterOffcanvas" aria-controls="filterOffcanvas">
+            <i class="bi bi-funnel"></i> Filtros
+          </button>
+          <nav aria-label="breadcrumb" class="d-none d-md-block">
+            <ol class="breadcrumb mb-0" style="background: transparent; --bs-breadcrumb-divider: '>' ;">
+              <li class="breadcrumb-item"><a href="index.html">Início</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Peixes</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+
+      <!-- Offcanvas de Filtros -->
+      <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="filterOffcanvas" aria-labelledby="filterOffcanvasLabel">
+        <div class="offcanvas-header border-bottom border-secondary">
+          <h5 class="offcanvas-title" id="filterOffcanvasLabel"><i class="bi bi-funnel"></i> Filtros</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <!-- Busca -->
+          <div class="mb-4">
+            <label for="searchFish" class="form-label">Buscar</label>
+            <input type="text" class="form-control bg-dark text-white border-secondary" id="searchFish"
+              placeholder="Nome do peixe...">
+          </div>
+
+          <!-- Tipo de Água -->
+          <div class="mb-4">
+            <label class="form-label fw-bold">Tipo de Água</label>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="salgada" id="checkSalgada">
+              <label class="form-check-label" for="checkSalgada">Água Salgada</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="doce" id="checkDoce">
+              <label class="form-check-label" for="checkDoce">Água Doce</label>
+            </div>
+          </div>
+
+          <!-- Faixa de Preço -->
+          <div class="mb-3">
+            <label for="priceRange" class="form-label fw-bold">Preço Máximo: <span id="priceValue" class="text-info">R$
+                2.000,00</span></label>
+            <input type="range" class="form-range" min="0" max="2000" step="10" id="priceRange" value="2000">
+            <div class="d-flex justify-content-between text-muted small">
+              <span>R$ 0</span>
+              <span>R$ 2.000+</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <!-- Grid de Produtos -->
+        <div class="col-12">
+          <div class="row g-4">
+            <div class="col-md-6 col-xl-4 fish-item" data-name="Blue Tang" data-price="549.90" data-type="salgada">
+              <div class="card bg-transparent border-light text-white h-100">
+                <img draggable="false" src="assets/images/bluetang.png" class="card-img-top" alt="Blue Tang"
+                  style="object-fit: contain; height: 220px" />
+                <div class="card-body">
+                  <h5 class="card-title">Blue Tang</h5>
+                  <p class="card-text mb-2">
+                    Peixe icônico e ativo, famoso por sua cor azul vibrante e
+                    personalidade.
+                  </p>
+                  <div class="fish-specs mt-2">
+                    <span class="badge bg-primary mb-1">Água Salgada</span>
+                    <span class="badge bg-info mb-1">24-26°C</span>
+                    <span class="badge bg-secondary mb-1">pH 8.1-8.4</span>
+                    <span class="badge bg-success mb-1">600L min</span>
+                    <small class="d-block mt-2 text-muted">Pacífico • Pode ser territorial</small>
+                  </div>
+                </div>
+                <div class="card-footer bg-transparent border-light d-flex justify-content-between align-items-center">
+                  <strong>R$ 549,90</strong>
+                  <button class="btn btn-outline-light buy-btn" data-name="Blue Tang" data-price="549.90">
+                    Adicionar ao carrinho
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-xl-4 fish-item" data-name="Peixe-Palhaço (Ocellaris)" data-price="119.90"
+              data-type="salgada">
+              <div class="card bg-transparent border-light text-white h-100">
+                <img draggable="false" src="assets/images/clownfish.png" class="card-img-top"
+                  alt="Peixe-Palhaço (Ocellaris)" style="object-fit: contain; height: 220px" />
+                <div class="card-body">
+                  <h5 class="card-title">Peixe-Palhaço (Ocellaris)</h5>
+                  <p class="card-text mb-2">
+                    Muito popular e resistente. Pode formar uma relação de
+                    simbiose com anêmonas.
+                  </p>
+                  <div class="fish-specs mt-2">
+                    <span class="badge bg-primary mb-1">Água Salgada</span>
+                    <span class="badge bg-info mb-1">24-27°C</span>
+                    <span class="badge bg-secondary mb-1">pH 8.1-8.4</span>
+                    <span class="badge bg-success mb-1">75L min</span>
+                    <small class="d-block mt-2 text-muted">Pacífico • Casal ou solo</small>
+                  </div>
+                </div>
+                <div class="card-footer bg-transparent border-light d-flex justify-content-between align-items-center">
+                  <strong>R$ 119,90</strong>
+                  <button class="btn btn-outline-light buy-btn" data-name="Peixe-Palhaço (Ocellaris)"
+                    data-price="119.90">
+                    Adicionar ao carrinho
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-xl-4 fish-item" data-name="Yellow Tang" data-price="699.90" data-type="salgada">
+              <div class="card bg-transparent border-light text-white h-100">
+                <img draggable="false" src="assets/images/yellowtang.png" class="card-img-top" alt="Yellow Tang"
+                  style="object-fit: contain; height: 220px" />
+                <div class="card-body">
+                  <h5 class="card-title">Yellow Tang</h5>
+                  <p class="card-text mb-2">
+                    Cor amarelo-limão brilhante. Excelente para controle de
+                    algas em aquários marinhos.
+                  </p>
+                  <div class="fish-specs mt-2">
+                    <span class="badge bg-primary mb-1">Água Salgada</span>
+                    <span class="badge bg-info mb-1">24-28°C</span>
+                    <span class="badge bg-secondary mb-1">pH 8.1-8.4</span>
+                    <span class="badge bg-success mb-1">380L min</span>
+                  </div>
+                </div>
+                <div class="card-footer bg-transparent border-light d-flex justify-content-between align-items-center">
+                  <strong>R$ 699,90</strong>
+                  <button class="btn btn-outline-light buy-btn" data-name="Yellow Tang" data-price="699.90">
+                    Adicionar ao carrinho
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-xl-4 fish-item" data-name="Peixe Betta Splendens" data-price="49.90"
+              data-type="doce">
+              <div class="card bg-transparent border-light text-white h-100">
+                <img draggable="false" src="assets/images/peixe01.png" class="card-img-top" alt="Peixe Betta Splendens"
+                  style="object-fit: contain; height: 220px" />
+                <div class="card-body">
+                  <h5 class="card-title">Peixe Betta Splendens</h5>
+                  <p class="card-text mb-2">
+                    Beleza e personalidade em um só peixe. Ideal para iniciantes.
+                  </p>
+                  <div class="fish-specs mt-2">
+                    <span class="badge bg-primary mb-1">Água Doce</span>
+                    <span class="badge bg-info mb-1">24-28°C</span>
+                    <span class="badge bg-secondary mb-1">pH 6.8-7.2</span>
+                    <span class="badge bg-success mb-1">15L min</span>
+                  </div>
+                </div>
+                <div class="card-footer bg-transparent border-light d-flex justify-content-between align-items-center">
+                  <strong>R$ 49,90</strong>
+                  <button class="btn btn-outline-light buy-btn" data-name="Peixe Betta Splendens" data-price="49.90">
+                    Adicionar ao carrinho
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-xl-4 fish-item" data-name="Acará Disco" data-price="189.90" data-type="doce">
+              <div class="card bg-transparent border-light text-white h-100">
+                <img draggable="false" src="assets/images/peixe02.png" class="card-img-top" alt="Acará Disco"
+                  style="object-fit: contain; height: 220px" />
+                <div class="card-body">
+                  <h5 class="card-title">Acará Disco</h5>
+                  <p class="card-text mb-2">
+                    O rei do aquário de água doce. Cores vibrantes e formato único.
+                  </p>
+                  <div class="fish-specs mt-2">
+                    <span class="badge bg-primary mb-1">Água Doce</span>
+                    <span class="badge bg-info mb-1">28-30°C</span>
+                    <span class="badge bg-secondary mb-1">pH 6.0-6.5</span>
+                    <span class="badge bg-success mb-1">200L min</span>
+                  </div>
+                </div>
+                <div class="card-footer bg-transparent border-light d-flex justify-content-between align-items-center">
+                  <strong>R$ 189,90</strong>
+                  <button class="btn btn-outline-light buy-btn" data-name="Acará Disco" data-price="189.90">
+                    Adicionar ao carrinho
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-xl-4 fish-item" data-name="Tubarão Bambu" data-price="1299.90"
+              data-type="salgada">
+              <div class="card bg-transparent border-light text-white h-100">
+                <img draggable="false" src="assets/images/tubarao.png" class="card-img-top" alt="Tubarão Bambu"
+                  style="object-fit: contain; height: 220px" />
+                <div class="card-body">
+                  <h5 class="card-title">Tubarão Bambu</h5>
+                  <p class="card-text mb-2">
+                    Um tubarão de fundo fascinante para grandes aquários marinhos.
+                  </p>
+                  <div class="fish-specs mt-2">
+                    <span class="badge bg-primary mb-1">Água Salgada</span>
+                    <span class="badge bg-info mb-1">24-26°C</span>
+                    <span class="badge bg-secondary mb-1">pH 8.1-8.4</span>
+                    <span class="badge bg-success mb-1">1000L min</span>
+                  </div>
+                </div>
+                <div class="card-footer bg-transparent border-light d-flex justify-content-between align-items-center">
+                  <strong>R$ 1.299,90</strong>
+                  <button class="btn btn-outline-light buy-btn" data-name="Tubarão Bambu" data-price="1299.90">
+                    Adicionar ao carrinho
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Novos Peixes -->
+            <div class="col-md-6 col-xl-4 fish-item" data-name="Neon Cardinal" data-price="15.90" data-type="salgada">
+              <div class="card bg-transparent border-light text-white h-100">
+                <img draggable="false" src="assets/images/fish.png" class="card-img-top" alt="Neon Cardinal"
+                  style="object-fit: contain; height: 220px" />
+                <div class="card-body">
+                  <h5 class="card-title">Neon Cardinal</h5>
+                  <p class="card-text mb-2">
+                    Pequeno e pacífico, ideal para aquários comunitários.
+                  </p>
+                  <div class="fish-specs mt-2">
+                    <span class="badge bg-primary mb-1">Água Salgada</span>
+                    <span class="badge bg-info mb-1">22-26°C</span>
+                    <span class="badge bg-secondary mb-1">pH 8.1-8.4</span>
+                    <span class="badge bg-success mb-1">50L min</span>
+                  </div>
+                </div>
+                <div class="card-footer bg-transparent border-light d-flex justify-content-between align-items-center">
+                  <strong>R$ 15,90</strong>
+                  <button class="btn btn-outline-light buy-btn" data-name="Neon Cardinal" data-price="15.90">
+                    Adicionar ao carrinho
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-xl-4 fish-item" data-name="Peixe Anjo" data-price="349.90" data-type="salgada">
+              <div class="card bg-transparent border-light text-white h-100">
+                <img draggable="false" src="assets/images/image 2.png" class="card-img-top" alt="Peixe Anjo"
+                  style="object-fit: contain; height: 220px" />
+                <div class="card-body">
+                  <h5 class="card-title">Peixe Anjo</h5>
+                  <p class="card-text mb-2">
+                    Majestoso e colorido, o destaque de qualquer aquário marinho.
+                  </p>
+                  <div class="fish-specs mt-2">
+                    <span class="badge bg-primary mb-1">Água Salgada</span>
+                    <span class="badge bg-info mb-1">24-28°C</span>
+                    <span class="badge bg-secondary mb-1">pH 8.1-8.4</span>
+                    <span class="badge bg-success mb-1">400L min</span>
+                  </div>
+                </div>
+                <div class="card-footer bg-transparent border-light d-flex justify-content-between align-items-center">
+                  <strong>R$ 349,90</strong>
+                  <button class="btn btn-outline-light buy-btn" data-name="Peixe Anjo" data-price="349.90">
+                    Adicionar ao carrinho
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-xl-4 fish-item" data-name="Tetra Neon" data-price="5.90" data-type="doce">
+              <div class="card bg-transparent border-light text-white h-100">
+                <img draggable="false" src="assets/images/Rectangle38.png" class="card-img-top" alt="Tetra Neon"
+                  style="object-fit: contain; height: 220px" />
+                <div class="card-body">
+                  <h5 class="card-title">Tetra Neon</h5>
+                  <p class="card-text mb-2">
+                    Cardume vibrante que brilha no aquário plantado.
+                  </p>
+                  <div class="fish-specs mt-2">
+                    <span class="badge bg-primary mb-1">Água Doce</span>
+                    <span class="badge bg-info mb-1">22-26°C</span>
+                    <span class="badge bg-secondary mb-1">pH 6.0-7.0</span>
+                    <span class="badge bg-success mb-1">40L min</span>
+                  </div>
+                </div>
+                <div class="card-footer bg-transparent border-light d-flex justify-content-between align-items-center">
+                  <strong>R$ 5,90</strong>
+                  <button class="btn btn-outline-light buy-btn" data-name="Tetra Neon" data-price="5.90">
+                    Adicionar ao carrinho
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-xl-4 fish-item" data-name="Guppy" data-price="8.90" data-type="doce">
+              <div class="card bg-transparent border-light text-white h-100">
+                <img draggable="false" src="assets/images/peixe02.png" class="card-img-top" alt="Guppy"
+                  style="object-fit: contain; height: 220px" />
+                <div class="card-body">
+                  <h5 class="card-title">Guppy</h5>
+                  <p class="card-text mb-2">
+                    Colorido, fácil de cuidar e se reproduz facilmente.
+                  </p>
+                  <div class="fish-specs mt-2">
+                    <span class="badge bg-primary mb-1">Água Doce</span>
+                    <span class="badge bg-info mb-1">24-28°C</span>
+                    <span class="badge bg-secondary mb-1">pH 7.0-7.5</span>
+                    <span class="badge bg-success mb-1">20L min</span>
+                  </div>
+                </div>
+                <div class="card-footer bg-transparent border-light d-flex justify-content-between align-items-center">
+                  <strong>R$ 8,90</strong>
+                  <button class="btn btn-outline-light buy-btn" data-name="Guppy" data-price="8.90">
+                    Adicionar ao carrinho
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-xl-4 fish-item" data-name="Mandarim" data-price="249.90" data-type="salgada">
+              <div class="card bg-transparent border-light text-white h-100">
+                <img draggable="false" src="assets/images/peixe.png" class="card-img-top" alt="Mandarim"
+                  style="object-fit: contain; height: 220px" />
+                <div class="card-body">
+                  <h5 class="card-title">Mandarim</h5>
+                  <p class="card-text mb-2">
+                    Padrões psicodélicos incríveis. Requer aquário maduro.
+                  </p>
+                  <div class="fish-specs mt-2">
+                    <span class="badge bg-primary mb-1">Água Salgada</span>
+                    <span class="badge bg-info mb-1">24-26°C</span>
+                    <span class="badge bg-secondary mb-1">pH 8.1-8.4</span>
+                    <span class="badge bg-success mb-1">200L min</span>
+                  </div>
+                </div>
+                <div class="card-footer bg-transparent border-light d-flex justify-content-between align-items-center">
+                  <strong>R$ 249,90</strong>
+                  <button class="btn btn-outline-light buy-btn" data-name="Mandarim" data-price="249.90">
+                    Adicionar ao carrinho
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-xl-4 fish-item" data-name="Cascudo" data-price="29.90" data-type="doce">
+              <div class="card bg-transparent border-light text-white h-100">
+                <img draggable="false" src="assets/images/peixe.png" class="card-img-top" alt="Cascudo"
+                  style="object-fit: contain; height: 220px" />
+                <div class="card-body">
+                  <h5 class="card-title">Cascudo</h5>
+                  <p class="card-text mb-2">
+                    Excelente limpador de fundo e vidros.
+                  </p>
+                  <div class="fish-specs mt-2">
+                    <span class="badge bg-primary mb-1">Água Doce</span>
+                    <span class="badge bg-info mb-1">22-28°C</span>
+                    <span class="badge bg-secondary mb-1">pH 6.5-7.5</span>
+                    <span class="badge bg-success mb-1">100L min</span>
+                  </div>
+                </div>
+                <div class="card-footer bg-transparent border-light d-flex justify-content-between align-items-center">
+                  <strong>R$ 29,90</strong>
+                  <button class="btn btn-outline-light buy-btn" data-name="Cascudo" data-price="29.90">
+                    Adicionar ao carrinho
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Paginação -->
+          <nav aria-label="Navegação de página" class="mt-5">
+            <ul class="pagination justify-content-center">
+              <li class="page-item disabled">
+                <a class="page-link bg-transparent text-white border-secondary" href="#" tabindex="-1" aria-disabled="true">Anterior</a>
+              </li>
+              <li class="page-item active" aria-current="page">
+                <a class="page-link bg-info border-info text-dark fw-bold" href="#">1</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link bg-transparent text-white border-secondary" href="#">2</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link bg-transparent text-white border-secondary" href="#">3</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link bg-transparent text-white border-secondary" href="#">Próximo</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </section>
+
+    <footer id="footer">
+      <div class="footer-container">
+        <img draggable="false" src="assets/images/footer.svg" style="width: 100%" alt="" />
+        <div class="footer-content">
+          <div class="footer-column footer-contact">
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+              </div>
+              <div class="contact-text">
+                <strong>Rua dos Peixes, 42</strong><br />
+                <strong>Brasil, Minas Gerais</strong>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                  </path>
+                </svg>
+              </div>
+              <div class="contact-text">
+                <strong>+55 31 98765-4321</strong>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </div>
+              <div class="contact-text">
+                <strong style="color: #61dafb">suporte@alojadobeta.com</strong>
+              </div>
+            </div>
+          </div>
+          <div class="footer-column footer-about">
+            <h3 class="footer-heading">Sobre a empresa</h3>
+            <p class="footer-description">
+              Somos uma empresa de venda de peixes ornamentais para aquários.
+              Oferecemos a consultoria e o suporte para que seu paraíso
+              aquático prospere.
+            </p>
+            <div class="social-icons">
+              <a href="#" class="social-icon" aria-label="Facebook">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                </svg>
+              </a>
+              <a href="#" class="social-icon" aria-label="Twitter">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                  <path
+                    d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
+                  </path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/bubbles.js"></script>
+  <script src="assets/js/filters.js"></script>
+
+  <!-- Alert Container -->
+  <div id="alert-container" class="position-fixed top-0 end-0 p-3" style="z-index: 2000"></div>
+</body>
+
+</html>
