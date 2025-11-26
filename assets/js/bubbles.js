@@ -2,26 +2,21 @@ document.addEventListener("DOMContentLoaded", () => {
     const bubblesContainer = document.querySelector(".bubbles-container");
     if (!bubblesContainer) return;
 
+    // cached selectors (kept up-to-date inside updateContainerHeight)
+    let main = document.querySelector("main");
+    let footer = document.querySelector("footer");
+    let sobreNosSection = document.querySelector("#sobre-nos");
+
     function updateContainerHeight() {
-        const main = document.querySelector("main");
-        const footer = document.querySelector("footer");
-        const sobreNosSection = document.querySelector("#sobre-nos");
+        main = document.querySelector("main");
+        footer = document.querySelector("footer");
+        sobreNosSection = document.querySelector("#sobre-nos");
 
-        if (sobreNosSection && main && footer) {
-            const mainRect = main.getBoundingClientRect();
-            const sobreNosRect = sobreNosSection.getBoundingClientRect();
-            const footerRect = footer.getBoundingClientRect();
-
-            const footerBottom = footerRect.bottom;
-            const sobreNosTop = sobreNosRect.top;
-            const totalHeight = footerBottom - sobreNosTop;
-
-            const topOffset = sobreNosRect.top - mainRect.top;
-            bubblesContainer.style.top = `${topOffset}px`;
-
-            bubblesContainer.style.height = `${totalHeight}px`;
-            bubblesContainer.style.bottom = 'auto';
-        } else if (main && footer) {
+        // Use the same positioning logic as index: span from top of <main>
+        // down to the footer bottom. This ensures, inclusive on the
+        // `sobre-nos` page, that bubbles appear to originate from the
+        // footer area (same visual behavior as index.html).
+        if (main && footer) {
             const mainRect = main.getBoundingClientRect();
             const footerRect = footer.getBoundingClientRect();
             const footerBottom = footerRect.bottom;
@@ -30,6 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (heightUntilFooterEnd > 0) {
                 bubblesContainer.style.top = '0px';
                 bubblesContainer.style.height = `${heightUntilFooterEnd}px`;
+                bubblesContainer.style.bottom = 'auto';
             }
         }
     }
@@ -51,15 +47,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     const observer = new MutationObserver(updateContainerHeight);
-    const sobreNosSection = document.querySelector("#sobre-nos");
     if (sobreNosSection) {
         observer.observe(sobreNosSection, { childList: true, subtree: true });
     }
-    const footer = document.querySelector("footer");
     if (footer) {
         observer.observe(footer, { childList: true, subtree: true });
     }
-    const main = document.querySelector("main");
     if (main) {
         observer.observe(main, { childList: true, subtree: true });
     }

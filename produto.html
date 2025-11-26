@@ -96,13 +96,13 @@
 
         <!-- Right Column: Info & Purchase -->
         <div class="col-lg-5">
-          <div class="produto-breadcrumb mb-3">
-            <a href="index.html">Início</a>
-            <span>/</span>
-            <a href="catalogo.html">Peixes</a>
-            <span>/</span>
-            <span>Peixe-palhaço Ocellaris</span>
-          </div>
+          <nav aria-label="breadcrumb" class="produto-breadcrumb mb-3">
+            <ol class="breadcrumb mb-0">
+              <li class="breadcrumb-item"><a href="index.html">Início</a></li>
+              <li class="breadcrumb-item"><a href="catalogo.html">Peixes</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Peixe-palhaço Ocellaris</li>
+            </ol>
+          </nav>
 
           <div class="produto-hero-text mb-4">
             <p class="produto-tag mb-3">Marinho • Pacífico • Colorido</p>
@@ -161,7 +161,7 @@
                 <p class="price-value h2 fw-bold mb-1">R$ 189,90</p>
                 <p class="price-subtitle small text-white-50">ou 3x de R$ 63,30 sem juros</p>
               </div>
-              <button class="btn btn-custom-orange w-100 py-3 fw-bold buy-btn" data-name="Peixe-palhaço Ocellaris" data-price="189.90">
+              <button class="btn btn-custom-orange w-100 py-3 fw-bold buy-btn" data-name="Peixe-palhaço Ocellaris" data-price="189.90" aria-label="Adicionar Peixe-palhaço Ocellaris ao carrinho">
                 Adicionar ao carrinho
               </button>
               <div class="mt-3 d-flex justify-content-center gap-3 text-white-50 small">
@@ -230,30 +230,30 @@
         </div>
         <div class="related-grid">
           <article class="related-card">
-            <img src="assets/images/bluetang.png" alt="Blue Tang" loading="lazy" />
+            <img src="assets/images/bluetang.png" alt="Blue Tang azul com cauda amarela" loading="lazy" />
             <h4>Blue Tang</h4>
             <p>Excelente controle de algas, temperamento ativo e curioso.</p>
             <div class="related-meta">
               <span>R$ 549,90</span>
-              <button class="btn btn-outline-light buy-btn" data-name="Blue Tang" data-price="549.90">Comprar</button>
+              <button class="btn btn-outline-light buy-btn" data-name="Blue Tang" data-price="549.90" aria-label="Adicionar Blue Tang ao carrinho">Comprar</button>
             </div>
           </article>
           <article class="related-card">
-            <img src="assets/images/yellowtang.png" alt="Yellow Tang" loading="lazy" />
+            <img src="assets/images/yellowtang.png" alt="Yellow Tang amarelo vibrante" loading="lazy" />
             <h4>Yellow Tang</h4>
             <p>Clássico companheiro de recife, resistente e com cor intensa.</p>
             <div class="related-meta">
               <span>R$ 699,90</span>
-              <button class="btn btn-outline-light buy-btn" data-name="Yellow Tang" data-price="699.90">Comprar</button>
+              <button class="btn btn-outline-light buy-btn" data-name="Yellow Tang" data-price="699.90" aria-label="Adicionar Yellow Tang ao carrinho">Comprar</button>
             </div>
           </article>
           <article class="related-card">
-            <img src="assets/images/peixe01.png" alt="Anêmona Bubble Tip" loading="lazy" />
+            <img src="assets/images/peixe01.png" alt="Anêmona Bubble Tip vermelha" loading="lazy" />
             <h4>Anêmona Bubble Tip</h4>
             <p>Par perfeito para o peixe-palhaço construir sua simbiose.</p>
             <div class="related-meta">
               <span>R$ 259,90</span>
-              <button class="btn btn-outline-light buy-btn" data-name="Anêmona Bubble Tip" data-price="259.90">Comprar</button>
+              <button class="btn btn-outline-light buy-btn" data-name="Anêmona Bubble Tip" data-price="259.90" aria-label="Adicionar Anêmona Bubble Tip ao carrinho">Comprar</button>
             </div>
           </article>
         </div>

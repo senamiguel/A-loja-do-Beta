@@ -341,6 +341,44 @@ background: linear-gradient(to bottom, rgba(3, 11, 18, 0.0) 70%,  #021524 100%),
     object-fit: contain;
 }
 
+/* Hero refinements for sobre-nos */
+.sobre-nos-hero {
+    position: relative;
+    overflow: visible;
+}
+
+.hero-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    border-radius: 1rem;
+    background: radial-gradient(60% 60% at 50% 60%, rgba(97,218,251,0.10) 0%, rgba(3,11,18,0.0) 40%);
+    filter: blur(22px);
+    transform: translateZ(0) scale(1);
+    mix-blend-mode: screen;
+}
+
+.sobre-nos-hero-img {
+    position: relative;
+    z-index: 1;
+    border-radius: 1rem;
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border: 1px solid rgba(255,255,255,0.04);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.6), 0 6px 30px rgba(97,218,251,0.04);
+}
+
+@media (max-width: 992px) {
+    .sobre-nos-img { width: 100%; }
+    .hero-glow { filter: blur(16px); background: radial-gradient(60% 60% at 50% 60%, rgba(97,218,251,0.08) 0%, rgba(3,11,18,0) 45%); }
+}
+
 .sobre-nos-text {
     flex: 1;
 }
@@ -702,10 +740,13 @@ footer * {
 footer{
  background: linear-gradient(to bottom, #040f1a 0%,  #002F5D 55%, #000000 60%);
  position: relative;
- z-index: 2;
+ z-index: 1;
  margin: 0;
  padding: 0;
  margin-bottom: 0 !important;
+}
+.about-footer{
+    background: linear-gradient(to bottom, #021523 0%, #002F5D 55%, #000000 60%);
 }
 
 footer::after {

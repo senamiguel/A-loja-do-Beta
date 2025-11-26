@@ -87,10 +87,10 @@
           </div>
         </div>
         <div class="col-lg-6">
-          <div class="position-relative">
-             <div class="position-absolute top-0 start-0 w-100 h-100 bg-info opacity-10 rounded-5" style="filter: blur(40px); transform: scale(0.9);"></div>
-             <img src="assets/images/tubarao.png" class="img-fluid rounded-5 shadow-lg position-relative" alt="Sobre nós" style="border: 1px solid rgba(255,255,255,0.1);">
-          </div>
+            <div class="position-relative sobre-nos-hero">
+               <div class="hero-glow rounded-5" aria-hidden="true"></div>
+               <img src="assets/images/tubarao.png" class="img-fluid rounded-5 shadow-lg position-relative sobre-nos-hero-img" alt="Sobre nós">
+             </div>
         </div>
       </div>
     </section>
@@ -126,12 +126,24 @@
               <i class="bi bi-heart fs-2 text-info"></i>
             </div>
             <h3 class="text-white mb-3">Valores</h3>
-            <ul class="list-unstyled text-white-50 text-start mx-auto" style="max-width: 250px;">
-              <li class="mb-2"><i class="bi bi-check2 text-info me-2"></i>Conhecimento</li>
-              <li class="mb-2"><i class="bi bi-check2 text-info me-2"></i>Qualidade</li>
-              <li class="mb-2"><i class="bi bi-check2 text-info me-2"></i>Paixão</li>
-              <li class="mb-2"><i class="bi bi-check2 text-info me-2"></i>Respeito</li>
-            </ul>
+            <div class="row g-4 mt-1">
+              <div class="col-6">
+                 <i class="bi bi-lightbulb text-info fs-3 mb-2 d-block"></i>
+                 <span class="text-white-50">Conhecimento</span>
+              </div>
+              <div class="col-6">
+                 <i class="bi bi-diamond text-info fs-3 mb-2 d-block"></i>
+                 <span class="text-white-50">Qualidade</span>
+              </div>
+              <div class="col-6">
+                 <i class="bi bi-heart-fill text-info fs-3 mb-2 d-block"></i>
+                 <span class="text-white-50">Paixão</span>
+              </div>
+              <div class="col-6">
+                 <i class="bi bi-people-fill text-info fs-3 mb-2 d-block"></i>
+                 <span class="text-white-50">Respeito</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -214,7 +226,7 @@
     </section>
   </main>
 
-  <footer id="footer">
+  <footer id="footer " class="about-footer">
     <div class="footer-container">
       <img draggable="false" src="assets/images/footer.svg" style="width: 100%" alt="" />
       <div class="footer-content">
