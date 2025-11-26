@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,8 +10,9 @@
 </head>
 
 <body class="contato-page">
+  <a class="visually-hidden-focusable skip-link" href="#main-content" id="skip-link">Pular para o conteúdo</a>
   <header class="page-header no-hero">
-    <nav class="navbar navbar-expand-lg navbar-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark" role="navigation" aria-label="Menu principal">
       <div class="container-fluid px-4">
         <a class="navbar-brand" href="#">
           <h1 class="text-white mb-0">A loja do Beta</h1>
@@ -42,7 +43,7 @@
                   <circle cx="20" cy="21" r="1"></circle>
                   <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
                 </svg>
-                <span class="cart-count">0</span>
+                <span class="cart-count" aria-live="polite">0</span>
               </a>
               <a class="nav-link d-lg-none" href="checkout.html">Carrinho</a>
             </li>
@@ -61,7 +62,7 @@
       </div>
     </nav>
   </header>
-    <main>
+  <main id="main-content" role="main">
 
                 
                 <section class="intro-contato text-center py-4">
@@ -111,9 +112,9 @@
           </div>
       </section>
     
-    <footer id="footer">
+  <footer id="footer" role="contentinfo">
       <div class="footer-container">
-        <img draggable="false" src="assets/images/footer.svg" style="width: 100%" alt="" />
+  <img draggable="false" src="assets/images/footer.svg" style="width: 100%" alt="Ilustração decorativa do rodapé" aria-hidden="true" />
         <div class="footer-content">
           <div class="footer-column footer-contact">
             <div class="contact-item">

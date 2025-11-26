@@ -110,11 +110,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Product Click Logic
   fishItems.forEach(item => {
-    const cardTitle = item.querySelector('.card-title').innerText;
+    const titleElement = item.querySelector('.card-title');
+    const imgElement = item.querySelector('img');
+    const descElement = item.querySelector('.card-text');
+    const specsElement = item.querySelector('.fish-specs');
+    
+    if (!titleElement || !imgElement) return;
+    
+    const cardTitle = titleElement.innerText;
     const cardPrice = item.dataset.price;
-    const cardImg = item.querySelector('img').src;
-    const cardDesc = item.querySelector('.card-text').innerText;
-    const specs = item.querySelector('.fish-specs').innerHTML;
+    const cardImg = imgElement.src;
+    const cardDesc = descElement ? descElement.innerText : '';
+    const specs = specsElement ? specsElement.innerHTML : '';
     
     // Get extended data from data attributes
     const longDesc = item.dataset.descriptionFull || `<p>${cardDesc}</p>`;
@@ -122,24 +129,31 @@ document.addEventListener('DOMContentLoaded', () => {
     const params = item.dataset.params || '<ul class="param-list"><li><span>Informação</span><strong>Sob consulta</strong></li></ul>';
 
     // Add click event to image and title
-    const clickableElements = [item.querySelector('img'), item.querySelector('.card-title')];
+    const clickableElements = [imgElement, titleElement];
     
     clickableElements.forEach(el => {
-      el.style.cursor = 'pointer';
-      el.addEventListener('click', () => {
-        const productData = {
-          name: cardTitle,
-          price: cardPrice,
-          image: cardImg,
-          description: cardDesc, // Short description for hero
-          longDescription: longDesc, // Full description for tabs
-          care: care,
-          parameters: params,
-          specs: specs
-        };
-        sessionStorage.setItem('selectedProduct', JSON.stringify(productData));
-        window.location.href = 'produto.html';
-      });
+      if (el) {
+        el.style.cursor = 'pointer';
+        el.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          
+          const productData = {
+            name: cardTitle,
+            price: cardPrice,
+            image: cardImg,
+            description: cardDesc, // Short description for hero
+            longDescription: longDesc, // Full description for tabs
+            care: care,
+            parameters: params,
+            specs: specs
+          };
+          
+          console.log('Salvando produto do catálogo:', productData);
+          sessionStorage.setItem('selectedProduct', JSON.stringify(productData));
+          window.location.href = 'produto.html';
+        });
+      }
     });
   });
 

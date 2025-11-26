@@ -1988,6 +1988,33 @@ body {
     backdrop-filter: blur(6px);
 }
 
+/* Checkout page specific input styles to match dark identity */
+.checkout-page .form-control,
+.checkout-page .form-select {
+    background-color: rgba(0, 0, 0, 0.3) !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(255,255,255,0.12) !important;
+}
+
+.checkout-page .form-control::placeholder {
+    color: #adb5bd !important;
+    opacity: 1;
+}
+
+.checkout-page .form-control:focus,
+.checkout-page .form-select:focus {
+    background: linear-gradient(to right, #1a2a4e, #0c193d) !important;
+    border: 1px solid rgba(255,255,255,0.36) !important;
+    box-shadow: 0 0 0 4px rgba(97,218,251,0.06) !important;
+    outline: none !important;
+}
+
+/* Ensure sticky bar controls inherit dark style */
+#checkout-bar .form-select {
+    background: rgba(0,0,0,0.3) !important;
+    color: #fff !important;
+}
+
 .contato-text{
     flex: 1;
     color: rgba(255,255,255,0.95);
@@ -2915,6 +2942,14 @@ font-family: 'Raleway', sans-serif;
     background-color: #e04e2e;
     border-color: #e04e2e;
     color: white;
+}
+
+/* When a .btn-custom-orange is also a .buy-btn (product CTA), prefer the buy hover style
+   so the hover matches site-wide CTA animation (text becomes dark for contrast). */
+.btn-custom-orange.buy-btn:hover {
+    background-color: #61dafb !important;
+    border-color: #61dafb !important;
+    color: #000 !important;
 }
 
 .btn-outline-custom-orange {

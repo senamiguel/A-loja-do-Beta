@@ -191,9 +191,42 @@ function finalizarCompra() {
         return;
     }
 
+    // Coletar dados do cliente (adicionados ao HTML)
+    const nome = (document.getElementById('nome') || {}).value.trim() || '';
+    const email = (document.getElementById('email') || {}).value.trim() || '';
+    const rua = (document.getElementById('rua') || {}).value.trim() || '';
+    const numero = (document.getElementById('numero') || {}).value.trim() || '';
+    const cidade = (document.getElementById('cidade') || {}).value.trim() || '';
+    const estado = (document.getElementById('estado') || {}).value.trim() || '';
+
     const cep = (document.getElementById('cep') || {}).value || '';
     const formaPagamentoEl = document.getElementById('forma-pagamento');
     const formaPagamento = formaPagamentoEl ? formaPagamentoEl.value : '';
+
+    // Validações do formulário do cliente
+    if (!nome) {
+        const infoEl = document.getElementById('infoModalMessage');
+        if (infoEl) infoEl.textContent = 'Por favor, informe seu nome.';
+        const infoModalEl = document.getElementById('infoModal');
+        if (infoModalEl) new bootstrap.Modal(infoModalEl).show();
+        return;
+    }
+
+    if (!email || !/^\S+@\S+\.\S+$/.test(email)) {
+        const infoEl = document.getElementById('infoModalMessage');
+        if (infoEl) infoEl.textContent = 'Por favor, informe um e-mail válido.';
+        const infoModalEl = document.getElementById('infoModal');
+        if (infoModalEl) new bootstrap.Modal(infoModalEl).show();
+        return;
+    }
+
+    if (!rua || !numero || !cidade || !estado) {
+        const infoEl = document.getElementById('infoModalMessage');
+        if (infoEl) infoEl.textContent = 'Por favor, preencha o endereço completo (rua, número, cidade e estado).';
+        const infoModalEl = document.getElementById('infoModal');
+        if (infoModalEl) new bootstrap.Modal(infoModalEl).show();
+        return;
+    }
 
     if (!cep || !/^\d{5}-?\d{3}$/.test(cep)) {
         const infoEl = document.getElementById('infoModalMessage');
@@ -213,10 +246,16 @@ function finalizarCompra() {
 
     const total = calcularTotal();
 
-    // preencher modal de confirmação
+    // preencher modal de confirmação com dados do cliente
+    const confirmNome = document.getElementById('confirm-nome');
+    const confirmEmail = document.getElementById('confirm-email');
+    const confirmEndereco = document.getElementById('confirm-endereco');
     const confirmCep = document.getElementById('confirm-cep');
     const confirmPag = document.getElementById('confirm-pagamento');
     const confirmTotal = document.getElementById('confirm-total');
+    if (confirmNome) confirmNome.textContent = nome;
+    if (confirmEmail) confirmEmail.textContent = email;
+    if (confirmEndereco) confirmEndereco.textContent = `${rua}, ${numero} — ${cidade}/${estado}`;
     if (confirmCep) confirmCep.textContent = cep;
     if (confirmPag && formaPagamentoEl) confirmPag.textContent = formaPagamentoEl.selectedOptions[0].text;
     if (confirmTotal) confirmTotal.textContent = formatarPreco(total);
@@ -313,6 +352,9 @@ document.addEventListener('DOMContentLoaded', function() {
             if (cepInput) cepInput.value = '';
             const formaSelect = document.getElementById('forma-pagamento');
             if (formaSelect) formaSelect.selectedIndex = 0;
+            // limpar campos do cliente
+            const campos = ['nome','email','rua','numero','cidade','estado'];
+            campos.forEach(id => { const el = document.getElementById(id); if (el) el.value = ''; });
         });
     }
 });
