@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>A loja do Beta</title>
+    <title>Checkout - A loja do Beta</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="assets/css/style.css" />
@@ -57,47 +57,47 @@
     </header>
 
     <main id="main-content" role="main">
-        <section id="carrinho" class="py-5">
+        <section id="carrinho" class="py-5" aria-labelledby="carrinho-titulo">
             <div class="container">
-                <div class="stepper-container mb-5">
-                    <div class="stepper">
-                        <div class="step active" data-step="1">
+                <div class="stepper-container mb-5" role="navigation" aria-label="Progresso do checkout">
+                    <div class="stepper" role="list">
+                        <div class="step active" data-step="1" role="listitem" aria-current="step">
                             <div class="step-circle">
-                                <span class="step-number">1</span>
-                                <i class="bi bi-check-lg step-check"></i>
+                                <span class="step-number" aria-hidden="true">1</span>
+                                <i class="bi bi-check-lg step-check" aria-hidden="true"></i>
                             </div>
                             <div class="step-label">Carrinho</div>
                         </div>
-                        <div class="step-line"></div>
-                        <div class="step" data-step="2">
+                        <div class="step-line" aria-hidden="true"></div>
+                        <div class="step" data-step="2" role="listitem">
                             <div class="step-circle">
-                                <span class="step-number">2</span>
-                                <i class="bi bi-check-lg step-check"></i>
+                                <span class="step-number" aria-hidden="true">2</span>
+                                <i class="bi bi-check-lg step-check" aria-hidden="true"></i>
                             </div>
                             <div class="step-label">Entrega</div>
                         </div>
-                        <div class="step-line"></div>
-                        <div class="step" data-step="3">
+                        <div class="step-line" aria-hidden="true"></div>
+                        <div class="step" data-step="3" role="listitem">
                             <div class="step-circle">
-                                <span class="step-number">3</span>
-                                <i class="bi bi-check-lg step-check"></i>
+                                <span class="step-number" aria-hidden="true">3</span>
+                                <i class="bi bi-check-lg step-check" aria-hidden="true"></i>
                             </div>
                             <div class="step-label">Pagamento</div>
                         </div>
-                        <div class="step-line"></div>
-                        <div class="step" data-step="4">
+                        <div class="step-line" aria-hidden="true"></div>
+                        <div class="step" data-step="4" role="listitem">
                             <div class="step-circle">
-                                <span class="step-number">4</span>
-                                <i class="bi bi-check-lg step-check"></i>
+                                <span class="step-number" aria-hidden="true">4</span>
+                                <i class="bi bi-check-lg step-check" aria-hidden="true"></i>
                             </div>
                             <div class="step-label">Revisão</div>
                         </div>
                     </div>
                 </div>
 
-                <div class="step-content" id="step-1">
+                <div class="step-content" id="step-1" role="region" aria-labelledby="carrinho-titulo">
                 <div class="d-flex justify-content-between align-items-center mb-4">
-                    <h3 class="fs-1 m-0 text-white aquario-title">Seu Aquário</h3>
+                    <h3 class="fs-1 m-0 text-white aquario-title" id="carrinho-titulo">Seu Aquário</h3>
                     <p class="mb-0">Gerencie seus peixes</p>
                 </div>
 
@@ -120,100 +120,101 @@
                         <span class="bubble b4" aria-hidden="true"></span>
                         <span class="bubble b5" aria-hidden="true"></span>
                     </div>
-                    <div id="lista-carrinho" class="lista-produtos-vertical">
+                    <div id="lista-carrinho" class="lista-produtos-vertical" role="list" aria-label="Itens no carrinho">
+                    </div>
                 </div>
                 </div>
 
-                <div class="step-content" id="step-2" style="display: none;">
-                    <h3 class="fs-1 mb-4 text-white">Dados de Entrega</h3>
-                    <form id="delivery-form" class="row g-3">
+                <div class="step-content" id="step-2" style="display: none;" role="region" aria-labelledby="entrega-titulo">
+                    <h3 class="fs-1 mb-4 text-white" id="entrega-titulo">Dados de Entrega</h3>
+                    <form id="delivery-form" class="row g-3" aria-label="Formulário de dados de entrega">
                         <div class="col-md-6">
-                            <label for="nome" class="form-label text-white">Nome completo *</label>
-                            <input type="text" id="nome" name="nome" class="form-control" required placeholder="Seu nome completo" />
+                            <label for="nome" class="form-label text-white">Nome completo <span aria-hidden="true">*</span><span class="visually-hidden">(obrigatório)</span></label>
+                            <input type="text" id="nome" name="nome" class="form-control" required placeholder="Seu nome completo" aria-required="true" autocomplete="name" />
                         </div>
 
                         <div class="col-md-6">
-                            <label for="email" class="form-label text-white">E-mail *</label>
-                            <input type="email" id="email" name="email" class="form-control" required placeholder="seu@exemplo.com" />
+                            <label for="email" class="form-label text-white">E-mail <span aria-hidden="true">*</span><span class="visually-hidden">(obrigatório)</span></label>
+                            <input type="email" id="email" name="email" class="form-control" required placeholder="seu@exemplo.com" aria-required="true" autocomplete="email" />
                         </div>
 
                         <div class="col-md-8">
-                            <label for="rua" class="form-label text-white">Rua / Logradouro *</label>
-                            <input type="text" id="rua" name="rua" class="form-control" required placeholder="Rua Exemplo" />
+                            <label for="rua" class="form-label text-white">Rua / Logradouro <span aria-hidden="true">*</span><span class="visually-hidden">(obrigatório)</span></label>
+                            <input type="text" id="rua" name="rua" class="form-control" required placeholder="Rua Exemplo" aria-required="true" autocomplete="street-address" />
                         </div>
 
                         <div class="col-md-4">
-                            <label for="numero" class="form-label text-white">Número *</label>
-                            <input type="text" id="numero" name="numero" class="form-control" required placeholder="123" />
+                            <label for="numero" class="form-label text-white">Número <span aria-hidden="true">*</span><span class="visually-hidden">(obrigatório)</span></label>
+                            <input type="text" id="numero" name="numero" class="form-control" required placeholder="123" aria-required="true" inputmode="numeric" />
                         </div>
 
                         <div class="col-md-5">
-                            <label for="cidade" class="form-label text-white">Cidade *</label>
-                            <input type="text" id="cidade" name="cidade" class="form-control" required placeholder="Cidade" />
+                            <label for="cidade" class="form-label text-white">Cidade <span aria-hidden="true">*</span><span class="visually-hidden">(obrigatório)</span></label>
+                            <input type="text" id="cidade" name="cidade" class="form-control" required placeholder="Cidade" aria-required="true" autocomplete="address-level2" />
                         </div>
 
                         <div class="col-md-2">
-                            <label for="estado" class="form-label text-white">Estado *</label>
-                            <input type="text" id="estado" name="estado" class="form-control" required placeholder="UF" maxlength="2" />
+                            <label for="estado" class="form-label text-white">Estado <span aria-hidden="true">*</span><span class="visually-hidden">(obrigatório)</span></label>
+                            <input type="text" id="estado" name="estado" class="form-control" required placeholder="UF" maxlength="2" aria-required="true" autocomplete="address-level1" />
                         </div>
 
                         <div class="col-md-5">
-                            <label for="cep" class="form-label text-white">CEP *</label>
-                            <input type="text" id="cep" name="cep" class="form-control" maxlength="9" placeholder="00000-000" required />
+                            <label for="cep" class="form-label text-white">CEP <span aria-hidden="true">*</span><span class="visually-hidden">(obrigatório)</span></label>
+                            <input type="text" id="cep" name="cep" class="form-control" maxlength="9" placeholder="00000-000" required aria-required="true" autocomplete="postal-code" inputmode="numeric" />
                         </div>
                     </form>
                 </div>
 
-                <div class="step-content" id="step-3" style="display: none;">
-                    <h3 class="fs-1 mb-4 text-white">Forma de Pagamento</h3>
-                    <div class="payment-options">
-                        <div class="payment-option" data-payment="pix">
-                            <div class="payment-icon">
+                <div class="step-content" id="step-3" style="display: none;" role="region" aria-labelledby="pagamento-titulo">
+                    <h3 class="fs-1 mb-4 text-white" id="pagamento-titulo">Forma de Pagamento</h3>
+                    <div class="payment-options" role="radiogroup" aria-label="Selecione a forma de pagamento">
+                        <div class="payment-option" data-payment="pix" role="radio" aria-checked="false" tabindex="0">
+                            <div class="payment-icon" aria-hidden="true">
                                 <i class="bi bi-qr-code"></i>
                             </div>
                             <div class="payment-info">
                                 <h5>PIX</h5>
                                 <p>Pagamento instantâneo</p>
                             </div>
-                            <div class="payment-check">
+                            <div class="payment-check" aria-hidden="true">
                                 <i class="bi bi-check-circle-fill"></i>
                             </div>
                         </div>
 
-                        <div class="payment-option" data-payment="credito">
-                            <div class="payment-icon">
+                        <div class="payment-option" data-payment="credito" role="radio" aria-checked="false" tabindex="0">
+                            <div class="payment-icon" aria-hidden="true">
                                 <i class="bi bi-credit-card"></i>
                             </div>
                             <div class="payment-info">
                                 <h5>Cartão de Crédito</h5>
                                 <p>Parcelamento disponível</p>
                             </div>
-                            <div class="payment-check">
+                            <div class="payment-check" aria-hidden="true">
                                 <i class="bi bi-check-circle-fill"></i>
                             </div>
                         </div>
 
-                        <div class="payment-option" data-payment="debito">
-                            <div class="payment-icon">
+                        <div class="payment-option" data-payment="debito" role="radio" aria-checked="false" tabindex="0">
+                            <div class="payment-icon" aria-hidden="true">
                                 <i class="bi bi-credit-card-2-front"></i>
                             </div>
                             <div class="payment-info">
                                 <h5>Cartão de Débito</h5>
                                 <p>À vista com desconto</p>
                             </div>
-                            <div class="payment-check">
+                            <div class="payment-check" aria-hidden="true">
                                 <i class="bi bi-check-circle-fill"></i>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="step-content" id="step-4" style="display: none;">
-                    <h3 class="fs-1 mb-4 text-white">Revisão do Pedido</h3>
+                <div class="step-content" id="step-4" style="display: none;" role="region" aria-labelledby="revisao-titulo">
+                    <h3 class="fs-1 mb-4 text-white" id="revisao-titulo">Revisão do Pedido</h3>
                     
                     <div class="review-section mb-4">
                         <h5 class="text-white mb-3">Itens do Pedido</h5>
-                        <div id="review-items" class="review-items">
+                        <div id="review-items" class="review-items" role="list" aria-label="Itens do pedido"></div>
                     </div>
 
                     <div class="review-section mb-4">
@@ -259,21 +260,21 @@
         </section>
     </main>
 
-    <div id="checkout-bar" style="position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:center;z-index:1050;background:rgba(2,21,36,0.98);border-top:1px solid rgba(255,255,255,0.08);padding:20px 0;">
+    <div id="checkout-bar" role="region" aria-label="Barra de ações do checkout" style="position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:center;z-index:1050;background:rgba(2,21,36,0.98);border-top:1px solid rgba(255,255,255,0.08);padding:20px 0;">
         <div style="display:flex;gap:16px;align-items:center;max-width:1100px;width:calc(100% - 40px);justify-content:space-between;">
-            <button id="btn-voltar" class="btn btn-outline-light" style="display:none;">
-                <i class="bi bi-arrow-left me-2"></i>Voltar
+            <button id="btn-voltar" class="btn btn-outline-light" style="display:none;" aria-label="Voltar para a etapa anterior">
+                <i class="bi bi-arrow-left me-2" aria-hidden="true"></i>Voltar
             </button>
             
-            <div class="total-container" style="color:#fff;font-weight:700;font-size:1.25rem;">
+            <div class="total-container" style="color:#fff;font-weight:700;font-size:1.25rem;" aria-live="polite">
                 Total: R$ <span id="total-carrinho">0,00</span>
             </div>
 
-            <button id="btn-continuar" class="btn btn-primary px-4">
-                Continuar<i class="bi bi-arrow-right ms-2"></i>
+            <button id="btn-continuar" class="btn btn-primary px-4" aria-label="Continuar para a próxima etapa">
+                Continuar<i class="bi bi-arrow-right ms-2" aria-hidden="true"></i>
             </button>
-            <button id="btn-finalizar" class="btn btn-success px-4" style="display:none;">
-                <i class="bi bi-check-circle me-2"></i>Finalizar Compra
+            <button id="btn-finalizar" class="btn btn-success px-4" style="display:none;" aria-label="Finalizar a compra">
+                <i class="bi bi-check-circle me-2" aria-hidden="true"></i>Finalizar Compra
             </button>
         </div>
     </div>
@@ -296,12 +297,12 @@
 
     <footer id="footer" role="contentinfo">
         <div class="footer-container">
-            <img draggable="false" src="assets/images/footer.svg" style="width: 100%" alt="" />
+            <img draggable="false" src="assets/images/footer.svg" style="width: 100%" alt="Ilustração decorativa do rodapé" />
             <div class="footer-content">
                 <div class="footer-column footer-contact">
                     <div class="contact-item">
                         <div class="contact-icon">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" aria-hidden="true">
                                 <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                                 <circle cx="12" cy="10" r="3"></circle>
                             </svg>
@@ -313,10 +314,11 @@
                     </div>
                     <div class="contact-item">
                         <div class="contact-icon">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" aria-hidden="true">
                                 <path
                                     d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
-                                </svg>
+                                </path>
+                            </svg>
                         </div>
                         <div class="contact-text">
                             <strong>+55 31 98765-4321</strong>
@@ -324,7 +326,7 @@
                     </div>
                     <div class="contact-item">
                         <div class="contact-icon">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" aria-hidden="true">
                                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                                 <polyline points="22,6 12,13 2,6"></polyline>
                             </svg>
@@ -343,26 +345,26 @@
                     </p>
                     <div class="social-icons">
                         <a href="#" class="social-icon" aria-label="Facebook">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="white" aria-hidden="true">
                                 <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
                             </svg>
                         </a>
                         <a href="#" class="social-icon" aria-label="Twitter">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="white" aria-hidden="true">
                                 <path
                                     d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
                                 </path>
                             </svg>
                         </a>
                         <a href="#" class="social-icon" aria-label="LinkedIn">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="white" aria-hidden="true">
                                 <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
                                 <rect x="2" y="9" width="4" height="12"></rect>
                                 <circle cx="4" cy="4" r="2"></circle>
                             </svg>
                         </a>
                         <a href="#" class="social-icon" aria-label="GitHub">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="white" aria-hidden="true">
                                 <path
                                     d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
                                 </path>
@@ -375,35 +377,7 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        // Demo: add a single fish to cart for demonstration if cart is empty
-        (function(){
-            try {
-                const current = JSON.parse(localStorage.getItem('carrinho') || 'null');
-                if (!current || (Array.isArray(current) && current.length === 0)) {
-                    const demo = [{
-                        id: 999999,
-                        nome: 'Peixe-Palhaço (Ocellaris) - Demo',
-                        preco: 119.90,
-                        imagem: 'assets/images/clownfish.png',
-                        quantidade: 1
-                    }];
-                    localStorage.setItem('carrinho', JSON.stringify(demo));
-                    // ensure example initialization in checkout.js doesn't override unexpectedly
-                    localStorage.setItem('exemplosInicializados', 'true');
-                }
-            } catch (e) {
-                console.warn('Não foi possível inserir demo no carrinho', e);
-            }
-        })();
-    </script>
     <script src="assets/js/checkout.js"></script>
 </body>
-
-
-
-
-
-
 
 </html>

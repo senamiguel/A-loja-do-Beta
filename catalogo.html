@@ -20,7 +20,7 @@
           <h1 class="text-white mb-0">A loja do Beta</h1>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-          aria-controls="#navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
@@ -56,17 +56,17 @@
   </header>
 
   <main id="main-content" role="main">
-    <div class="bubbles-container"></div>
+    <div class="bubbles-container" aria-hidden="true"></div>
 
-    <section id="peixes" class="container py-6">
+    <section id="peixes" class="container py-6" aria-labelledby="catalogo-titulo">
       <div class="d-flex justify-content-between align-items-center mb-4">
         <div>
-          <h3 class="fs-1 m-0 text-white">Catálogo de Peixes</h3>
+          <h3 class="fs-1 m-0 text-white" id="catalogo-titulo">Catálogo de Peixes</h3>
           <p class="mb-0">Escolha com confiança — filtrado e verificado por nossos aquaristas</p>
         </div>
         <div class="d-flex gap-3 align-items-center">
-          <button class="btn btn-outline-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#filterOffcanvas" aria-controls="filterOffcanvas">
-            <i class="bi bi-funnel"></i> Filtros
+          <button class="btn btn-outline-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#filterOffcanvas" aria-controls="filterOffcanvas" aria-label="Abrir filtros de busca">
+            <i class="bi bi-funnel" aria-hidden="true"></i> Filtros
           </button>
           <nav aria-label="breadcrumb" class="d-none d-md-block">
             <ol class="breadcrumb mb-0" style="background: transparent; --bs-breadcrumb-divider: '>' ;">
@@ -79,18 +79,19 @@
 
       <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="filterOffcanvas" aria-labelledby="filterOffcanvasLabel">
         <div class="offcanvas-header border-bottom border-secondary">
-          <h5 class="offcanvas-title" id="filterOffcanvasLabel"><i class="bi bi-funnel"></i> Filtros</h5>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          <h5 class="offcanvas-title" id="filterOffcanvasLabel"><i class="bi bi-funnel" aria-hidden="true"></i> Filtros</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Fechar filtros"></button>
         </div>
         <div class="offcanvas-body">
           <div class="mb-4">
             <label for="searchFish" class="form-label">Buscar</label>
-            <input type="text" class="form-control bg-dark text-white border-secondary" id="searchFish"
-              placeholder="Nome do peixe...">
+            <input type="search" class="form-control bg-dark text-white border-secondary" id="searchFish"
+              placeholder="Nome do peixe..." aria-describedby="searchFishHelp">
+            <small id="searchFishHelp" class="visually-hidden">Digite o nome do peixe para filtrar os resultados</small>
           </div>
 
-          <div class="mb-4">
-            <label class="form-label fw-bold">Tipo de Água</label>
+          <fieldset class="mb-4">
+            <legend class="form-label fw-bold">Tipo de Água</legend>
             <div class="form-check">
               <input class="form-check-input" type="checkbox" value="salgada" id="checkSalgada">
               <label class="form-check-label" for="checkSalgada">Água Salgada</label>
@@ -99,13 +100,13 @@
               <input class="form-check-input" type="checkbox" value="doce" id="checkDoce">
               <label class="form-check-label" for="checkDoce">Água Doce</label>
             </div>
-          </div>
+          </fieldset>
 
           <div class="mb-3">
-            <label for="priceRange" class="form-label fw-bold">Preço Máximo: <span id="priceValue" class="text-info">R$
+            <label for="priceRange" class="form-label fw-bold">Preço Máximo: <span id="priceValue" class="text-info" aria-live="polite">R$
                 2.000,00</span></label>
-            <input type="range" class="form-range" min="0" max="2000" step="10" id="priceRange" value="2000">
-            <div class="d-flex justify-content-between text-muted small">
+            <input type="range" class="form-range" min="0" max="2000" step="10" id="priceRange" value="2000" aria-valuemin="0" aria-valuemax="2000" aria-valuenow="2000">
+            <div class="d-flex justify-content-between text-muted small" aria-hidden="true">
               <span>R$ 0</span>
               <span>R$ 2.000+</span>
             </div>
@@ -115,8 +116,8 @@
 
       <div class="row">
         <div class="col-12">
-          <div class="row g-4">
-            <article class="col-md-6 col-xl-4 fish-item" 
+          <div class="row g-4" role="list" aria-label="Lista de peixes disponíveis">
+            <article class="col-md-6 col-xl-4 fish-item" role="listitem" 
               data-name="Blue Tang" 
               data-price="549.90" 
               data-type="salgada"

@@ -1,7 +1,5 @@
-// Gerenciamento do carrinho usando sessionStorage
 let carrinho = JSON.parse(sessionStorage.getItem('carrinho')) || [];
 
-// Função para adicionar produto ao carrinho
 function adicionarAoCarrinho(nome, preco, imagem) {
     const produto = {
         id: crypto.randomUUID(),
@@ -11,7 +9,6 @@ function adicionarAoCarrinho(nome, preco, imagem) {
         quantidade: 1
     };
 
-    // Verifica se o produto já existe no carrinho
     const produtoExistente = carrinho.find(p => p.nome === nome);
     if (produtoExistente) {
         produtoExistente.quantidade += 1;
@@ -21,36 +18,19 @@ function adicionarAoCarrinho(nome, preco, imagem) {
 
     sessionStorage.setItem('carrinho', JSON.stringify(carrinho));
     atualizarCarrinho();
-
-    // pequena animação no contador do carrinho para feedback visual
-    const contadores = document.querySelectorAll('.cart-count');
-    contadores.forEach(contador => {
-        try {
-            contador.style.transform = 'translate(25%, -25%) scale(1.3)';
-            setTimeout(() => { contador.style.transform = 'translate(25%, -25%) scale(1)'; }, 200);
-        } catch (e) {}
-    });
 }
 
-// Funções utilitárias de carrinho (placeholder se o arquivo existisse)
-// import { removerDoCarrinho, atualizarQuantidade } from './cart-utils.js';
-
-// Função para atualizar o carrinho (pode ser usada para atualizar contadores na página)
 function atualizarCarrinho() {
     const totalItens = carrinho.reduce((sum, p) => sum + p.quantidade, 0);
     
-    // Atualiza todos os contadores de carrinho na página
     const contadores = document.querySelectorAll('.cart-count');
     contadores.forEach(contador => {
         contador.textContent = totalItens;
-        // Opcional: esconder se for zero
-        // contador.style.display = totalItens > 0 ? 'flex' : 'none';
     });
 
     return totalItens;
 }
 
-// Inicializar contador ao carregar a página
 document.addEventListener('DOMContentLoaded', function() {
     atualizarCarrinho();
     
@@ -62,15 +42,12 @@ document.addEventListener('DOMContentLoaded', function() {
             
             if (!nome || !preco) return;
 
-            // Prioriza um atributo data-image (setado em páginas como produto.html),
-            // senão tenta encontrar a imagem mais próxima no DOM, senão fallback.
             let imagem = this.getAttribute('data-image') || null;
             if (!imagem) {
-                const card = this.closest('.card');
+                const card = this.closest('.card') || this.closest('.related-card');
                 const imgElement = card ? card.querySelector('img') : null;
                 if (imgElement) imagem = imgElement.getAttribute('src');
                 else {
-                    // tentar encontrar imagem em componentes de produto (ex: produto-page)
                     const mainImg = document.querySelector('.produto-gallery-main img');
                     if (mainImg) imagem = mainImg.getAttribute('src');
                 }
@@ -78,7 +55,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
             adicionarAoCarrinho(nome, preco, imagem);
             
-            // Show Bootstrap Alert
             const alertContainer = document.getElementById('alert-container');
             if (alertContainer) {
                 const alertHTML = `
@@ -89,7 +65,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 `;
                 alertContainer.innerHTML = alertHTML;
                 
-                // Auto dismiss after 3 seconds
                 setTimeout(() => {
                     const alertEl = alertContainer.querySelector('.alert');
                     if (alertEl) {
@@ -98,14 +73,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                 }, 3000);
             } else {
-                // Fallback if alert container is not present
                 alert(`${nome} adicionado ao carrinho!`);
             }
         });
     });
 
-    // Adicionar funcionalidade de clique nos produtos para ir à página de detalhes
-    // Funciona tanto para index.html quanto para outras páginas
     const productCards = document.querySelectorAll('.card');
     productCards.forEach(card => {
         const cardTitle = card.querySelector('.card-title');
@@ -124,7 +96,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const description = cardDesc ? cardDesc.innerText : '';
         const specs = card.querySelector('.fish-specs') ? card.querySelector('.fish-specs').innerHTML : '';
         
-        // Criar dados do produto com valores padrão caso não existam
         const productData = {
             name: name,
             price: price,
@@ -136,7 +107,6 @@ document.addEventListener('DOMContentLoaded', function() {
             specs: specs
         };
         
-        // Adicionar cursor pointer e evento de clique na imagem e título
         [cardImg, cardTitle].forEach(el => {
             if (el) {
                 el.style.cursor = 'pointer';
@@ -148,14 +118,14 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
 window.addEventListener("load", () => {
     const metroReadout = document.getElementById("metro-readout");
     const metroStart = document.getElementById("metro-start");
     const peixesSection = document.getElementById("peixes");
 
-    // Só executa se todos os elementos existirem (página index.html)
     if (!metroReadout || !metroStart || !peixesSection) {
-        return; // Sai silenciosamente se não estiver na página correta
+        return;
     }
 
     const peixesAbsoluteTop = peixesSection.offsetTop;
@@ -203,12 +173,8 @@ window.addEventListener("load", () => {
         }
     });
 });
-// NOTE: contador do carrinho agora é atualizado pela função atualizarCarrinho
-// e a animação é aplicada dentro de adicionarAoCarrinho — evita estados locais divergentes.
 
-// Adicionar funcionalidade de clique nos produtos para redirecionar para página de produto
 document.addEventListener('DOMContentLoaded', () => {
-    // Seleciona todos os cards de produtos (tanto com .fish-item quanto .card quanto .related-card)
     const productCards = document.querySelectorAll('.fish-item, article.card, .related-card');
     
     productCards.forEach(card => {
@@ -225,14 +191,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const cardDesc = descElement ? descElement.innerText : '';
         const specs = specsElement ? specsElement.innerHTML : '';
         
-        // Pega o preço do botão ou do elemento de preço
         let cardPrice = card.dataset.price;
         if (!cardPrice) {
             const buyBtn = card.querySelector('.buy-btn');
             cardPrice = buyBtn ? buyBtn.getAttribute('data-price') : '0.00';
         }
         
-        // Se ainda não tiver preço, tenta pegar do texto do priceElement
         if ((!cardPrice || cardPrice === '0.00') && priceElement) {
             const priceText = priceElement.innerText;
             const priceMatch = priceText.match(/[\d.,]+/);
@@ -241,12 +205,10 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
         
-        // Dados estendidos dos atributos data-*
         const longDesc = card.dataset.descriptionFull || `<p>${cardDesc}</p>`;
         const care = card.dataset.care || '<ul><li>Consulte um especialista para cuidados específicos.</li></ul>';
         const params = card.dataset.params || '<ul class="param-list"><li><span>Informação</span><strong>Sob consulta</strong></li></ul>';
         
-        // Adiciona cursor pointer e evento de clique na imagem e título
         const clickableElements = [imgElement, titleElement];
         
         clickableElements.forEach(el => {

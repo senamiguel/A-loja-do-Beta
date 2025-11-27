@@ -53,12 +53,12 @@
     </nav>
   </header>
   <main id="main-content" role="main">
-    <div class="bubbles-container"></div>
+    <div class="bubbles-container" aria-hidden="true"></div>
     
-    <section class="produto-main container mt-4">
+    <section class="produto-main container mt-4" aria-labelledby="produto-titulo">
       <div class="row g-5">
         <div class="col-lg-7">
-          <div class="produto-gallery">
+          <div class="produto-gallery" role="region" aria-label="Galeria de imagens do produto">
             <div class="produto-gallery-main position-relative">
               <img src="assets/images/fishes/Clownfish/clownfish.png" alt="Peixe-palhaço Ocellaris" loading="lazy" />
               <button class="gallery-nav prev" aria-label="Imagem anterior">
@@ -95,10 +95,10 @@
           </nav>
 
           <div class="produto-hero-text mb-4">
-            <p class="produto-tag mb-3">Marinho • Pacífico • Colorido</p>
-            <h2 class="mb-3">Peixe-palhaço Ocellaris</h2>
-            <div class="d-flex align-items-center gap-2 mb-3">
-               <div class="d-flex text-warning">
+            <p class="produto-tag mb-3" aria-label="Características do produto">Marinho • Pacífico • Colorido</p>
+            <h2 class="mb-3" id="produto-titulo">Peixe-palhaço Ocellaris</h2>
+            <div class="d-flex align-items-center gap-2 mb-3" role="img" aria-label="Avaliação: 4,5 de 5 estrelas">
+               <div class="d-flex text-warning" aria-hidden="true">
                  <i class="bi bi-star-fill"></i>
                  <i class="bi bi-star-fill"></i>
                  <i class="bi bi-star-fill"></i>
@@ -123,13 +123,13 @@
               </div>
 
               <div class="produto-options mb-3">
-                <div class="option-group mb-2">
-                  <span class="d-block mb-2 text-white-50 small text-uppercase">Tamanho</span>
-                  <div class="option-buttons">
-                    <button class="option-btn is-active">8cm</button>
-                    <button class="option-btn">10cm</button>
-                    <button class="option-btn">12cm</button>
-                    <button class="option-btn">13cm</button>
+                <div class="option-group mb-2" role="group" aria-labelledby="tamanho-label">
+                  <span class="d-block mb-2 text-white-50 small text-uppercase" id="tamanho-label">Tamanho</span>
+                  <div class="option-buttons" role="radiogroup" aria-label="Selecione o tamanho">
+                    <button class="option-btn is-active" type="button" role="radio" aria-checked="true">8cm</button>
+                    <button class="option-btn" type="button" role="radio" aria-checked="false">10cm</button>
+                    <button class="option-btn" type="button" role="radio" aria-checked="false">12cm</button>
+                    <button class="option-btn" type="button" role="radio" aria-checked="false">13cm</button>
                   </div>
                 </div>
               </div>
@@ -143,21 +143,22 @@
       </div>
     </section>
 
-    <section class="produto-info container mt-5 pt-5">
-      <div class="produto-services d-flex gap-2 flex-wrap mb-4">
-        <div class="service-chip badge bg-dark border border-secondary p-2 fw-normal"><i class="bi bi-droplet-fill me-1"></i> Teste de salinidade incluso</div>
-        <div class="service-chip badge bg-dark border border-secondary p-2 fw-normal"><i class="bi bi-thermometer-half me-1"></i> Monitoramento térmico</div>
+    <section class="produto-info container mt-5 pt-5" aria-labelledby="produto-info-heading">
+      <h3 class="visually-hidden" id="produto-info-heading">Informações do produto</h3>
+      <div class="produto-services d-flex gap-2 flex-wrap mb-4" role="list" aria-label="Serviços inclusos">
+        <div class="service-chip badge bg-dark border border-secondary p-2 fw-normal" role="listitem"><i class="bi bi-droplet-fill me-1" aria-hidden="true"></i> Teste de salinidade incluso</div>
+        <div class="service-chip badge bg-dark border border-secondary p-2 fw-normal" role="listitem"><i class="bi bi-thermometer-half me-1" aria-hidden="true"></i> Monitoramento térmico</div>
       </div>
       
-      <div class="produto-tabs">
-        <button class="tab is-active" type="button" data-tab="descricao">Descrição</button>
-        <button class="tab" type="button" data-tab="cuidados">Cuidados</button>
-        <button class="tab" type="button" data-tab="parametros">Parâmetros</button>
-        <button class="tab" type="button" data-tab="avaliacoes">Avaliações</button>
+      <div class="produto-tabs" role="tablist" aria-label="Informações detalhadas do produto">
+        <button class="tab is-active" type="button" data-tab="descricao" role="tab" aria-selected="true" aria-controls="panel-descricao" id="tab-descricao">Descrição</button>
+        <button class="tab" type="button" data-tab="cuidados" role="tab" aria-selected="false" aria-controls="panel-cuidados" id="tab-cuidados">Cuidados</button>
+        <button class="tab" type="button" data-tab="parametros" role="tab" aria-selected="false" aria-controls="panel-parametros" id="tab-parametros">Parâmetros</button>
+        <button class="tab" type="button" data-tab="avaliacoes" role="tab" aria-selected="false" aria-controls="panel-avaliacoes" id="tab-avaliacoes">Avaliações</button>
       </div>
       
       <div class="produto-tab-content">
-        <div class="tab-panel is-active" id="panel-descricao">
+        <div class="tab-panel is-active" id="panel-descricao" role="tabpanel" aria-labelledby="tab-descricao" tabindex="0">
           <article class="info-card">
             <h4>Descrição completa</h4>
             <p>
@@ -171,7 +172,7 @@
           </article>
         </div>
         
-        <div class="tab-panel" id="panel-cuidados">
+        <div class="tab-panel" id="panel-cuidados" role="tabpanel" aria-labelledby="tab-cuidados" tabindex="0">
           <article class="info-card">
             <h4>Cuidados essenciais</h4>
             <ul>
@@ -183,40 +184,46 @@
           </article>
         </div>
         
-        <div class="tab-panel" id="panel-parametros">
+        <div class="tab-panel" id="panel-parametros" role="tabpanel" aria-labelledby="tab-parametros" tabindex="0">
           <article class="info-card">
             <h4>Parâmetros recomendados</h4>
-            <ul class="param-list">
-              <li><span>Tipo de água</span><strong>Água Salgada</strong></li>
-              <li><span>Temperatura</span><strong>24° - 26°C</strong></li>
-              <li><span>pH</span><strong>8.1 - 8.4</strong></li>
-              <li><span>Volume mínimo</span><strong>600L</strong></li>
-              <li><span>Salinidade</span><strong>1.022 - 1.026 sg</strong></li>
-              <li><span>Alimentação</span><strong>Rações, artêmias, krill</strong></li>
+            <ul class="param-list" role="list">
+              <li role="listitem"><span>Tipo de água</span><strong>Água Salgada</strong></li>
+              <li role="listitem"><span>Temperatura</span><strong>24° - 26°C</strong></li>
+              <li role="listitem"><span>pH</span><strong>8.1 - 8.4</strong></li>
+              <li role="listitem"><span>Volume mínimo</span><strong>600L</strong></li>
+              <li role="listitem"><span>Salinidade</span><strong>1.022 - 1.026 sg</strong></li>
+              <li role="listitem"><span>Alimentação</span><strong>Rações, artêmias, krill</strong></li>
             </ul>
           </article>
         </div>
         
-        <div class="tab-panel" id="panel-avaliacoes">
+        <div class="tab-panel" id="panel-avaliacoes" role="tabpanel" aria-labelledby="tab-avaliacoes" tabindex="0">
           <article class="info-card">
             <h4>Depoimentos recentes</h4>
-            <p>"Chegaram ativos, respirando bem e já aceitaram ração no primeiro dia." — Ana L.</p>
-            <p>"Atendimento impecável, embalagem segura e com monitoramento em tempo real." — Hugo M.</p>
+            <blockquote>
+              <p>"Chegaram ativos, respirando bem e já aceitaram ração no primeiro dia."</p>
+              <footer>— Ana L.</footer>
+            </blockquote>
+            <blockquote>
+              <p>"Atendimento impecável, embalagem segura e com monitoramento em tempo real."</p>
+              <footer>— Hugo M.</footer>
+            </blockquote>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="produto-related">
+    <section class="produto-related" aria-labelledby="related-heading">
       <div class="container">
         <div class="related-header">
           <div>
             <p class="related-label">Complemente o seu aquário</p>
-            <h3>Peixes que combinam entre si</h3>
+            <h3 id="related-heading">Peixes que combinam entre si</h3>
           </div>
           <a href="catalogo.html" class="btn btn-custom-orange">Ver catálogo completo</a>
         </div>
-        <div class="related-grid">
+        <div class="related-grid" role="list" aria-label="Produtos relacionados">
           <article class="related-card"
             data-description-full="<p>O Blue Tang (Paracanthurus hepatus) é um dos peixes mais icônicos dos recifes de coral. Conhecido por sua cor azul vibrante e cauda amarela, é um nadador ativo que precisa de bastante espaço.</p><p>Embora possa ser tímido inicialmente, torna-se muito sociável e curioso. É um excelente comedor de algas, ajudando a manter o aquário limpo.</p>"
             data-care="<ul><li>Necessita de aquários grandes (mínimo 600L) para nadar livremente.</li><li>Sensível a doenças de pele (Ictio), requer quarentena rigorosa.</li><li>Ofereça algas nori e ração vegetal diariamente.</li><li>Mantenha a água bem oxigenada e com forte circulação.</li></ul>"
@@ -226,7 +233,7 @@
             <p>Excelente controle de algas, temperamento ativo e curioso.</p>
             <div class="related-meta">
               <span>R$ 549,90</span>
-              <button class="btn btn-outline-light buy-btn" data-name="Blue Tang" data-price="549.90" aria-label="Adicionar Blue Tang ao carrinho">Comprar</button>
+              <button class="btn btn-outline-light buy-btn" data-name="Blue Tang" data-price="549.90" data-image="assets/images/fishes/Bluetang/bluetang.png" aria-label="Adicionar Blue Tang ao carrinho">Comprar</button>
             </div>
           </article>
           <article class="related-card"
@@ -238,7 +245,7 @@
             <p>Clássico companheiro de recife, resistente e com cor intensa.</p>
             <div class="related-meta">
               <span>R$ 699,90</span>
-              <button class="btn btn-outline-light buy-btn" data-name="Yellow Tang" data-price="699.90" aria-label="Adicionar Yellow Tang ao carrinho">Comprar</button>
+              <button class="btn btn-outline-light buy-btn" data-name="Yellow Tang" data-price="699.90" data-image="assets/images/fishes/Yellowtang/yellowtang.png" aria-label="Adicionar Yellow Tang ao carrinho">Comprar</button>
             </div>
           </article>
           <article class="related-card"
@@ -250,7 +257,7 @@
             <p>Uma das espécies mais queridas do aquarismo, cheia de personalidade e colorido vibrante.</p>
             <div class="related-meta">
               <span>R$ 189,90</span>
-              <button class="btn btn-outline-light buy-btn" data-name="Peixe-palhaço Ocellaris" data-price="189.90" aria-label="Adicionar Peixe-palhaço Ocellaris ao carrinho">Comprar</button>
+              <button class="btn btn-outline-light buy-btn" data-name="Peixe-palhaço Ocellaris" data-price="189.90" data-image="assets/images/fishes/Clownfish/clownfish.png" aria-label="Adicionar Peixe-palhaço Ocellaris ao carrinho">Comprar</button>
             </div>
           </article>
         </div>
@@ -259,12 +266,12 @@
   </main>
   <footer id="footer" class="footer-product" role="contentinfo">
     <div class="footer-container">
-      <img draggable="false" src="assets/images/footer.svg" style="width: 100%" alt="" />
+      <img draggable="false" src="assets/images/footer.svg" style="width: 100%" alt="Ilustração decorativa do rodapé" />
       <div class="footer-content">
         <div class="footer-column footer-contact">
           <div class="contact-item">
             <div class="contact-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" aria-hidden="true">
                 <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                 <circle cx="12" cy="10" r="3"></circle>
               </svg>
@@ -276,7 +283,7 @@
           </div>
           <div class="contact-item">
             <div class="contact-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" aria-hidden="true">
                 <path
                   d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
                 </path>
@@ -288,7 +295,7 @@
           </div>
           <div class="contact-item">
             <div class="contact-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" aria-hidden="true">
                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                 <polyline points="22,6 12,13 2,6"></polyline>
               </svg>
@@ -307,26 +314,26 @@
           </p>
           <div class="social-icons">
             <a href="#" class="social-icon" aria-label="Facebook">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="white" aria-hidden="true">
                 <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
               </svg>
             </a>
             <a href="#" class="social-icon" aria-label="Twitter">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="white" aria-hidden="true">
                 <path
                   d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
                 </path>
               </svg>
             </a>
             <a href="#" class="social-icon" aria-label="LinkedIn">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="white" aria-hidden="true">
                 <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
                 <rect x="2" y="9" width="4" height="12"></rect>
                 <circle cx="4" cy="4" r="2"></circle>
               </svg>
             </a>
             <a href="#" class="social-icon" aria-label="GitHub">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="white" aria-hidden="true">
                 <path
                   d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
                 </path>
@@ -348,6 +355,8 @@
       const productData = JSON.parse(sessionStorage.getItem('selectedProduct'));
 
       if (productData) {
+        document.title = `${productData.name} - A loja do Beta`;
+        
         // Update Title and Breadcrumb
         const breadcrumbLi = document.querySelector('.produto-breadcrumb .breadcrumb-item.active');
         if (breadcrumbLi) breadcrumbLi.textContent = productData.name;

@@ -1,74 +1,21 @@
-// Script para renderizar o carrinho no checkout
 let carrinho = JSON.parse(sessionStorage.getItem('carrinho')) || [];
 let currentStep = 1;
 let selectedPayment = '';
 let deliveryData = {};
 
-// Produtos de exemplo para demonstração
-const produtosExemplo = [
-    {
-        id: Date.now() + 1,
-        nome: 'Neon Tetra',
-        preco: 9.90,
-        imagem: 'assets/images/peixe-1.png',
-        quantidade: 2
-    },
-    {
-        id: Date.now() + 2,
-        nome: 'Betta Splendens',
-        preco: 24.90,
-        imagem: 'assets/images/peixe-2.png',
-        quantidade: 1
-    },
-    {
-        id: Date.now() + 3,
-        nome: 'Cardinal Tetra',
-        preco: 12.90,
-        imagem: 'assets/images/peixe-3.png',
-        quantidade: 3
-    },
-    {
-        id: Date.now() + 4,
-        nome: 'Guppy',
-        preco: 7.50,
-        imagem: 'assets/images/peixe-1.png',
-        quantidade: 4
-    },
-    {
-        id: Date.now() + 5,
-        nome: 'Molinésia',
-        preco: 8.90,
-        imagem: 'assets/images/peixe-2.png',
-        quantidade: 2
-    },
-    {
-        id: Date.now() + 6,
-        nome: 'Platy',
-        preco: 6.90,
-        imagem: 'assets/images/peixe-3.png',
-        quantidade: 3
-    }
-];
-
-// Função para inicializar produtos de exemplo (apenas se carrinho estiver vazio)
 function inicializarExemplos() {
     if (carrinho.length === 0) {
-        // Verifica se já foi inicializado antes (para não sobrescrever se o usuário limpar o carrinho)
         const jaInicializado = sessionStorage.getItem('exemplosInicializados');
         if (!jaInicializado) {
-            // carrinho = produtosExemplo; // Comentado para não adicionar exemplos automaticamente
-            // sessionStorage.setItem('carrinho', JSON.stringify(carrinho));
             sessionStorage.setItem('exemplosInicializados', 'true');
         }
     }
 }
 
-// Função para formatar preço
 function formatarPreco(preco) {
     return preco.toFixed(2).replace('.', ',');
 }
 
-// Função para calcular total
 function calcularTotal() {
     return carrinho.reduce((total, produto) => {
         return total + (produto.preco * produto.quantidade);
@@ -98,7 +45,6 @@ window.atualizarQuantidade = function(id, delta) {
     }
 }
 
-// Função para atualizar o contador do carrinho na navbar
 function atualizarContadorNavbar() {
     const totalItens = carrinho.reduce((sum, p) => sum + p.quantidade, 0);
     const contadores = document.querySelectorAll('.cart-count');
@@ -107,7 +53,6 @@ function atualizarContadorNavbar() {
     });
 }
 
-// Função para renderizar o checkout
 function renderizarCheckout() {
     carrinho = JSON.parse(sessionStorage.getItem('carrinho')) || [];
     
@@ -138,12 +83,12 @@ function renderizarCheckout() {
                 <div class="card bg-transparent border-light text-white">
                     <div class="row g-0">
                         <div class="col-md-3">
-                            <img src="${produto.imagem || 'assets/images/peixe-1.png'}" class="img-fluid rounded-start" alt="${produto.nome}" style="object-fit:cover; height:100%; min-height:200px;" onerror="this.src='assets/images/peixe-1.png'">
+                            <img src="${produto.imagem || 'assets/images/peixe-1.png'}" class="img-fluid rounded-start produto-link" alt="${produto.nome}" style="object-fit:cover; height:100%; min-height:200px; cursor:pointer;" data-produto='${JSON.stringify(produto).replace(/'/g, "&#39;")}' onerror="this.src='assets/images/peixe-1.png'">
                         </div>
                         <div class="col-md-9">
                             <div class="card-body d-flex flex-column h-100">
                                 <div class="flex-grow-1">
-                                    <h5 class="card-title">${produto.nome}</h5>
+                                    <h5 class="card-title produto-link" style="cursor:pointer;" data-produto='${JSON.stringify(produto).replace(/'/g, "&#39;")}'>${produto.nome}</h5>
                                     <p class="card-text">Preço unitário: R$ ${formatarPreco(produto.preco)}</p>
                                 </div>
                                 <div class="card-footer bg-transparent border-light p-0 pt-3">
@@ -174,6 +119,25 @@ function renderizarCheckout() {
             </div>
         `).join('');
 
+        // Adicionar eventos de clique nos produtos para redirecionar à página do produto
+        document.querySelectorAll('.produto-link').forEach(el => {
+            el.addEventListener('click', function() {
+                const produtoData = JSON.parse(this.getAttribute('data-produto').replace(/&#39;/g, "'"));
+                const productData = {
+                    name: produtoData.nome,
+                    price: produtoData.preco.toString(),
+                    image: produtoData.imagem,
+                    description: '',
+                    longDescription: '',
+                    care: '',
+                    parameters: '',
+                    specs: ''
+                };
+                sessionStorage.setItem('selectedProduct', JSON.stringify(productData));
+                window.location.href = 'produto.html';
+            });
+        });
+
         // Atualizar total
         if (totalCarrinho) {
             totalCarrinho.textContent = formatarPreco(calcularTotal());
@@ -181,7 +145,6 @@ function renderizarCheckout() {
     }
 }
 
-// Função para finalizar compra
 function finalizarCompra() {
     carrinho = JSON.parse(sessionStorage.getItem('carrinho')) || [];
 
@@ -267,7 +230,6 @@ function finalizarCompra() {
     if (confirmModalEl) new bootstrap.Modal(confirmModalEl).show();
 }
 
-// Renderizar ao carregar a página
 document.addEventListener('DOMContentLoaded', function() {
     inicializarExemplos();
     renderizarCheckout();
@@ -290,8 +252,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Máscara para o campo CEP (formato 00000-000)
-    function aplicarMascaraCEP(valor) {
+        // Máscara para o campo CEP (formato 00000-000)
+        function aplicarMascaraCEP(valor) {
         if (!valor) return '';
         const digits = valor.replace(/\D/g, '').slice(0, 8); // apenas números, até 8 dígitos
         if (digits.length > 5) {
@@ -362,8 +324,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// ============ STEPPER FUNCTIONALITY ============
-
 function updateStepper() {
     const steps = document.querySelectorAll('.step');
     const stepContents = document.querySelectorAll('.step-content');
@@ -383,12 +343,10 @@ function updateStepper() {
         }
     });
 
-    // Update step content visibility
     stepContents.forEach((content, index) => {
         content.style.display = (index + 1 === currentStep) ? 'block' : 'none';
     });
 
-    // Update buttons
     btnVoltar.style.display = currentStep > 1 ? 'inline-block' : 'none';
     btnContinuar.style.display = currentStep < 4 ? 'inline-block' : 'none';
     btnFinalizar.style.display = currentStep === 4 ? 'inline-block' : 'none';
@@ -398,7 +356,6 @@ function updateStepper() {
         renderizarCheckout();
     }
 
-    // Scroll to top
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
