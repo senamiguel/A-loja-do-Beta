@@ -1772,6 +1772,18 @@ body {
         color: #61dafb;
     }
 
+    .produto-tab-content {
+        width: 100%;
+    }
+
+    .tab-panel {
+        display: none;
+    }
+
+    .tab-panel.is-active {
+        display: block;
+    }
+
     .produto-info-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -2908,13 +2920,14 @@ font-family: 'Raleway', sans-serif;
 }
 
 .alert-custom {
-    background-color: #FF5733;
-    color: white;
-    border-color: #FF5733;
+    background: linear-gradient(135deg, #61dafb 0%, #4fa8c5 100%);
+    color: #021524;
+    border-color: #61dafb;
+    box-shadow: 0 4px 20px rgba(97, 218, 251, 0.4);
 }
 
 .alert-custom .btn-close {
-    filter: invert(1) grayscale(100%) brightness(200%);
+    filter: brightness(0);
 }
 
 .btn-custom-orange {

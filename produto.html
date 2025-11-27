@@ -7,6 +7,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="icon" href="assets/images/favicon_io/favicon.ico" />
 </head>
 <body class="produto-page">
   <a class="visually-hidden-focusable skip-link" href="#main-content" id="skip-link">Pular para o conteúdo</a>
@@ -59,7 +60,7 @@
         <div class="col-lg-7">
           <div class="produto-gallery">
             <div class="produto-gallery-main position-relative">
-              <img src="assets/images/clownfish.png" alt="Peixe-palhaço Ocellaris" loading="lazy" />
+              <img src="assets/images/fishes/Clownfish/clownfish.png" alt="Peixe-palhaço Ocellaris" loading="lazy" />
               <button class="gallery-nav prev" aria-label="Imagem anterior">
                 <i class="bi bi-chevron-left"></i>
               </button>
@@ -69,7 +70,7 @@
             </div>
             <div class="produto-gallery-thumbs">
               <button class="thumb is-active" aria-label="Peixe-palhaço frontal" type="button">
-                <img src="assets/images/clownfish.png" alt="Close do peixe-palhaço" loading="lazy" />
+                <img src="assets/images/fishes/Clownfish/clownfish.png" alt="Close do peixe-palhaço" loading="lazy" />
               </button>
               <button class="thumb" aria-label="Peixe colorido" type="button">
                 <img src="assets/images/peixe01.png" alt="Variante laranja" loading="lazy" />
@@ -110,53 +111,32 @@
               Uma das espécies mais queridas do aquarismo, cheia de personalidade e com um colorido vibrante
               que ilumina qualquer recife. Criado com quarentena de 14 dias e monitoramento nutricional completo.
             </p>
-            <ul class="produto-hero-highlights list-unstyled">
-              <li class="mb-2"><i class="bi bi-check2-circle text-info me-2"></i>Compatível com aquários a partir de 75 litros</li>
-              <li class="mb-2"><i class="bi bi-check2-circle text-info me-2"></i>Temperatura ideal: 24° a 27°C</li>
-              <li><i class="bi bi-check2-circle text-info me-2"></i>Garantia vitalícia de suporte técnico</li>
-            </ul>
           </div>
 
           <div class="produto-summary p-0 border-0 bg-transparent shadow-none">
-            <div class="produto-options mb-4">
-              <div class="option-group mb-3">
-                <span class="d-block mb-2 text-white-50">Selecione o peso aproximado</span>
-                <div class="option-buttons">
-                  <button class="option-btn is-active">70g</button>
-                  <button class="option-btn">90g</button>
-                  <button class="option-btn">110g</button>
-                  <button class="option-btn">130g</button>
+            <div class="produto-price-card p-3 rounded-4 mb-3" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
+              <div class="d-flex justify-content-between align-items-start mb-3">
+                <div>
+                  <p class="price-value h2 fw-bold mb-0">R$ 189,90</p>
+                  <p class="price-subtitle small text-white-50 mb-0">ou 3x de R$ 63,30 sem juros</p>
                 </div>
               </div>
-              <div class="option-group">
-                <span class="d-block mb-2 text-white-50">Escolha o tamanho</span>
-                <div class="option-buttons">
-                  <button class="option-btn is-active">8cm</button>
-                  <button class="option-btn">10cm</button>
-                  <button class="option-btn">12cm</button>
-                  <button class="option-btn">Casal</button>
+
+              <div class="produto-options mb-3">
+                <div class="option-group mb-2">
+                  <span class="d-block mb-2 text-white-50 small text-uppercase">Tamanho</span>
+                  <div class="option-buttons">
+                    <button class="option-btn is-active">8cm</button>
+                    <button class="option-btn">10cm</button>
+                    <button class="option-btn">12cm</button>
+                    <button class="option-btn">13cm</button>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div class="produto-services d-flex gap-2 flex-wrap mb-4">
-              <div class="service-chip badge bg-dark border border-secondary p-2 fw-normal"><i class="bi bi-droplet-fill me-1"></i> Teste de salinidade</div>
-              <div class="service-chip badge bg-dark border border-secondary p-2 fw-normal"><i class="bi bi-thermometer-half me-1"></i>Monitoramento térmico</div>
-            </div>
-
-            <div class="produto-price-card p-4 rounded-4 mb-4" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
-              <div class="mb-3">
-                <p class="price-label text-uppercase small text-white-50 mb-1">Total</p>
-                <p class="price-value h2 fw-bold mb-1">R$ 189,90</p>
-                <p class="price-subtitle small text-white-50">ou 3x de R$ 63,30 sem juros</p>
-              </div>
               <button class="btn btn-custom-orange w-100 py-3 fw-bold buy-btn" data-name="Peixe-palhaço Ocellaris" data-price="189.90" aria-label="Adicionar Peixe-palhaço Ocellaris ao carrinho">
                 Adicionar ao carrinho
               </button>
-              <div class="mt-3 d-flex justify-content-center gap-3 text-white-50 small">
-                 <span><i class="bi bi-truck me-1"></i>Entrega em 48h</span>
-                 <span><i class="bi bi-shield-check me-1"></i>Garantia 30 dias</span>
-              </div>
             </div>
           </div>
         </div>
@@ -164,47 +144,66 @@
     </section>
 
     <section class="produto-info container mt-5 pt-5">
-      <div class="produto-tabs">
-        <button class="tab is-active" type="button">Descrição</button>
-        <button class="tab" type="button">Cuidados</button>
-        <button class="tab" type="button">Parâmetros</button>
-        <button class="tab" type="button">Avaliações</button>
+      <div class="produto-services d-flex gap-2 flex-wrap mb-4">
+        <div class="service-chip badge bg-dark border border-secondary p-2 fw-normal"><i class="bi bi-droplet-fill me-1"></i> Teste de salinidade incluso</div>
+        <div class="service-chip badge bg-dark border border-secondary p-2 fw-normal"><i class="bi bi-thermometer-half me-1"></i> Monitoramento térmico</div>
       </div>
-      <div class="produto-info-grid">
-        <article class="info-card">
-          <h4>Descrição completa</h4>
-          <p>
-            O peixe-palhaço Ocellaris vive em simbiose com anêmonas marinhas e apresenta comportamento dócil.
-            Nosso time garante exemplares alimentados com dieta rica em algas, krill e ração específica,
-            resultando em cores intensas e imunidade reforçada.
-          </p>
-          <p>
-            São ótimos para aquários comunitários marinhos e podem formar pares monogâmicos rapidamente.
-          </p>
-        </article>
-        <article class="info-card">
-          <h4>Cuidados essenciais</h4>
-          <ul>
-            <li>Faça aclimatação por gotejamento de 45 minutos.</li>
-            <li>Ofereça alimentação variada 2x ao dia.</li>
-            <li>Evite contato com espécies excessivamente territoriais.</li>
-            <li>Garanta circulação moderada e rochas vivas.</li>
-          </ul>
-        </article>
-        <article class="info-card">
-          <h4>Parâmetros recomendados</h4>
-          <ul class="param-list">
-            <li><span>Temperatura</span><strong>24° - 27°C</strong></li>
-            <li><span>Salinidade</span><strong>1.022 - 1.026 sg</strong></li>
-            <li><span>pH</span><strong>8.1 - 8.4</strong></li>
-            <li><span>Alimentação</span><strong>Rações, artêmias, krill</strong></li>
-          </ul>
-        </article>
-        <article class="info-card">
-          <h4>Depoimentos recentes</h4>
-          <p>"Chegaram ativos, respirando bem e já aceitaram ração no primeiro dia." — Ana L.</p>
-          <p>"Atendimento impecável, embalagem segura e com monitoramento em tempo real." — Hugo M.</p>
-        </article>
+      
+      <div class="produto-tabs">
+        <button class="tab is-active" type="button" data-tab="descricao">Descrição</button>
+        <button class="tab" type="button" data-tab="cuidados">Cuidados</button>
+        <button class="tab" type="button" data-tab="parametros">Parâmetros</button>
+        <button class="tab" type="button" data-tab="avaliacoes">Avaliações</button>
+      </div>
+      
+      <div class="produto-tab-content">
+        <div class="tab-panel is-active" id="panel-descricao">
+          <article class="info-card">
+            <h4>Descrição completa</h4>
+            <p>
+              O peixe-palhaço Ocellaris vive em simbiose com anêmonas marinhas e apresenta comportamento dócil.
+              Nosso time garante exemplares alimentados com dieta rica em algas, krill e ração específica,
+              resultando em cores intensas e imunidade reforçada.
+            </p>
+            <p>
+              São ótimos para aquários comunitários marinhos e podem formar pares monogâmicos rapidamente.
+            </p>
+          </article>
+        </div>
+        
+        <div class="tab-panel" id="panel-cuidados">
+          <article class="info-card">
+            <h4>Cuidados essenciais</h4>
+            <ul>
+              <li>Faça aclimatação por gotejamento de 45 minutos.</li>
+              <li>Ofereça alimentação variada 2x ao dia.</li>
+              <li>Evite contato com espécies excessivamente territoriais.</li>
+              <li>Garanta circulação moderada e rochas vivas.</li>
+            </ul>
+          </article>
+        </div>
+        
+        <div class="tab-panel" id="panel-parametros">
+          <article class="info-card">
+            <h4>Parâmetros recomendados</h4>
+            <ul class="param-list">
+              <li><span>Tipo de água</span><strong>Água Salgada</strong></li>
+              <li><span>Temperatura</span><strong>24° - 26°C</strong></li>
+              <li><span>pH</span><strong>8.1 - 8.4</strong></li>
+              <li><span>Volume mínimo</span><strong>600L</strong></li>
+              <li><span>Salinidade</span><strong>1.022 - 1.026 sg</strong></li>
+              <li><span>Alimentação</span><strong>Rações, artêmias, krill</strong></li>
+            </ul>
+          </article>
+        </div>
+        
+        <div class="tab-panel" id="panel-avaliacoes">
+          <article class="info-card">
+            <h4>Depoimentos recentes</h4>
+            <p>"Chegaram ativos, respirando bem e já aceitaram ração no primeiro dia." — Ana L.</p>
+            <p>"Atendimento impecável, embalagem segura e com monitoramento em tempo real." — Hugo M.</p>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -218,8 +217,11 @@
           <a href="catalogo.html" class="btn btn-custom-orange">Ver catálogo completo</a>
         </div>
         <div class="related-grid">
-          <article class="related-card">
-            <img src="assets/images/bluetang.png" alt="Blue Tang azul com cauda amarela" loading="lazy" />
+          <article class="related-card"
+            data-description-full="<p>O Blue Tang (Paracanthurus hepatus) é um dos peixes mais icônicos dos recifes de coral. Conhecido por sua cor azul vibrante e cauda amarela, é um nadador ativo que precisa de bastante espaço.</p><p>Embora possa ser tímido inicialmente, torna-se muito sociável e curioso. É um excelente comedor de algas, ajudando a manter o aquário limpo.</p>"
+            data-care="<ul><li>Necessita de aquários grandes (mínimo 600L) para nadar livremente.</li><li>Sensível a doenças de pele (Ictio), requer quarentena rigorosa.</li><li>Ofereça algas nori e ração vegetal diariamente.</li><li>Mantenha a água bem oxigenada e com forte circulação.</li></ul>"
+            data-params="<ul class='param-list'><li><span>Tipo de água</span><strong>Água Salgada</strong></li><li><span>Temperatura</span><strong>24° - 26°C</strong></li><li><span>pH</span><strong>8.1 - 8.4</strong></li><li><span>Volume mínimo</span><strong>600L</strong></li><li><span>Salinidade</span><strong>1.023 - 1.025 sg</strong></li></ul>">
+            <img src="assets/images/fishes/Bluetang/bluetang.png" alt="Blue Tang azul com cauda amarela" loading="lazy" />
             <h4>Blue Tang</h4>
             <p>Excelente controle de algas, temperamento ativo e curioso.</p>
             <div class="related-meta">
@@ -227,8 +229,11 @@
               <button class="btn btn-outline-light buy-btn" data-name="Blue Tang" data-price="549.90" aria-label="Adicionar Blue Tang ao carrinho">Comprar</button>
             </div>
           </article>
-          <article class="related-card">
-            <img src="assets/images/yellowtang.png" alt="Yellow Tang amarelo vibrante" loading="lazy" />
+          <article class="related-card"
+            data-description-full="<p>O Yellow Tang (Zebrasoma flavescens) é famoso por sua cor amarelo-limão intensa que não desbota. É um peixe resistente e uma excelente adição para aquários de recife.</p><p>Pode ser territorial com outros da mesma espécie, por isso recomenda-se manter apenas um por aquário.</p>"
+            data-care="<ul><li>Ofereça uma dieta rica em vegetais para manter a cor e a saúde.</li><li>Pode ser agressivo com outros Tangs de formato similar.</li><li>Requer rochas vivas para pastar e se esconder.</li><li>Aclimatação lenta é essencial.</li></ul>"
+            data-params="<ul class='param-list'><li><span>Tipo de água</span><strong>Água Salgada</strong></li><li><span>Temperatura</span><strong>24° - 28°C</strong></li><li><span>pH</span><strong>8.1 - 8.4</strong></li><li><span>Volume mínimo</span><strong>450L</strong></li><li><span>Salinidade</span><strong>1.023 - 1.025 sg</strong></li></ul>">
+            <img src="assets/images/fishes/Yellowtang/yellowtang.png" alt="Yellow Tang amarelo vibrante" loading="lazy" />
             <h4>Yellow Tang</h4>
             <p>Clássico companheiro de recife, resistente e com cor intensa.</p>
             <div class="related-meta">
@@ -236,13 +241,16 @@
               <button class="btn btn-outline-light buy-btn" data-name="Yellow Tang" data-price="699.90" aria-label="Adicionar Yellow Tang ao carrinho">Comprar</button>
             </div>
           </article>
-          <article class="related-card">
-            <img src="assets/images/peixe01.png" alt="Anêmona Bubble Tip vermelha" loading="lazy" />
-            <h4>Anêmona Bubble Tip</h4>
-            <p>Par perfeito para o peixe-palhaço construir sua simbiose.</p>
+          <article class="related-card"
+            data-description-full="<p>O peixe-palhaço Ocellaris vive em simbiose com anêmonas marinhas e apresenta comportamento dócil. Nosso time garante exemplares alimentados com dieta rica em algas, krill e ração específica.</p><p>São ótimos para aquários comunitários marinhos e podem formar pares monogâmicos rapidamente.</p>"
+            data-care="<ul><li>Faça aclimatação por gotejamento de 45 minutos.</li><li>Ofereça alimentação variada 2x ao dia.</li><li>Evite contato com espécies excessivamente territoriais.</li><li>Garanta circulação moderada e rochas vivas.</li></ul>"
+            data-params="<ul class='param-list'><li><span>Tipo de água</span><strong>Água Salgada</strong></li><li><span>Temperatura</span><strong>24° - 27°C</strong></li><li><span>pH</span><strong>8.1 - 8.4</strong></li><li><span>Volume mínimo</span><strong>75L</strong></li><li><span>Salinidade</span><strong>1.022 - 1.026 sg</strong></li></ul>">
+            <img src="assets/images/fishes/Clownfish/clownfish.png" alt="Peixe-palhaço Ocellaris laranja e branco" loading="lazy" />
+            <h4>Peixe-palhaço Ocellaris</h4>
+            <p>Uma das espécies mais queridas do aquarismo, cheia de personalidade e colorido vibrante.</p>
             <div class="related-meta">
-              <span>R$ 259,90</span>
-              <button class="btn btn-outline-light buy-btn" data-name="Anêmona Bubble Tip" data-price="259.90" aria-label="Adicionar Anêmona Bubble Tip ao carrinho">Comprar</button>
+              <span>R$ 189,90</span>
+              <button class="btn btn-outline-light buy-btn" data-name="Peixe-palhaço Ocellaris" data-price="189.90" aria-label="Adicionar Peixe-palhaço Ocellaris ao carrinho">Comprar</button>
             </div>
           </article>
         </div>
@@ -337,9 +345,7 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      console.log('Carregando dados do produto...');
       const productData = JSON.parse(sessionStorage.getItem('selectedProduct'));
-      console.log('Dados do produto:', productData);
 
       if (productData) {
         // Update Title and Breadcrumb
@@ -356,29 +362,82 @@
         // Update Image
         const mainImg = document.querySelector('.produto-gallery-main img');
         if(mainImg && productData.image) {
-          console.log('Atualizando imagem para:', productData.image);
           mainImg.src = productData.image;
           mainImg.alt = productData.name;
         }
 
-        // Update Thumbs (Fix for single image products)
-        const thumbs = document.querySelectorAll('.produto-gallery-thumbs .thumb');
-        if(thumbs.length > 0) {
-            // Set first thumb to the product image
-            const firstThumbImg = thumbs[0].querySelector('img');
-            if(firstThumbImg) {
-                firstThumbImg.src = productData.image;
-                firstThumbImg.alt = productData.name;
+        // Update Thumbs - Carrega imagens adicionais automaticamente
+        const thumbsContainer = document.querySelector('.produto-gallery-thumbs');
+        if(thumbsContainer && productData.image) {
+            // Normaliza o caminho da imagem (remove domínio se presente)
+            let imgPath = productData.image;
+            
+            // Se for URL absoluta, extrai apenas o caminho relativo
+            if(imgPath.startsWith('http://') || imgPath.startsWith('https://')) {
+                try {
+                    const url = new URL(imgPath);
+                    imgPath = url.pathname.startsWith('/') ? url.pathname.substring(1) : url.pathname;
+                } catch(e) {}
             }
             
-            // Hide other thumbs since we don't have images for them
-            thumbs.forEach((thumb, index) => {
-                if(index > 0) {
-                    thumb.style.display = 'none';
-                } else {
-                    thumb.style.display = 'block';
-                    thumb.classList.add('is-active');
-                }
+            // Extrai informações do caminho da imagem principal
+            const lastSlash = imgPath.lastIndexOf('/');
+            const folder = imgPath.substring(0, lastSlash + 1);
+            const filename = imgPath.substring(lastSlash + 1);
+            const ext = filename.substring(filename.lastIndexOf('.'));
+            const baseName = filename.substring(0, filename.lastIndexOf('.'));
+            
+            // Caminho da imagem principal normalizado
+            const mainImgPath = `${folder}${baseName}${ext}`;
+            
+            // Limpa thumbs existentes
+            thumbsContainer.innerHTML = '';
+            
+            // Adiciona a imagem principal como primeiro thumb
+            const mainThumb = document.createElement('button');
+            mainThumb.className = 'thumb is-active';
+            mainThumb.type = 'button';
+            mainThumb.setAttribute('aria-label', productData.name);
+            mainThumb.innerHTML = `<img src="${mainImgPath}" alt="${productData.name}" loading="lazy" />`;
+            thumbsContainer.appendChild(mainThumb);
+            
+            // Tenta carregar imagens adicionais (2, 3, 4, 5...)
+            const maxImages = 5;
+            for(let i = 2; i <= maxImages; i++) {
+                const additionalImg = `${folder}${baseName}${i}${ext}`;
+                
+                // Usa fetch para verificar se a imagem existe
+                (function(imgSrc, index) {
+                    fetch(imgSrc, { method: 'HEAD' })
+                        .then(response => {
+                            if(response.ok) {
+                                // Cria thumb
+                                const thumb = document.createElement('button');
+                                thumb.className = 'thumb';
+                                thumb.type = 'button';
+                                thumb.setAttribute('aria-label', `${productData.name} - Imagem ${index}`);
+                                thumb.innerHTML = `<img src="${imgSrc}" alt="${productData.name} - Variação ${index}" />`;
+                                thumbsContainer.appendChild(thumb);
+                                
+                                // Adiciona evento de clique
+                                thumb.addEventListener('click', () => {
+                                    const mainImg = document.querySelector('.produto-gallery-main img');
+                                    mainImg.src = imgSrc;
+                                    document.querySelectorAll('.thumb').forEach(t => t.classList.remove('is-active'));
+                                    thumb.classList.add('is-active');
+                                });
+                            }
+                        })
+                        .catch(() => {});
+                })(additionalImg, i);
+            }
+            
+            // Adiciona evento de clique no primeiro thumb
+            mainThumb.addEventListener('click', () => {
+                const mainImg = document.querySelector('.produto-gallery-main img');
+                mainImg.src = mainImgPath;
+                document.querySelectorAll('.thumb').forEach(t => t.classList.remove('is-active'));
+                mainThumb.classList.add('is-active');
             });
         }
 
@@ -387,7 +446,6 @@
         if(priceElement && productData.price) {
             const price = parseFloat(productData.price).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
             priceElement.textContent = price;
-            console.log('Preço atualizado para:', price);
         }
 
         // Update Buy Button
@@ -418,59 +476,62 @@
 
         // Update Tabs Content
         if(productData.longDescription) {
-            const descCard = document.querySelector('.produto-info-grid .info-card:nth-child(1)');
-            if(descCard) {
-                const h4 = descCard.querySelector('h4');
+            const descPanel = document.querySelector('#panel-descricao .info-card');
+            if(descPanel) {
+                const h4 = descPanel.querySelector('h4');
                 const h4Clone = h4 ? h4.cloneNode(true) : null;
-                descCard.innerHTML = '';
-                if (h4Clone) descCard.appendChild(h4Clone);
+                descPanel.innerHTML = '';
+                if (h4Clone) descPanel.appendChild(h4Clone);
                 const contentDiv = document.createElement('div');
                 contentDiv.innerHTML = productData.longDescription;
-                descCard.appendChild(contentDiv);
+                descPanel.appendChild(contentDiv);
             }
         }
 
         if(productData.care) {
-            const careCard = document.querySelector('.produto-info-grid .info-card:nth-child(2)');
-            if(careCard) {
-                const h4 = careCard.querySelector('h4');
+            const carePanel = document.querySelector('#panel-cuidados .info-card');
+            if(carePanel) {
+                const h4 = carePanel.querySelector('h4');
                 const h4Clone = h4 ? h4.cloneNode(true) : null;
-                careCard.innerHTML = '';
-                if (h4Clone) careCard.appendChild(h4Clone);
+                carePanel.innerHTML = '';
+                if (h4Clone) carePanel.appendChild(h4Clone);
                 const contentDiv = document.createElement('div');
                 contentDiv.innerHTML = productData.care;
-                careCard.appendChild(contentDiv);
+                carePanel.appendChild(contentDiv);
             }
         }
 
         if(productData.parameters) {
-            const paramsCard = document.querySelector('.produto-info-grid .info-card:nth-child(3)');
-            if(paramsCard) {
-                const h4 = paramsCard.querySelector('h4');
+            const paramsPanel = document.querySelector('#panel-parametros .info-card');
+            if(paramsPanel) {
+                const h4 = paramsPanel.querySelector('h4');
                 const h4Clone = h4 ? h4.cloneNode(true) : null;
-                paramsCard.innerHTML = '';
-                if (h4Clone) paramsCard.appendChild(h4Clone);
+                paramsPanel.innerHTML = '';
+                if (h4Clone) paramsPanel.appendChild(h4Clone);
                 const contentDiv = document.createElement('div');
                 contentDiv.innerHTML = productData.parameters;
-                paramsCard.appendChild(contentDiv);
+                paramsPanel.appendChild(contentDiv);
             }
         }
-        
-        console.log('Produto carregado com sucesso!');
-      } else {
-        console.log('Nenhum dado de produto encontrado no sessionStorage');
       }
     });
 
-    // Gallery Logic
+    // Gallery Logic - Funciona com thumbs dinâmicos
     document.addEventListener('DOMContentLoaded', () => {
         const mainImg = document.querySelector('.produto-gallery-main img');
-        const thumbs = document.querySelectorAll('.produto-gallery-thumbs .thumb');
+        const thumbsContainer = document.querySelector('.produto-gallery-thumbs');
         const prevBtn = document.querySelector('.gallery-nav.prev');
         const nextBtn = document.querySelector('.gallery-nav.next');
         let currentIndex = 0;
 
+        function getThumbs() {
+            return document.querySelectorAll('.produto-gallery-thumbs .thumb');
+        }
+
         function updateGallery(index) {
+            const thumbs = getThumbs();
+            if (thumbs.length === 0) return;
+            
             // Wrap around
             if (index < 0) index = thumbs.length - 1;
             if (index >= thumbs.length) index = 0;
@@ -478,20 +539,15 @@
             currentIndex = index;
             
             // Update main image
-            const newSrc = thumbs[currentIndex].querySelector('img').src;
-            mainImg.src = newSrc;
+            const thumbImg = thumbs[currentIndex].querySelector('img');
+            if (thumbImg) {
+                mainImg.src = thumbImg.src;
+            }
             
             // Update active thumb
             thumbs.forEach(t => t.classList.remove('is-active'));
             thumbs[currentIndex].classList.add('is-active');
         }
-
-        // Thumb click
-        thumbs.forEach((thumb, index) => {
-            thumb.addEventListener('click', () => {
-                updateGallery(index);
-            });
-        });
 
         // Nav clicks
         if (prevBtn) {
@@ -505,6 +561,49 @@
                 updateGallery(currentIndex + 1);
             });
         }
+    });
+
+    // Option Buttons Logic (Peso e Tamanho)
+    document.addEventListener('DOMContentLoaded', () => {
+        const optionGroups = document.querySelectorAll('.option-group');
+        
+        optionGroups.forEach(group => {
+            const buttons = group.querySelectorAll('.option-btn');
+            
+            buttons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Remove active class from all buttons in this group
+                    buttons.forEach(b => b.classList.remove('is-active'));
+                    // Add active class to clicked button
+                    btn.classList.add('is-active');
+                });
+            });
+        });
+    });
+
+    // Tabs Logic (Descrição, Cuidados, Parâmetros, Avaliações)
+    document.addEventListener('DOMContentLoaded', () => {
+        const tabs = document.querySelectorAll('.produto-tabs .tab');
+        const panels = document.querySelectorAll('.tab-panel');
+        
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const targetTab = tab.getAttribute('data-tab');
+                
+                // Remove active from all tabs
+                tabs.forEach(t => t.classList.remove('is-active'));
+                // Add active to clicked tab
+                tab.classList.add('is-active');
+                
+                // Hide all panels
+                panels.forEach(panel => panel.classList.remove('is-active'));
+                // Show target panel
+                const targetPanel = document.getElementById('panel-' + targetTab);
+                if (targetPanel) {
+                    targetPanel.classList.add('is-active');
+                }
+            });
+        });
     });
   </script>
 </body>

@@ -267,7 +267,6 @@ document.addEventListener('DOMContentLoaded', () => {
                         specs: specs
                     };
                     
-                    console.log('Salvando produto:', productData);
                     sessionStorage.setItem('selectedProduct', JSON.stringify(productData));
                     window.location.href = 'produto.html';
                 });
