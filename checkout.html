@@ -8,11 +8,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/style_check.css" />
 </head>
 
 <body class="checkout-page">
     <a class="visually-hidden-focusable skip-link" href="#main-content" id="skip-link">Pular para o conteúdo</a>
-    <!-- HEADER -->
     <header class="page-header no-hero">
         <nav class="navbar navbar-expand-lg navbar-dark" role="navigation" aria-label="Menu principal">
             <div class="container-fluid px-4">
@@ -49,32 +49,57 @@
                             </a>
                             <a class="nav-link d-lg-none" href="checkout.html">Carrinho</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link icon-link d-none d-lg-flex" href="#" aria-label="Conta">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                                    <circle cx="12" cy="7" r="4"></circle>
-                                </svg>
-                            </a>
-                            <a class="nav-link d-lg-none" href="#">Minha conta</a>
-                        </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
 
-    <!-- CONTEÚDO CENTRAL -->
     <main id="main-content" role="main">
         <section id="carrinho" class="py-5">
             <div class="container">
+                <div class="stepper-container mb-5">
+                    <div class="stepper">
+                        <div class="step active" data-step="1">
+                            <div class="step-circle">
+                                <span class="step-number">1</span>
+                                <i class="bi bi-check-lg step-check"></i>
+                            </div>
+                            <div class="step-label">Carrinho</div>
+                        </div>
+                        <div class="step-line"></div>
+                        <div class="step" data-step="2">
+                            <div class="step-circle">
+                                <span class="step-number">2</span>
+                                <i class="bi bi-check-lg step-check"></i>
+                            </div>
+                            <div class="step-label">Entrega</div>
+                        </div>
+                        <div class="step-line"></div>
+                        <div class="step" data-step="3">
+                            <div class="step-circle">
+                                <span class="step-number">3</span>
+                                <i class="bi bi-check-lg step-check"></i>
+                            </div>
+                            <div class="step-label">Pagamento</div>
+                        </div>
+                        <div class="step-line"></div>
+                        <div class="step" data-step="4">
+                            <div class="step-circle">
+                                <span class="step-number">4</span>
+                                <i class="bi bi-check-lg step-check"></i>
+                            </div>
+                            <div class="step-label">Revisão</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-content" id="step-1">
                 <div class="d-flex justify-content-between align-items-center mb-4">
                     <h3 class="fs-1 m-0 text-white aquario-title">Seu Aquário</h3>
                     <p class="mb-0">Gerencie seus peixes</p>
                 </div>
 
-                <!-- Mensagem quando carrinho vazio -->
                 <div id="mensagem-vazia" class="mensagem-vazia-container" style="display:none;">
                     <div class="mensagem-vazia-card">
                         <div class="mensagem-emoji" aria-hidden="true">🤓</div>
@@ -86,7 +111,6 @@
                     </div>
                 </div>
 
-                <!-- Lista de produtos do carrinho -->
                 <div class="aquario-wrap">
                     <div class="aquario-decor">
                         <span class="bubble b1" aria-hidden="true"></span>
@@ -96,106 +120,166 @@
                         <span class="bubble b5" aria-hidden="true"></span>
                     </div>
                     <div id="lista-carrinho" class="lista-produtos-vertical">
-                    <!-- Produtos serão inseridos aqui via JavaScript -->
+                </div>
+                </div>
+
+                <div class="step-content" id="step-2" style="display: none;">
+                    <h3 class="fs-1 mb-4 text-white">Dados de Entrega</h3>
+                    <form id="delivery-form" class="row g-3">
+                        <div class="col-md-6">
+                            <label for="nome" class="form-label text-white">Nome completo *</label>
+                            <input type="text" id="nome" name="nome" class="form-control" required placeholder="Seu nome completo" />
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="email" class="form-label text-white">E-mail *</label>
+                            <input type="email" id="email" name="email" class="form-control" required placeholder="seu@exemplo.com" />
+                        </div>
+
+                        <div class="col-md-8">
+                            <label for="rua" class="form-label text-white">Rua / Logradouro *</label>
+                            <input type="text" id="rua" name="rua" class="form-control" required placeholder="Rua Exemplo" />
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="numero" class="form-label text-white">Número *</label>
+                            <input type="text" id="numero" name="numero" class="form-control" required placeholder="123" />
+                        </div>
+
+                        <div class="col-md-5">
+                            <label for="cidade" class="form-label text-white">Cidade *</label>
+                            <input type="text" id="cidade" name="cidade" class="form-control" required placeholder="Cidade" />
+                        </div>
+
+                        <div class="col-md-2">
+                            <label for="estado" class="form-label text-white">Estado *</label>
+                            <input type="text" id="estado" name="estado" class="form-control" required placeholder="UF" maxlength="2" />
+                        </div>
+
+                        <div class="col-md-5">
+                            <label for="cep" class="form-label text-white">CEP *</label>
+                            <input type="text" id="cep" name="cep" class="form-control" maxlength="9" placeholder="00000-000" required />
+                        </div>
+                    </form>
+                </div>
+
+                <div class="step-content" id="step-3" style="display: none;">
+                    <h3 class="fs-1 mb-4 text-white">Forma de Pagamento</h3>
+                    <div class="payment-options">
+                        <div class="payment-option" data-payment="pix">
+                            <div class="payment-icon">
+                                <i class="bi bi-qr-code"></i>
+                            </div>
+                            <div class="payment-info">
+                                <h5>PIX</h5>
+                                <p>Pagamento instantâneo</p>
+                            </div>
+                            <div class="payment-check">
+                                <i class="bi bi-check-circle-fill"></i>
+                            </div>
+                        </div>
+
+                        <div class="payment-option" data-payment="credito">
+                            <div class="payment-icon">
+                                <i class="bi bi-credit-card"></i>
+                            </div>
+                            <div class="payment-info">
+                                <h5>Cartão de Crédito</h5>
+                                <p>Parcelamento disponível</p>
+                            </div>
+                            <div class="payment-check">
+                                <i class="bi bi-check-circle-fill"></i>
+                            </div>
+                        </div>
+
+                        <div class="payment-option" data-payment="debito">
+                            <div class="payment-icon">
+                                <i class="bi bi-credit-card-2-front"></i>
+                            </div>
+                            <div class="payment-info">
+                                <h5>Cartão de Débito</h5>
+                                <p>À vista com desconto</p>
+                            </div>
+                            <div class="payment-check">
+                                <i class="bi bi-check-circle-fill"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-content" id="step-4" style="display: none;">
+                    <h3 class="fs-1 mb-4 text-white">Revisão do Pedido</h3>
+                    
+                    <div class="review-section mb-4">
+                        <h5 class="text-white mb-3">Itens do Pedido</h5>
+                        <div id="review-items" class="review-items">
+                    </div>
+
+                    <div class="review-section mb-4">
+                        <h5 class="text-white mb-3">Dados de Entrega</h5>
+                        <div class="review-info">
+                            <p><strong>Nome:</strong> <span id="review-nome">-</span></p>
+                            <p><strong>E-mail:</strong> <span id="review-email">-</span></p>
+                            <p><strong>Endereço:</strong> <span id="review-endereco">-</span></p>
+                            <p><strong>CEP:</strong> <span id="review-cep">-</span></p>
+                        </div>
+                    </div>
+
+                    <div class="review-section mb-4">
+                        <h5 class="text-white mb-3">Forma de Pagamento</h5>
+                        <div class="review-info">
+                            <p id="review-pagamento">-</p>
+                        </div>
+                    </div>
+
+                    <div class="review-section">
+                        <h5 class="text-white mb-3">Resumo</h5>
+                        <div class="review-total">
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Subtotal:</span>
+                                <span>R$ <span id="review-subtotal">0,00</span></span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Frete:</span>
+                                <span>R$ <span id="review-frete">0,00</span></span>
+                            </div>
+                            <hr style="border-color: rgba(255,255,255,0.1);">
+                            <div class="d-flex justify-content-between fs-5 fw-bold text-white">
+                                <span>Total:</span>
+                                <span>R$ <span id="review-total">0,00</span></span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 
-                <!-- Formulário de dados do cliente (acessível) -->
-                <form id="checkout-form" class="row g-3 mt-4" role="form" aria-labelledby="checkout-form-title">
-                    <div class="col-12">
-                        <h4 id="checkout-form-title" class="text-white">Dados do Cliente</h4>
-                        <p class="text-white-50">Preencha seus dados para finalizar a compra.</p>
-                    </div>
-
-                    <div class="col-md-6">
-                        <label for="nome" class="form-label text-white">Nome completo</label>
-                        <input type="text" id="nome" name="nome" class="form-control" required aria-required="true" placeholder="Seu nome completo" />
-                    </div>
-
-                    <div class="col-md-6">
-                        <label for="email" class="form-label text-white">E-mail</label>
-                        <input type="email" id="email" name="email" class="form-control" required aria-required="true" placeholder="seu@exemplo.com" autocomplete="email" />
-                    </div>
-
-                    <div class="col-md-5">
-                        <label for="rua" class="form-label text-white">Rua / Logradouro</label>
-                        <input type="text" id="rua" name="rua" class="form-control" required aria-required="true" placeholder="Rua Exemplo" />
-                    </div>
-
-                    <div class="col-md-2">
-                        <label for="numero" class="form-label text-white">Número</label>
-                        <input type="text" id="numero" name="numero" class="form-control" required aria-required="true" placeholder="123" inputmode="numeric" />
-                    </div>
-
-                    <div class="col-md-3">
-                        <label for="cidade" class="form-label text-white">Cidade</label>
-                        <input type="text" id="cidade" name="cidade" class="form-control" required aria-required="true" placeholder="Cidade" />
-                    </div>
-
-                    <div class="col-md-2">
-                        <label for="estado" class="form-label text-white">Estado</label>
-                        <input type="text" id="estado" name="estado" class="form-control" required aria-required="true" placeholder="UF" maxlength="2" />
-                    </div>
-
-                    <div class="col-md-2">
-                        <label for="cep" class="form-label text-white">CEP</label>
-                        <input type="text" id="cep" name="cep" class="form-control" maxlength="9" placeholder="00000-000" pattern="[0-9]{5}-[0-9]{3}" inputmode="numeric" autocomplete="postal-code" required />
-                    </div>
-
-                    <div class="col-12">
-                        <div id="checkout-form-error" class="text-danger" role="alert" aria-live="assertive" style="display:none;"></div>
-                    </div>
+                <form id="checkout-form" class="row g-3 mt-4" style="display: none;">
                 </form>
             </div>
         </section>
     </main>
 
-    <!-- Checkout controls (sticky bar) -->
-    <div id="checkout-bar" style="position:fixed;bottom:80px;left:0;right:0;display:flex;justify-content:center;z-index:1050;">
-        <div style="background:rgba(2,21,36,0.95);border:1px solid rgba(255,255,255,0.06);padding:14px 18px;border-radius:12px;display:flex;gap:12px;align-items:center;max-width:1100px;width:calc(100% - 40px);box-shadow:0 10px 30px rgba(0,0,0,0.6);">
+    <div id="checkout-bar" style="position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:center;z-index:1050;background:rgba(2,21,36,0.98);border-top:1px solid rgba(255,255,255,0.08);padding:20px 0;">
+        <div style="display:flex;gap:16px;align-items:center;max-width:1100px;width:calc(100% - 40px);justify-content:space-between;">
+            <button id="btn-voltar" class="btn btn-outline-light" style="display:none;">
+                <i class="bi bi-arrow-left me-2"></i>Voltar
+            </button>
             
-            <select id="forma-pagamento" class="form-select" style="padding:8px 12px;border-radius:8px;border:1px solid rgba(255,255,255,0.08);">
-                <option value="">Forma de pagamento</option>
-                <option value="pix">Pix</option>
-                <option value="credito">Crédito</option>
-                <option value="debito">Débito</option>
-            </select>
-
-            <div class="total-container" style="color:#fff;margin-left:8px;font-weight:700;">
+            <div class="total-container" style="color:#fff;font-weight:700;font-size:1.25rem;">
                 Total: R$ <span id="total-carrinho">0,00</span>
             </div>
 
-            <button id="btn-finalizar" class="btn btn-primary" style="margin-left:12px;padding:8px 18px;border-radius:8px;">Finalizar Compra</button>
+            <button id="btn-continuar" class="btn btn-primary px-4">
+                Continuar<i class="bi bi-arrow-right ms-2"></i>
+            </button>
+            <button id="btn-finalizar" class="btn btn-success px-4" style="display:none;">
+                <i class="bi bi-check-circle me-2"></i>Finalizar Compra
+            </button>
         </div>
     </div>
 
-    <!-- Confirmation modal (replaces confirm dialog) -->
-    <div class="modal fade" id="confirmPurchaseModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content bg-transparent border-light text-white" style="background:rgba(2,21,36,0.95);border:1px solid rgba(255,255,255,0.06);">
-                <div class="modal-header border-0">
-                    <h5 class="modal-title">Confirmar Compra</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
-                </div>
-                <div class="modal-body">
-                    <p>Você está prestes a finalizar a compra com os seguintes dados:</p>
-                    <ul>
-                        <li><strong>Nome:</strong> <span id="confirm-nome">-</span></li>
-                        <li><strong>E-mail:</strong> <span id="confirm-email">-</span></li>
-                        <li><strong>Endereço:</strong> <span id="confirm-endereco">-</span></li>
-                        <li><strong>CEP:</strong> <span id="confirm-cep">-</span></li>
-                        <li><strong>Forma de pagamento:</strong> <span id="confirm-pagamento">-</span></li>
-                        <li><strong>Total:</strong> R$ <span id="confirm-total">0,00</span></li>
-                    </ul>
-                </div>
-                <div class="modal-footer border-0">
-                    <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" id="confirm-purchase-btn" class="btn btn-primary">Confirmar Compra</button>
-                </div>
-            </div>
-        </div>
+    <div class="modal fade" id="confirmPurchaseModal" tabindex="-1" aria-hidden="true" style="display:none;">
     </div>
 
-    <!-- Info modal for messages (errors/success) -->
     <div class="modal fade" id="infoModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-sm modal-dialog-centered">
             <div class="modal-content bg-transparent border-light text-white" style="background:rgba(2,21,36,0.95);border:1px solid rgba(255,255,255,0.06);">

@@ -48,16 +48,6 @@
               </a>
               <a class="nav-link d-lg-none" href="checkout.html">Carrinho</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link icon-link d-none d-lg-flex" href="#" aria-label="Conta">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                  <circle cx="12" cy="7" r="4"></circle>
-                </svg>
-              </a>
-              <a class="nav-link d-lg-none" href="#">Minha conta</a>
-            </li>
           </ul>
         </div>
       </div>
@@ -86,21 +76,18 @@
         </div>
       </div>
 
-      <!-- Offcanvas de Filtros -->
       <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="filterOffcanvas" aria-labelledby="filterOffcanvasLabel">
         <div class="offcanvas-header border-bottom border-secondary">
           <h5 class="offcanvas-title" id="filterOffcanvasLabel"><i class="bi bi-funnel"></i> Filtros</h5>
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
-          <!-- Busca -->
           <div class="mb-4">
             <label for="searchFish" class="form-label">Buscar</label>
             <input type="text" class="form-control bg-dark text-white border-secondary" id="searchFish"
               placeholder="Nome do peixe...">
           </div>
 
-          <!-- Tipo de Água -->
           <div class="mb-4">
             <label class="form-label fw-bold">Tipo de Água</label>
             <div class="form-check">
@@ -113,7 +100,6 @@
             </div>
           </div>
 
-          <!-- Faixa de Preço -->
           <div class="mb-3">
             <label for="priceRange" class="form-label fw-bold">Preço Máximo: <span id="priceValue" class="text-info">R$
                 2.000,00</span></label>
@@ -127,7 +113,6 @@
       </div>
 
       <div class="row">
-        <!-- Grid de Produtos -->
         <div class="col-12">
           <div class="row g-4">
             <article class="col-md-6 col-xl-4 fish-item" 
@@ -322,7 +307,6 @@
               </div>
             </article>
 
-            <!-- Novos Peixes -->
             <article class="col-md-6 col-xl-4 fish-item" 
               data-name="Neon Cardinal" 
               data-price="15.90" 
@@ -510,7 +494,6 @@
             </article>
           </div>
 
-          <!-- Paginação -->
           <nav aria-label="Navegação de página" class="mt-5">
             <ul class="pagination justify-content-center">
               <li class="page-item disabled">
@@ -607,7 +590,6 @@
   <script src="assets/js/bubbles.js"></script>
   <script src="assets/js/filters.js"></script>
 
-  <!-- Alert Container -->
   <div id="alert-container" class="position-fixed top-0 end-0 p-3" style="z-index: 2000"></div>
 </body>
 

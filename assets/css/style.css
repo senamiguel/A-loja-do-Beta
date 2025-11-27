@@ -341,7 +341,7 @@ background: linear-gradient(to bottom, rgba(3, 11, 18, 0.0) 70%,  #021524 100%),
     object-fit: contain;
 }
 
-/* Hero refinements for sobre-nos */
+
 .sobre-nos-hero {
     position: relative;
     overflow: visible;
@@ -1443,9 +1443,7 @@ body {
     }
 }
 
-/* =========================
-   Página de produto
-========================= */
+
     .produto-page main {
         position: relative;
         padding: 40px 0 120px;
@@ -1988,7 +1986,7 @@ body {
     backdrop-filter: blur(6px);
 }
 
-/* Checkout page specific input styles to match dark identity */
+
 .checkout-page .form-control,
 .checkout-page .form-select {
     background-color: rgba(0, 0, 0, 0.3) !important;
@@ -2009,7 +2007,7 @@ body {
     outline: none !important;
 }
 
-/* Ensure sticky bar controls inherit dark style */
+
 #checkout-bar .form-select {
     background: rgba(0,0,0,0.3) !important;
     color: #fff !important;
@@ -2098,7 +2096,7 @@ body {
     overflow: visible !important;
 }
 
-/* Additional beauty enhancements */
+
 .produto-page .produto-main {
     animation: fadeInUp 0.8s ease-out;
 }
@@ -2209,17 +2207,8 @@ body {
 
 
 
-/* Removed conflicting body styles */
-/* body {
-    margin: 0; 
-    font-family: sans-serif;
-    background-image: linear-gradient(rgb(0, 9, 22), rgb(3, 25, 43));
-    min-height: 100vh;
-}
 
-html, body {
-    height: 100%;
-} */
+
 
 .header {
     height: 10vh; 
@@ -2395,9 +2384,7 @@ font-family: 'Raleway', sans-serif;
   line-height: 1.5; 
 }
 
-/* =========================
-   Checkout card styling (match home page cards)
-   ========================= */
+
 .lista-produtos-vertical {
     display: grid;
     gap: 20px;
@@ -2480,8 +2467,7 @@ font-family: 'Raleway', sans-serif;
     padding: 6px 10px;
 }
 
-/* Tighter rule to restyle existing bootstrap utility classes used in the markup
-   (card-footer bg-transparent border-light p-0 pt-3) so the footer looks clean */
+
 .lista-produtos-vertical .card-footer.bg-transparent.border-light.p-0.pt-3 {
     padding: 12px 18px !important;
     background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)) !important;
@@ -2508,7 +2494,7 @@ font-family: 'Raleway', sans-serif;
     border-radius: 6px;
 }
 
-/* Aquarium container styling for checkout */
+
 .aquario-wrap {
     position: relative;
     padding: 20px;
@@ -2522,7 +2508,7 @@ font-family: 'Raleway', sans-serif;
 }
 
 .aquario-title {
-    /* use Kiwi Maru here as requested */
+    
     font-family: 'Kiwi Maru', serif;
     font-weight: 500;
     letter-spacing: 0.4px;
@@ -2551,7 +2537,7 @@ font-family: 'Raleway', sans-serif;
     100% { transform: translateY(-220px) scale(1.1); opacity: 0; }
 }
 
-/* subtle surface shimmer */
+
 .aquario-wrap::after {
     content: '';
     position: absolute;
@@ -2573,7 +2559,7 @@ font-family: 'Raleway', sans-serif;
 }
 
 @media (min-width: 992px) {
-    /* On wide screens center the checkout content and limit width like product lists */
+    
     .lista-produtos-vertical {
         max-width: 1100px;
         margin-left: auto;
@@ -2581,7 +2567,7 @@ font-family: 'Raleway', sans-serif;
     }
 }
 
-/* Placeholder (cart empty) styling - improved visual and centering */
+
 .produto-item-vertical.placeholder {
     max-width: 980px;
     margin: 0 auto 1.2rem auto;
@@ -2618,25 +2604,24 @@ font-family: 'Raleway', sans-serif;
   .produto-item-vertical.placeholder { padding:0.4rem; }
 }
 
-/* Empty-shell to preserve card size when cart is empty (no placeholder content) */
+
 .produto-item-vertical.empty-shell {
-    /* keep same flow as regular items: full width, no extra centering/padding */
+    
     width: 100%;
     margin: 0;
     padding: 0;
 }
 .produto-item-vertical.empty-shell .card {
     border-radius: 20px;
-    min-height: 340px; /* match image (180) + body (140) + footer (approx 20) */
+    min-height: 340px; 
     background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));
     border: 1px solid rgba(255,255,255,0.03);
 }
 .produto-item-vertical.empty-shell .col-md-3 {
-    min-height: 180px; /* same as product image height (180px) */
+    min-height: 180px;
 }
 .produto-item-vertical.empty-shell .card-body { min-height: 140px; }
 
-/* Style for the empty shell message placed inside the card */
 .produto-item-vertical.empty-shell .empty-shell-text {
     width: 100%;
 }
@@ -2648,7 +2633,7 @@ font-family: 'Raleway', sans-serif;
     margin: 0;
 }
 
-/* Empty-cart message styled to match site */
+
 .mensagem-vazia-container {
     display: flex;
     justify-content: center;
@@ -2694,7 +2679,7 @@ font-family: 'Raleway', sans-serif;
 }
 .mensagem-actions{ margin-bottom: 12px; }
 .btn-continue{
-    /* keep as fallback in case buy-btn is not applied */
+    
     background: linear-gradient(90deg, #2a6fb5, #61dafb);
     border: none;
     padding: 10px 20px;
@@ -2702,7 +2687,7 @@ font-family: 'Raleway', sans-serif;
     color: #021524;
 }
 
-/* Ensure buy-btn styling applies to the CTA in the empty message */
+
 .mensagem-vazia-card .buy-btn {
     border-radius: 999px;
     padding: 10px 24px;
@@ -2724,14 +2709,14 @@ font-family: 'Raleway', sans-serif;
     .mensagem-vazia-title{ font-size:1.15rem }
 }
 
-/* Center message vertically on larger viewports for better visual balance */
+
 @media (min-width: 768px) {
     .mensagem-vazia-container { min-height: 220px; align-items: center; }
 }
 
-/* Make sure the CTA visually matches other .btn-outline-light.buy-btn instances */
+
 .mensagem-vazia-card .btn.btn-outline-light.buy-btn {
-    /* Make the CTA visible in default state: use the site's buy-btn gradient with a subtle border */
+    
     background: linear-gradient(90deg, #2a6fb5, #61dafb) !important;
     color: #021524 !important;
 }
@@ -2746,12 +2731,12 @@ font-family: 'Raleway', sans-serif;
     .produto-item-vertical.empty-shell .card { min-height: 200px; }
 }
 
-/* Checkout modal specific styling */
+
 #checkoutModal .modal-content {
     border-radius: 14px;
 }
 
-/* Style the payment select and cep inside the modal to match site palette */
+
 #checkoutModal .form-control,
 #checkoutModal .form-select {
     background: linear-gradient(180deg, rgba(3,11,18,0.35), rgba(2,21,36,0.6));
@@ -2762,10 +2747,10 @@ font-family: 'Raleway', sans-serif;
 }
 
 #checkoutModal .form-select {
-    color: #ffffff; /* ensure white option text */
+    color: #ffffff; 
 }
 
-/* Small floating trigger button adjustments */
+
 #open-checkout-modal.buy-btn {
     padding: 0.5rem;
     font-size: 1.1rem;
@@ -2784,7 +2769,7 @@ font-family: 'Raleway', sans-serif;
     }
 }
 
-/* Ensure sticky checkout select/input use dark theme and options are dark too */
+
 #checkout-bar input,
 #checkout-bar select,
 #checkout-bar .form-control,
@@ -2796,28 +2781,28 @@ font-family: 'Raleway', sans-serif;
     border-radius: 8px;
 }
 
-/* Options dropdown background (may vary by browser) */
+
 #checkout-bar select option {
     background-color: #021524 !important;
     color: #ffffff !important;
 }
 
-/* Remove default IE/Edge dropdown arrow if needed and keep styling consistent */
+
 #checkout-bar select::-ms-expand { display: none; }
 
-/* For better contrast on small screens */
+
 @media (max-width: 576px) {
     #checkout-bar input,
     #checkout-bar select { min-width: 100%; }
 }
 
-/* Modal styling to match site visual language */
+
 .modal-backdrop.show {
     background-color: rgba(2,21,36,0.78) !important;
     backdrop-filter: blur(4px) saturate(1.05);
 }
 
-/* Target the custom modal content used in checkout pages */
+
 .modal-content.bg-transparent.border-light.text-white,
 #confirmPurchaseModal .modal-content,
 #infoModal .modal-content {
@@ -2861,10 +2846,10 @@ font-family: 'Raleway', sans-serif;
     box-shadow: 0 8px 24px rgba(38,90,145,0.25) !important;
 }
 
-/* Improve close button visibility on dark background */
+
 .btn-close.btn-close-white { filter: drop-shadow(0 2px 6px rgba(0,0,0,0.6)); }
 
-/* Small screens: keep modal content roomy */
+
 @media (max-width: 576px) {
     #confirmPurchaseModal .modal-content,
     #infoModal .modal-content {
@@ -2872,7 +2857,7 @@ font-family: 'Raleway', sans-serif;
     }
 }
 
-/* Cards styling for the peixes section */
+
 #peixes .card {
     border-radius: 25px;
     overflow: hidden;
@@ -2884,7 +2869,7 @@ font-family: 'Raleway', sans-serif;
     position: relative;
 }
 
-/* Breadcrumb styling (Início > Peixes) */
+
 .breadcrumb {
     background: transparent;
     padding: 0;
@@ -2906,7 +2891,7 @@ font-family: 'Raleway', sans-serif;
     font-weight: 700;
 }
 
-/* Reusable hero button for "Ver mais produtos" */
+
 .btn.hero-btn {
     background-color: #FF5733;
     color: #fff !important;
@@ -2944,8 +2929,7 @@ font-family: 'Raleway', sans-serif;
     color: white;
 }
 
-/* When a .btn-custom-orange is also a .buy-btn (product CTA), prefer the buy hover style
-   so the hover matches site-wide CTA animation (text becomes dark for contrast). */
+
 .btn-custom-orange.buy-btn:hover {
     background-color: #61dafb !important;
     border-color: #61dafb !important;

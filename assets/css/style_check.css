@@ -68,7 +68,6 @@ main{
     background: linear-gradient(to top, #040f1a 100%,  #011523  0%);
 }
 
-/* Footer fixo */
 .footer-fixo {
     position: fixed;
     bottom: 0;
@@ -85,11 +84,10 @@ main{
 body {
     background: linear-gradient(to bottom, #040f1a 0%, #011523 100%);
     min-height: 100vh;
-    padding-bottom: 120px; /* Espaço para o footer fixo */
+    padding-bottom: 80px;
 }
 
 
-/* Mensagem quando carrinho vazio */
 .mensagem-vazia-container {
     display: flex;
     justify-content: center;
@@ -109,7 +107,6 @@ body {
     text-align: center;
 }
 
-/* Container da lista do carrinho vertical */
 .lista-produtos-vertical {
     display: flex;
     flex-direction: column;
@@ -137,7 +134,6 @@ body {
     object-fit: cover;
 }
 
-/* Footer fixo: duplicate rule removed; consolidated into a single definition above */
 
 .footer-content {
     display: flex;
@@ -214,7 +210,6 @@ body {
     transform: none;
 }
 
-/* Responsividade */
 @media (max-width: 768px) {
     .footer-content {
         flex-direction: column;
@@ -235,5 +230,265 @@ body {
     
     .mensagem-vazia {
         font-size: 1.8rem;
+    }
+}
+
+.stepper-container {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.stepper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    flex: 0 0 auto;
+}
+
+.step-circle {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.step-number {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.5);
+    transition: all 0.3s ease;
+}
+
+.step-check {
+    font-size: 1.3rem;
+    color: #fff;
+    display: none;
+}
+
+.step-label {
+    margin-top: 12px;
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.5);
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.step-line {
+    flex: 1;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 0 8px;
+    position: relative;
+    top: -24px;
+}
+
+.step-line::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #61dafb, #4fa8c5);
+    transition: width 0.4s ease;
+}
+
+.step.active .step-circle {
+    background: linear-gradient(135deg, #61dafb, #4fa8c5);
+    border-color: #61dafb;
+    box-shadow: 0 0 20px rgba(97, 218, 251, 0.5);
+}
+
+.step.active .step-number {
+    color: #fff;
+    font-weight: 700;
+}
+
+.step.active .step-label {
+    color: #61dafb;
+    font-weight: 600;
+}
+
+.step.completed .step-circle {
+    background: linear-gradient(135deg, #4ade80, #22c55e);
+    border-color: #4ade80;
+}
+
+.step.completed .step-number {
+    display: none;
+}
+
+.step.completed .step-check {
+    display: block;
+}
+
+.step.completed .step-label {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.step.completed + .step-line::after {
+    width: 100%;
+}
+
+.payment-options {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 600px;
+}
+
+.payment-option {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.payment-option:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(97, 218, 251, 0.3);
+    transform: translateY(-2px);
+}
+
+.payment-option.selected {
+    background: rgba(97, 218, 251, 0.1);
+    border-color: #61dafb;
+    box-shadow: 0 0 20px rgba(97, 218, 251, 0.2);
+}
+
+.payment-icon {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(97, 218, 251, 0.1);
+    border-radius: 12px;
+    font-size: 1.8rem;
+    color: #61dafb;
+}
+
+.payment-info {
+    flex: 1;
+}
+
+.payment-info h5 {
+    margin: 0 0 4px 0;
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.payment-info p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+}
+
+.payment-check {
+    font-size: 1.5rem;
+    color: #4ade80;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.payment-option.selected .payment-check {
+    opacity: 1;
+}
+
+.review-section {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 24px;
+}
+
+.review-section h5 {
+    color: #61dafb;
+    margin-bottom: 16px;
+    font-weight: 600;
+}
+
+.review-info p {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 8px;
+}
+
+.review-info strong {
+    color: #fff;
+    margin-right: 8px;
+}
+
+.review-items {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.review-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+}
+
+.review-total {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+@media (max-width: 768px) {
+    .stepper-container {
+        padding: 20px 10px;
+    }
+    
+    .step-circle {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .step-number {
+        font-size: 0.95rem;
+    }
+    
+    .step-label {
+        font-size: 0.75rem;
+    }
+    
+    .step-check {
+        font-size: 1.1rem;
+    }
+    
+    .payment-option {
+        padding: 16px;
+    }
+    
+    .payment-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
     }
 }
